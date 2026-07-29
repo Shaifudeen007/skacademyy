@@ -43,6 +43,10 @@ export function Advantage() {
     >
       <div className="absolute inset-0 bg-gold-gradient opacity-[0.03] pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-900 dark:text-white tracking-wider mb-2">Why Choose Us</h2>
+          <div className="w-24 h-1 bg-gold-metallic mx-auto rounded-full opacity-70"></div>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, idx) => {
             const Icon = feature.icon;
@@ -88,20 +92,20 @@ export function FounderSpotlight() {
       className="py-24"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="glass-card rounded-3xl overflow-hidden flex flex-col lg:flex-row shadow-2xl">
-          <div className="lg:w-2/5 min-h-[350px] lg:min-h-[450px] relative overflow-hidden group">
+        <div className="glass-card rounded-3xl overflow-hidden flex flex-col lg:flex-row shadow-2xl relative group">
+          {/* Glare Effect Overlay applied to the whole card */}
+          <div 
+            className="absolute inset-0 bg-glare-gradient bg-[length:200%_auto] opacity-30 mix-blend-overlay pointer-events-none z-10"
+            style={{ animation: 'text-glare 4s linear infinite' }}
+          />
+          <div className="lg:w-2/5 min-h-[350px] lg:min-h-[450px] relative overflow-hidden">
             <img 
               src="/hero/Founder%20pic/Sushmitha.png" 
               alt="Sushmitha Karthick"
-              className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-1000 group-hover:scale-105"
-            />
-            {/* Glare Effect Overlay */}
-            <div 
-              className="absolute inset-0 bg-glare-gradient bg-[length:200%_auto] opacity-30 mix-blend-overlay pointer-events-none"
-              style={{ animation: 'text-glare 4s linear infinite' }}
+              className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-1000 group-hover:scale-105 z-0"
             />
           </div>
-          <div className="lg:w-3/5 p-8 lg:p-12 xl:p-16 flex flex-col justify-center bg-white/50 dark:bg-black/20">
+          <div className="lg:w-3/5 p-8 lg:p-12 xl:p-16 flex flex-col justify-center bg-white/50 dark:bg-black/20 relative z-20">
             <h2 className="text-sm font-bold tracking-widest text-gold-bronze dark:text-gold-metallic uppercase mb-2">About The Founder</h2>
             <h3 className="text-3xl lg:text-4xl font-extrabold mb-2">Sushmitha Karthick</h3>
             <p className="text-lg italic text-gold-bronze dark:text-gold-champagne mb-8 font-medium">"Empowering Dreams Through Beauty Education."</p>
@@ -172,7 +176,7 @@ export function ServicesGrid({ onNavigate }: { onNavigate?: (page: string) => vo
           <p className="text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">Explore our extensive range of premium aesthetic treatments.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:[&>*:nth-child(3n+2)]:translate-y-12 pb-12">
           {topServices.map((svc, idx) => {
             const Icon = svc.icon;
             return (
@@ -240,7 +244,7 @@ export function CoursesGrid() {
           <p className="text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">Transform your passion into a career with our globally valid certification courses.</p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:[&>*:nth-child(3n+2)]:translate-y-12 pb-12">
           {courses.map((svc, idx) => {
             const Icon = svc.icon;
             return (
