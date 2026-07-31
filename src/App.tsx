@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import LandingPage from './components/LandingPage';
-import ServicesPage from './components/ServicesPage';
+import AboutPage from './components/AboutPage';
+import CoursesPage from './components/CoursesPage';
+import GalleryPage from './components/GalleryPage';
 import { motion, AnimatePresence } from 'framer-motion';
 
 function App() {
@@ -88,10 +90,14 @@ function App() {
         )}
       </AnimatePresence>
 
-      {currentPage === 'home' ? (
-        <LandingPage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
+      {currentPage === 'about' ? (
+        <AboutPage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
+      ) : currentPage === 'courses' ? (
+        <CoursesPage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
+      ) : currentPage === 'gallery' ? (
+        <GalleryPage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
       ) : (
-        <ServicesPage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
+        <LandingPage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
       )}
     </div>
   );

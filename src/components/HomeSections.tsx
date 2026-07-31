@@ -1,9 +1,10 @@
 
-import { Sparkles, Award, GraduationCap, ShieldCheck, Scissors, Heart, Star, ArrowRight, Flower2 } from 'lucide-react';
-import { motion, useInView, animate } from 'framer-motion';
-import { useEffect, useRef } from 'react';
+import { Sparkles, Award, GraduationCap, ShieldCheck, Scissors, Heart, ArrowRight, Flower2, ChevronLeft, ChevronRight, User } from 'lucide-react';
+import { motion, useInView, animate, AnimatePresence } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
+import { CreativeUnderline } from './NewSections';
 
-function AnimatedCounter({ from, to, suffix, prefix = "", duration = 2.5 }: { from: number, to: number, suffix: string, prefix?: string, duration?: number }) {
+export function AnimatedCounter({ from, to, suffix, prefix = "", duration = 2.5 }: { from: number, to: number, suffix: string, prefix?: string, duration?: number }) {
   const nodeRef = useRef<HTMLSpanElement>(null);
   const inView = useInView(nodeRef, { once: true, margin: "-50px" });
 
@@ -84,7 +85,7 @@ export function Advantage() {
 export function FounderSpotlight() {
   return (
     <motion.section 
-      id="about"
+      id="founder"
       initial={{ opacity: 0, y: 50 }} 
       whileInView={{ opacity: 1, y: 0 }} 
       transition={{ duration: 0.8 }} 
@@ -172,7 +173,8 @@ export function ServicesGrid({ onNavigate }: { onNavigate?: (page: string) => vo
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4 text-zinc-900 dark:text-white">Core Services</h2>
+          <h2 className="text-4xl font-bold mb-6 text-zinc-900 dark:text-white text-center">Core Services</h2>
+          <CreativeUnderline />
           <p className="text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">Explore our extensive range of premium aesthetic treatments.</p>
         </div>
 
@@ -226,7 +228,7 @@ export function ServicesGrid({ onNavigate }: { onNavigate?: (page: string) => vo
   );
 }
 
-export function CoursesGrid() {
+export function CoursesGrid({ onNavigate }: { onNavigate?: (page: string) => void }) {
   const courses = servicesData.filter(s => s.category === 'Courses');
 
   return (
@@ -240,7 +242,8 @@ export function CoursesGrid() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4 text-zinc-900 dark:text-white">Professional Academy</h2>
+          <h2 className="text-4xl font-bold mb-6 text-zinc-900 dark:text-white text-center">Professional Academy</h2>
+          <CreativeUnderline />
           <p className="text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">Transform your passion into a career with our globally valid certification courses.</p>
         </div>
         
@@ -281,30 +284,127 @@ export function CoursesGrid() {
             )
           })}
         </div>
+
+        <div className="mt-16 text-center">
+          <button 
+            onClick={() => onNavigate && onNavigate('courses')}
+            className="inline-flex items-center gap-2 px-8 py-4 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold rounded-full hover:scale-105 transition-transform shadow-xl"
+          >
+            Explore More <ArrowRight className="w-5 h-5" />
+          </button>
+        </div>
       </div>
     </motion.section>
   );
 }
 
+const reviews = [
+  { text: "Completed my 7 Days Aesthetic Training Program! It was an amazing learning experience with hands-on practice, detailed theory sessions, and supportive guidance from Karthik Sir. The classes were well organized, and I gained valuable practical knowledge.", author: "Sidarathi Sid", role: "7 Days Aesthetic Training Program", avatar: "https://i.pravatar.cc/150?u=Sidarathi" },
+  { text: "I joined the 15-day Hairdresser Course, and it was a wonderful learning experience. The trainers explained everything clearly, and every session was informative and useful. Thank you, SK Beauty Verse Academy, for this valuable training.", author: "Ananthi Selvam", role: "15-Day Hairdresser Course", avatar: "https://i.pravatar.cc/150?u=Ananthi" },
+  { text: "Amazing training experience! Karthik Sir and the entire team are friendly and professional. They ensure every student is comfortable while providing excellent guidance. The focus on safety and technique is outstanding.", author: "Raja Lakshmi", role: "Student", avatar: "https://i.pravatar.cc/150?u=Raja" },
+  { text: "Completed the Aesthetic Course at SK Beauty Verse Academy and I'm really impressed. The syllabus was well structured, practical training was excellent, and the trainers provided hands-on sessions with the latest aesthetic procedures.", author: "Dany Sony", role: "Aesthetic Course", avatar: "https://i.pravatar.cc/150?u=Dany" },
+  { text: "The 7-day Aesthetic & PMU course was well structured and easy to understand. The trainers explained every topic clearly with both theory and practical sessions, making learning enjoyable and effective.", author: "Jency Ruby", role: "Aesthetic & PMU", avatar: "https://i.pravatar.cc/150?u=Jency" },
+  { text: "The best place to learn Cosmetology and Aesthetic courses in Chennai. The academy, accommodation, and overall facilities were excellent. Karthik Sir and Nithya Mam teach professionally and make learning easy.", author: "Keerthi Mahi", role: "Student", avatar: "https://i.pravatar.cc/150?u=Keerthi" },
+  { text: "I had the best experience learning Nail Art. I learned more than I expected. Special thanks to Archana Mam for her excellent guidance throughout the course.", author: "Abinaya D", role: "Nail Art", avatar: "https://i.pravatar.cc/150?u=Abinaya" },
+  { text: "One of the best Beauty & Aesthetic academies. The training helped improve my skills significantly. Thank you for such valuable learning.", author: "Raziya Begam", role: "Student", avatar: "https://i.pravatar.cc/150?u=Raziya" },
+  { text: "SK Beauty Verse is an excellent place to learn non-medical aesthetic courses. The short-duration program is highly useful, especially for women looking to build a career.", author: "Kani Mozhi", role: "Student", avatar: "https://i.pravatar.cc/150?u=Kani" },
+  { text: "Very useful and detailed learning experience. I learned skin analysis, Hydra Facial, Microneedling, Laser Basics, and many advanced aesthetic procedures.", author: "Shalini G.", role: "Aesthetic Training", avatar: "https://i.pravatar.cc/150?u=Shalini" },
+  { text: "I gained more knowledge and confidence after completing the course. The academy also arranged placement opportunities with a good salary. Thank you to the entire team.", author: "Sharmila Devi", role: "Student", avatar: "https://i.pravatar.cc/150?u=Sharmila" },
+  { text: "Joining SK Beauty Verse Academy was one of the best decisions. Karthik Sir explained every topic patiently and clearly. The academy also provided food and comfortable accommodation.", author: "Nisha Krishi", role: "Aesthetic & PMU", avatar: "https://i.pravatar.cc/150?u=Nisha" },
+  { text: "It was a great learning experience. I gained excellent exposure to nail extensions and nail art. Thanks to Archana Mam for sharing her knowledge.", author: "Somu Sumathi", role: "Nail Extensions", avatar: "https://i.pravatar.cc/150?u=Somu" },
+  { text: "The classes were excellent. Everything was explained clearly, and the trainers patiently cleared every doubt. I completed my course with complete confidence.", author: "Jayashree Santhosh", role: "Student", avatar: "https://i.pravatar.cc/150?u=Jayashree" },
+  { text: "I'm really happy to study here. Karthik Sir's teaching style is friendly and engaging. I learned many new techniques and feel proud to have studied here.", author: "Nilaloshi Nila", role: "Student", avatar: "https://i.pravatar.cc/150?u=Nilaloshi" },
+  { text: "Excellent academy with experienced trainers. The hostel is comfortable, hygienic, and the food is good. Thank you, Karthik Sir, for your excellent guidance.", author: "Priya S", role: "Student", avatar: "https://i.pravatar.cc/150?u=Priya" },
+  { text: "Excellent learning experience with valuable knowledge. Thank you so much, Karthik Sir and the SK Academy team.", author: "Bhavani Praveenkumar", role: "Student", avatar: "https://i.pravatar.cc/150?u=Bhavani" },
+  { text: "Excellent coaching by Karthik Sir. Even with no prior knowledge, I learned through extensive practical sessions. The food, accommodation, and explanations were excellent.", author: "Shenbaga Valli", role: "Student", avatar: "https://i.pravatar.cc/150?u=Shenbaga" },
+  { text: "One of the best academies in Chennai. The syllabus is completed in a short duration without compromising quality. The certificate is valuable, and the teaching is excellent.", author: "Surya Surya", role: "Student", avatar: "https://i.pravatar.cc/150?u=Surya" },
+  { text: "Great learning experience. Both the theory and practical sessions exceeded my expectations.", author: "Manju Beauty", role: "Student", avatar: "https://i.pravatar.cc/150?u=Manju" },
+  { text: "I completed the Aesthetic Class training. It was a detailed and highly useful learning experience.", author: "Harini Baskaran", role: "Student", avatar: "https://i.pravatar.cc/150?u=Harini" },
+  { text: "Excellent trainers. The hostel is clean, hygienic, and safe. Daily food was provided, making the entire learning experience comfortable.", author: "Ramya Perumal", role: "Student", avatar: "https://i.pravatar.cc/150?u=Ramya" },
+  { text: "A very useful course with kind trainers. The academy also provides immediate job opportunities, making it ideal for homemakers and aspiring beauticians.", author: "Babu Ji", role: "Student", avatar: "https://i.pravatar.cc/150?u=Babu" },
+  { text: "Best place to learn. Excellent coaching and valuable practical knowledge.", author: "Subhashiny Gopinath", role: "Student", avatar: "https://i.pravatar.cc/150?u=Subhashiny" },
+  { text: "The Aesthetic and PMU course was highly informative. Free food and accommodation made learning comfortable. I recommend this academy to anyone looking to upgrade their career.", author: "Kousy", role: "Student", avatar: "https://i.pravatar.cc/150?u=Kousy" },
+  { text: "Best academy in Chennai. They cover a comprehensive syllabus in a short period with extensive practical sessions. Free food and accommodation are a great advantage.", author: "Azhagi Makeup Artist", role: "Student", avatar: "https://i.pravatar.cc/150?u=Azhagi" },
+  { text: "Very useful training with advanced teaching techniques. The trainers explain every concept professionally.", author: "Rathika Manikandan", role: "Student", avatar: "https://i.pravatar.cc/150?u=Rathika" },
+  { text: "An amazing experience beyond my expectations. The classes, practical sessions, and knowledge shared were outstanding. Highly recommended for anyone serious about building a career in aesthetics.", author: "Nag Ammi", role: "Student", avatar: "https://i.pravatar.cc/150?u=Nag" },
+  { text: "The classes were excellent and easy to understand. After the 7-day course, I feel much more confident. Overall, it was a wonderful experience.", author: "Kalaiselvi", role: "Student", avatar: "https://i.pravatar.cc/150?u=Kalaiselvi" },
+  { text: "I had no knowledge about aesthetics before joining. Now I feel confident because of the excellent theory classes, practical sessions, and safe accommodation provided.", author: "Megha Baskaran", role: "Student", avatar: "https://i.pravatar.cc/150?u=Megha" }
+];
+
 export function Testimonials() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const next = () => setCurrentIndex((curr) => (curr + 1) % reviews.length);
+  const prev = () => setCurrentIndex((curr) => (curr - 1 + reviews.length) % reviews.length);
+
   return (
     <motion.section 
-      initial={{ opacity: 0, scale: 0.95 }} 
-      whileInView={{ opacity: 1, scale: 1 }} 
+      initial={{ opacity: 0 }} 
+      whileInView={{ opacity: 1 }} 
       transition={{ duration: 0.8 }} 
       viewport={{ once: true, margin: "-100px" }}
-      className="py-24 relative overflow-hidden"
+      className="py-32 relative overflow-hidden bg-zinc-50 dark:bg-[#111]"
     >
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-gold-metallic/5 blur-[120px] rounded-full -z-10"></div>
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="flex justify-center gap-1 mb-8">
-          {[1,2,3,4,5].map(i => <Star key={i} className="w-6 h-6 fill-gold-bronze text-gold-bronze dark:fill-gold-metallic dark:text-gold-metallic" />)}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-gold-metallic/5 blur-[120px] rounded-full pointer-events-none -z-10"></div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-zinc-900 dark:text-white mb-6">What Our Students Say</h2>
+          <p className="text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">Real feedback from our graduates who have successfully transformed their careers.</p>
         </div>
-        <h3 className="text-2xl md:text-4xl font-medium leading-relaxed mb-8">
-          "Wonderful service as usual, felt so relaxed and good ambiance. Much recommended!"
-        </h3>
-        <p className="font-bold text-lg mb-8">— Gopinath S.</p>
-        <button className="btn-outline mx-auto">Leave a Review on Google</button>
+
+        <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 relative max-w-5xl mx-auto">
+          
+          <button onClick={prev} className="w-12 h-12 shrink-0 rounded-full bg-white dark:bg-zinc-900 shadow-lg border border-zinc-200 dark:border-zinc-800 flex items-center justify-center text-zinc-900 dark:text-white hover:text-gold-metallic dark:hover:text-gold-metallic hover:scale-105 transition-all z-20 hidden md:flex">
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+          
+          <div className="relative w-full max-w-3xl min-h-[380px] md:min-h-[300px] h-auto pb-4">
+            {/* Stack layers */}
+            <div className="absolute inset-0 bg-zinc-200 dark:bg-zinc-800 rounded-2xl transform rotate-[-2deg] scale-[0.98] shadow-xl border border-zinc-300 dark:border-zinc-700 z-0 transition-transform duration-500"></div>
+            <div className="absolute inset-0 bg-zinc-100 dark:bg-zinc-800/80 rounded-2xl transform rotate-[2deg] scale-[0.98] shadow-xl border border-zinc-200 dark:border-zinc-700 z-0 transition-transform duration-500"></div>
+            
+            <AnimatePresence mode="wait">
+              <motion.div 
+                key={currentIndex}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.3 }}
+                className="absolute inset-0 bg-white dark:bg-[#18181B] rounded-2xl shadow-2xl border border-zinc-100 dark:border-zinc-800 p-8 md:p-12 flex flex-col justify-center z-10"
+              >
+                <h3 className="text-lg md:text-xl font-medium leading-relaxed text-zinc-800 dark:text-zinc-200 mb-8">
+                  "{reviews[currentIndex].text}"
+                </h3>
+                
+                <div className="flex items-center gap-4 mt-auto">
+                  <div className="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center shadow-sm border border-zinc-200 dark:border-zinc-700">
+                    <User className="w-5 h-5 text-zinc-500 dark:text-zinc-400" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-zinc-900 dark:text-white text-sm">{reviews[currentIndex].author}</h4>
+                    <p className="text-xs text-gold-metallic">{reviews[currentIndex].role}</p>
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          <button onClick={next} className="w-12 h-12 shrink-0 rounded-full bg-white dark:bg-zinc-900 shadow-lg border border-zinc-200 dark:border-zinc-800 flex items-center justify-center text-zinc-900 dark:text-white hover:text-gold-metallic dark:hover:text-gold-metallic hover:scale-105 transition-all z-20 hidden md:flex">
+            <ChevronRight className="w-6 h-6" />
+          </button>
+
+          {/* Mobile buttons */}
+          <div className="flex gap-4 mt-4 md:hidden">
+            <button onClick={prev} className="w-12 h-12 rounded-full bg-white dark:bg-zinc-900 shadow-lg border border-zinc-200 dark:border-zinc-800 flex items-center justify-center text-zinc-900 dark:text-white hover:text-gold-metallic dark:hover:text-gold-metallic hover:scale-105 transition-all">
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+            <button onClick={next} className="w-12 h-12 rounded-full bg-white dark:bg-zinc-900 shadow-lg border border-zinc-200 dark:border-zinc-800 flex items-center justify-center text-zinc-900 dark:text-white hover:text-gold-metallic dark:hover:text-gold-metallic hover:scale-105 transition-all">
+              <ChevronRight className="w-6 h-6" />
+            </button>
+          </div>
+
+        </div>
       </div>
     </motion.section>
   );

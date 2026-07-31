@@ -20,13 +20,23 @@ export default function Header({ toggleTheme, isDark, onNavigate }: { toggleThem
           
           {/* Nav Links */}
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
-            {['Home', 'Services', 'Courses', 'Bookings', 'Blogs', 'Gallery', 'Contact'].map((item) => (
+            {['Home', 'About', 'Courses', 'Gallery', 'Contact'].map((item) => (
               <a 
                 key={item} 
                 href={`#${item.toLowerCase()}`} 
-                onClick={() => {
-                  if (item === 'Services' && onNavigate) onNavigate('services');
-                  else if (onNavigate) onNavigate('home');
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (item === 'About' && onNavigate) onNavigate('about');
+                  else if (item === 'Courses' && onNavigate) onNavigate('courses');
+                  else if (item === 'Gallery' && onNavigate) onNavigate('gallery');
+                  else if (onNavigate) {
+                    onNavigate('home');
+                    if (item === 'Contact') {
+                      setTimeout(() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }), 100);
+                    } else {
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                  }
                 }}
                 className="hover:text-gold-metallic transition-colors"
               >
@@ -42,9 +52,7 @@ export default function Header({ toggleTheme, isDark, onNavigate }: { toggleThem
                 {isDark ? <Sun className="w-4 h-4 text-gold-metallic" /> : <Moon className="w-4 h-4 text-zinc-400" />}
               </button>
             )}
-            <a href="#contact" className="bg-white text-black hover:bg-zinc-200 font-medium px-6 py-3 rounded-full text-sm transition-colors hidden sm:block pointer-events-auto">
-              Book Appointment
-            </a>
+
           </div>
         </header>
       </div>
@@ -54,19 +62,20 @@ export default function Header({ toggleTheme, isDark, onNavigate }: { toggleThem
         <nav className="flex justify-around items-center p-3 bg-white/95 dark:bg-[#18181B]/95 backdrop-blur-xl border border-zinc-200/50 dark:border-zinc-800/50 rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.1)] dark:shadow-[0_10px_40px_rgba(0,0,0,0.6)]">
           <a href="#home" onClick={() => onNavigate && onNavigate('home')} className="flex flex-col items-center gap-1 text-zinc-500 dark:text-zinc-400 hover:text-gold-bronze dark:hover:text-gold-metallic hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.6)] transition-all duration-300">
             <Home className="w-5 h-5" />
-            <span className="text-[10px] font-bold uppercase tracking-wider">Home</span>
+            <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider">Home</span>
           </a>
-          <a href="#about" onClick={() => onNavigate && onNavigate('home')} className="flex flex-col items-center gap-1 text-zinc-500 dark:text-zinc-400 hover:text-gold-bronze dark:hover:text-gold-metallic hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.6)] transition-all duration-300">
+          <a href="#about" onClick={() => onNavigate && onNavigate('about')} className="flex flex-col items-center gap-1 text-zinc-500 dark:text-zinc-400 hover:text-gold-bronze dark:hover:text-gold-metallic hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.6)] transition-all duration-300">
             <Info className="w-5 h-5" />
-            <span className="text-[10px] font-bold uppercase tracking-wider">About</span>
+            <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider">About</span>
           </a>
-          <a href="#services" onClick={() => onNavigate && onNavigate('services')} className="flex flex-col items-center gap-1 text-zinc-500 dark:text-zinc-400 hover:text-gold-bronze dark:hover:text-gold-metallic hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.6)] transition-all duration-300">
-            <Sparkles className="w-5 h-5" />
-            <span className="text-[10px] font-bold uppercase tracking-wider">Services</span>
-          </a>
-          <a href="#courses" onClick={() => onNavigate && onNavigate('home')} className="flex flex-col items-center gap-1 text-zinc-500 dark:text-zinc-400 hover:text-gold-bronze dark:hover:text-gold-metallic hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.6)] transition-all duration-300">
+
+          <a href="#courses" onClick={(e) => { e.preventDefault(); if (onNavigate) onNavigate('courses'); }} className="flex flex-col items-center gap-1 text-zinc-500 dark:text-zinc-400 hover:text-gold-bronze dark:hover:text-gold-metallic hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.6)] transition-all duration-300">
             <GraduationCap className="w-5 h-5" />
-            <span className="text-[10px] font-bold uppercase tracking-wider">Courses</span>
+            <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider">Courses</span>
+          </a>
+          <a href="#gallery" onClick={(e) => { e.preventDefault(); if (onNavigate) onNavigate('gallery'); }} className="flex flex-col items-center gap-1 text-zinc-500 dark:text-zinc-400 hover:text-gold-bronze dark:hover:text-gold-metallic hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.6)] transition-all duration-300">
+            <Sparkles className="w-5 h-5" />
+            <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider">Gallery</span>
           </a>
         </nav>
       </div>

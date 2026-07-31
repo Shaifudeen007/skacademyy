@@ -1,7 +1,17 @@
 
 import Header from './Header';
 import Hero from './Hero';
-import { Advantage, FounderSpotlight, ServicesGrid, CoursesGrid, Testimonials } from './HomeSections';
+import { CoursesGrid, Testimonials } from './HomeSections';
+import { 
+  AboutSection, 
+  TrainingExperienceSection, 
+  GallerySection, 
+  WhoCanJoinSection, 
+  UpcomingBatchPopup, 
+  ContactSection, 
+  FinalCTASection,
+  WhyChooseUsSection
+} from './NewSections';
 import Footer from './Footer';
 
 export default function LandingPage({ isDark, toggleTheme, onNavigate }: { isDark: boolean, toggleTheme: () => void, onNavigate?: (page: string) => void }) {
@@ -10,11 +20,17 @@ export default function LandingPage({ isDark, toggleTheme, onNavigate }: { isDar
       <Header isDark={isDark} toggleTheme={toggleTheme} onNavigate={onNavigate} />
       <main>
         <Hero />
-        <Advantage />
-        <FounderSpotlight />
-        <ServicesGrid onNavigate={onNavigate} />
-        <CoursesGrid />
+        <AboutSection onNavigate={onNavigate} />
+        <WhyChooseUsSection />
+        <CoursesGrid onNavigate={onNavigate} />
+        <TrainingExperienceSection />
+        <GallerySection onNavigate={onNavigate} />
+
+        <WhoCanJoinSection />
         <Testimonials />
+        <UpcomingBatchPopup />
+        <ContactSection />
+        <FinalCTASection />
       </main>
       <Footer />
     </div>

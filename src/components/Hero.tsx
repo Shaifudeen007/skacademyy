@@ -35,7 +35,7 @@ export default function Hero() {
             transition={{ duration: 0.8 }}
             className="max-w-2xl order-last lg:order-first mt-8 lg:mt-0 text-center lg:text-left"
           >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] mb-6 uppercase text-zinc-900 dark:text-white">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] mb-6 uppercase text-zinc-900 dark:text-white">
               LEARN TODAY. <br className="hidden lg:block"/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-bronze to-gold-metallic dark:from-gold-champagne dark:to-gold-metallic">SHINE TOMORROW.</span>
               <br className="hidden lg:block"/>
@@ -45,15 +45,16 @@ export default function Hero() {
               Turn creativity into a profession with hands-on beauty education designed for future salon professionals, makeup artists, and beauty entrepreneurs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <button className="btn-primary py-3 px-8 text-lg w-full sm:w-auto justify-center">
+              <button className="bg-gold-gradient text-zinc-900 shadow-[0_0_15px_rgba(212,175,55,0.4)] hover:shadow-[0_0_25px_rgba(212,175,55,0.6)] hover:scale-105 transition-all py-3 px-6 sm:px-8 text-base sm:text-lg font-extrabold w-full sm:w-auto flex items-center justify-center gap-2 rounded-[1.5rem]">
                 <Calendar className="w-5 h-5" />
-                Book Now
+                Enroll Now
               </button>
-              <button className="btn-outline py-3 px-8 text-lg w-full sm:w-auto justify-center">
+              <button className="bg-transparent border-2 border-gold-metallic text-gold-bronze dark:text-gold-metallic hover:bg-gold-gradient hover:text-zinc-900 dark:hover:text-zinc-900 hover:border-transparent transition-all py-3 px-6 sm:px-8 text-base sm:text-lg font-bold w-full sm:w-auto flex items-center justify-center gap-2 rounded-[1.5rem]">
                 <Sparkles className="w-5 h-5" />
-                Browse Services
+                Explore Courses
               </button>
             </div>
+
           </motion.div>
 
           {/* Visual Frame */}
@@ -85,8 +86,8 @@ export default function Hero() {
                   <Sparkles className="w-6 h-6 text-gold-bronze dark:text-gold-metallic" />
                 </div>
                 <div>
-                  <p className="font-bold text-sm text-zinc-900 dark:text-white">Lakmé Academy Certified</p>
-                  <p className="text-xs text-zinc-600 dark:text-zinc-300">Expert Aesthetic Clinic</p>
+                  <p className="font-bold text-sm text-zinc-900 dark:text-white">LAPT-UK Accredited</p>
+                  <p className="text-xs text-zinc-600 dark:text-zinc-300">Valid in 180+ countries</p>
                 </div>
               </div>
             </div>
