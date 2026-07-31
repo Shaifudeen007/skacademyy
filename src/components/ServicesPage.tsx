@@ -82,10 +82,10 @@ export default function ServicesPage({ isDark, toggleTheme, onNavigate }: { isDa
                       whileHover={{ y: -5 }}
                       className="group glass-card rounded-2xl overflow-hidden cursor-pointer flex flex-col h-full hover:shadow-2xl hover:shadow-gold-metallic/10 transition-all duration-300 border border-zinc-200 dark:border-zinc-800"
                     >
-                      <div className="h-56 relative overflow-hidden">
-                        <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10" />
-                        <img src={svc.img} alt={svc.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                        <div className="absolute top-4 left-4 z-20 px-3 py-2 bg-white/90 dark:bg-black/80 backdrop-blur-md rounded-lg flex items-center gap-2">
+                      <div className="h-48 relative flex items-center justify-center bg-zinc-100 dark:bg-[#1a1a1a] group-hover:bg-gold-bronze/10 dark:group-hover:bg-gold-metallic/10 transition-colors duration-500 overflow-hidden">
+                        <Icon className="w-24 h-24 text-gold-bronze dark:text-gold-metallic opacity-20 absolute -right-4 -bottom-4 group-hover:scale-110 transition-transform duration-700" />
+                        <Icon className="w-16 h-16 text-gold-bronze dark:text-gold-metallic group-hover:scale-110 transition-transform duration-700 relative z-10" />
+                        <div className="absolute top-4 left-4 z-20 px-3 py-2 bg-white/90 dark:bg-black/80 backdrop-blur-md rounded-lg flex items-center gap-2 shadow-sm">
                           <Icon className="w-4 h-4 text-gold-bronze dark:text-gold-metallic" />
                           <span className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-white">{svc.type}</span>
                         </div>

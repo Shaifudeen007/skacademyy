@@ -257,8 +257,8 @@ export function TrainingExperienceSection() {
 }
 
 // 3. Gallery Section
-export function GallerySection({ onNavigate }: { onNavigate?: (page: string) => void }) {
-  const images = [
+export function GallerySection({ onNavigate, limit }: { onNavigate?: (page: string) => void, limit?: number }) {
+  const allImages = [
     '/gallery/DSC03560.JPG',
     '/gallery/DSC03564.JPG',
     '/gallery/DSC05461.JPG',
@@ -268,6 +268,8 @@ export function GallerySection({ onNavigate }: { onNavigate?: (page: string) => 
     '/gallery/DSC05523.JPG',
     '/gallery/DSC05524.JPG'
   ];
+  
+  const images = limit ? allImages.slice(0, limit) : allImages;
   
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
 
@@ -320,14 +322,16 @@ export function GallerySection({ onNavigate }: { onNavigate?: (page: string) => 
               </motion.div>
             ))}
           </div>
-          <div className="mt-16 text-center">
-            <button 
-              onClick={() => onNavigate && onNavigate('gallery')}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold rounded-full hover:scale-105 transition-transform shadow-xl"
-            >
-              Explore More <ArrowRight className="w-5 h-5" />
-            </button>
-          </div>
+          {limit && (
+            <div className="mt-16 text-center">
+              <button 
+                onClick={() => onNavigate && onNavigate('gallery')}
+                className="inline-flex items-center gap-2 px-8 py-4 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold rounded-full hover:scale-105 transition-transform shadow-xl"
+              >
+                Explore More <ArrowRight className="w-5 h-5" />
+              </button>
+            </div>
+          )}
         </div>
       </motion.section>
 

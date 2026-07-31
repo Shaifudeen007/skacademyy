@@ -26,7 +26,7 @@ export default function LandingPage({ isDark, toggleTheme, onNavigate }: { isDar
         <CoursesGrid onNavigate={onNavigate} />
         <EquipmentSalesSection />
         <TrainingExperienceSection />
-        <GallerySection onNavigate={onNavigate} />
+        <GallerySection onNavigate={onNavigate} limit={6} />
 
         <WhoCanJoinSection />
         <Testimonials />
