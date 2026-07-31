@@ -3,6 +3,11 @@ import LandingPage from './components/LandingPage';
 import AboutPage from './components/AboutPage';
 import CoursesPage from './components/CoursesPage';
 import GalleryPage from './components/GalleryPage';
+import AestheticCoursePage from './components/AestheticCoursePage';
+import PmuCoursePage from './components/PmuCoursePage';
+import NailArtCoursePage from './components/NailArtCoursePage';
+import HairExtensionCoursePage from './components/HairExtensionCoursePage';
+import HairCoursePage from './components/HairCoursePage';
 import { motion, AnimatePresence } from 'framer-motion';
 
 function App() {
@@ -94,6 +99,16 @@ function App() {
         <AboutPage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
       ) : currentPage === 'courses' ? (
         <CoursesPage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
+      ) : currentPage === 'course-aesthetic' ? (
+        <AestheticCoursePage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
+      ) : currentPage === 'course-pmu' ? (
+        <PmuCoursePage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
+      ) : currentPage === 'course-nailart' ? (
+        <NailArtCoursePage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
+      ) : currentPage === 'course-hair-extension' ? (
+        <HairExtensionCoursePage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
+      ) : currentPage === 'course-hair' ? (
+        <HairCoursePage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
       ) : currentPage === 'gallery' ? (
         <GalleryPage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
       ) : (

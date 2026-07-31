@@ -15,7 +15,9 @@ import {
   Heart,
   ShieldCheck,
   Sparkles,
-  X
+  X,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react';
 import { AnimatedCounter } from './HomeSections';
 import { useState, useEffect } from 'react';
@@ -256,60 +258,122 @@ export function TrainingExperienceSection() {
 
 // 3. Gallery Section
 export function GallerySection({ onNavigate }: { onNavigate?: (page: string) => void }) {
+  const images = [
+    '/gallery/DSC03560.JPG',
+    '/gallery/DSC03564.JPG',
+    '/gallery/DSC05461.JPG',
+    '/gallery/DSC05480.JPG',
+    '/gallery/DSC05487.JPG',
+    '/gallery/DSC05488.JPG',
+    '/gallery/DSC05523.JPG',
+    '/gallery/DSC05524.JPG'
+  ];
+  
+  const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
+
+  const prevImage = () => {
+    if (lightboxIdx !== null) {
+      setLightboxIdx((lightboxIdx - 1 + images.length) % images.length);
+    }
+  };
+
+  const nextImage = () => {
+    if (lightboxIdx !== null) {
+      setLightboxIdx((lightboxIdx + 1) % images.length);
+    }
+  };
+
   return (
-    <motion.section 
-      id="gallery"
-      initial={{ opacity: 0 }} 
-      whileInView={{ opacity: 1 }} 
-      transition={{ duration: 0.8 }} 
-      viewport={{ once: true, margin: "-100px" }}
-      className="py-24 bg-white dark:bg-[#09090B]"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <div className="flex items-center justify-center gap-4 mb-4">
-            <Camera className="w-8 h-8 text-gold-metallic" />
-            <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-900 dark:text-white">Academy Gallery</h2>
+    <>
+      <motion.section 
+        id="gallery"
+        initial={{ opacity: 0 }} 
+        whileInView={{ opacity: 1 }} 
+        transition={{ duration: 0.8 }} 
+        viewport={{ once: true, margin: "-100px" }}
+        className="py-24 bg-white dark:bg-[#09090B]"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="flex items-center justify-center gap-4 mb-4">
+              <Camera className="w-8 h-8 text-gold-metallic" />
+              <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-900 dark:text-white">Academy Gallery</h2>
+            </div>
+            <CreativeUnderline />
           </div>
-          <CreativeUnderline />
-        </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {[
-            '/gallery/DSC03560.JPG',
-            '/gallery/DSC03564.JPG',
-            '/gallery/DSC05461.JPG',
-            '/gallery/DSC05480.JPG',
-            '/gallery/DSC05487.JPG',
-            '/gallery/DSC05488.JPG',
-            '/gallery/DSC05523.JPG',
-            '/gallery/DSC05524.JPG'
-          ].map((imgSrc, i) => (
-            <motion.div 
-              key={i} 
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, delay: (i % 4) * 0.1 }}
-              viewport={{ once: true }}
-              className={`rounded-xl overflow-hidden ${i === 0 || i === 3 ? 'col-span-2 row-span-2' : ''}`}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {images.map((imgSrc, i) => (
+              <motion.div 
+                key={i} 
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: (i % 4) * 0.1 }}
+                viewport={{ once: true }}
+                onClick={() => setLightboxIdx(i)}
+                className={`rounded-xl overflow-hidden cursor-pointer ${i === 0 || i === 3 ? 'col-span-2 row-span-2' : ''}`}
+              >
+                <img 
+                  src={imgSrc} 
+                  alt={`Gallery Item ${i + 1}`} 
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500 min-h-[150px]"
+                />
+              </motion.div>
+            ))}
+          </div>
+          <div className="mt-16 text-center">
+            <button 
+              onClick={() => onNavigate && onNavigate('gallery')}
+              className="inline-flex items-center gap-2 px-8 py-4 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold rounded-full hover:scale-105 transition-transform shadow-xl"
             >
-              <img 
-                src={imgSrc} 
-                alt={`Gallery Item ${i + 1}`} 
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500 min-h-[150px]"
-              />
-            </motion.div>
-          ))}
+              Explore More <ArrowRight className="w-5 h-5" />
+            </button>
+          </div>
         </div>
-        <div className="mt-16 text-center">
-          <button 
-            onClick={() => onNavigate && onNavigate('gallery')}
-            className="inline-flex items-center gap-2 px-8 py-4 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold rounded-full hover:scale-105 transition-transform shadow-xl"
+      </motion.section>
+
+      {/* Lightbox */}
+      <AnimatePresence>
+        {lightboxIdx !== null && (
+          <motion.div 
+            key="lightbox"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/95 flex items-center justify-center"
+            style={{ zIndex: 9999 }}
+            onClick={() => setLightboxIdx(null)}
           >
-            Explore More <ArrowRight className="w-5 h-5" />
-          </button>
-        </div>
-      </div>
-    </motion.section>
+            <button 
+              onClick={(e) => { e.stopPropagation(); setLightboxIdx(null); }}
+              className="absolute top-4 right-4 md:top-8 md:right-8 w-12 h-12 bg-black/50 rounded-full flex items-center justify-center text-white/70 hover:text-white hover:bg-black/80 transition-all"
+            >
+              <X className="w-8 h-8" />
+            </button>
+            
+            <button 
+              onClick={(e) => { e.stopPropagation(); prevImage(); }}
+              className="absolute left-2 md:left-8 w-12 h-12 md:w-16 md:h-16 bg-black/50 rounded-full flex items-center justify-center text-white/70 hover:text-white hover:bg-black/80 transition-all z-10"
+            >
+              <ChevronLeft className="w-8 h-8 md:w-12 md:h-12" />
+            </button>
+
+            <img 
+              src={images[lightboxIdx]} 
+              alt={`Gallery Image ${lightboxIdx + 1}`}
+              onClick={(e) => e.stopPropagation()}
+              className="max-h-[85vh] max-w-[90vw] object-contain rounded-lg shadow-2xl relative z-0"
+            />
+
+            <button 
+              onClick={(e) => { e.stopPropagation(); nextImage(); }}
+              className="absolute right-2 md:right-8 w-12 h-12 md:w-16 md:h-16 bg-black/50 rounded-full flex items-center justify-center text-white/70 hover:text-white hover:bg-black/80 transition-all z-10"
+            >
+              <ChevronRight className="w-8 h-8 md:w-12 md:h-12" />
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
 
@@ -629,6 +693,55 @@ export function FAQSection() {
   );
 }
 
+// 9.5 Equipment Sales Section
+export function EquipmentSalesSection() {
+  return (
+    <motion.section 
+      initial={{ opacity: 0 }} 
+      whileInView={{ opacity: 1 }} 
+      transition={{ duration: 0.8 }} 
+      viewport={{ once: true, margin: "-100px" }}
+      className="py-24 bg-white dark:bg-[#09090B] relative overflow-hidden"
+    >
+      <div className="absolute inset-0 bg-gold-bronze/5 dark:bg-gold-metallic/5" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="bg-zinc-50 dark:bg-[#111] rounded-3xl p-8 md:p-12 lg:p-16 border border-zinc-200 dark:border-zinc-800 shadow-2xl flex flex-col lg:flex-row items-center gap-12">
+          
+          <div className="flex-1 text-center lg:text-left">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold-bronze/10 dark:bg-gold-metallic/10 text-gold-bronze dark:text-gold-champagne font-bold text-sm mb-6 border border-gold-bronze/20 dark:border-gold-metallic/20">
+              <Sparkles className="w-4 h-4" />
+              SK Korean Technologies
+            </div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-zinc-900 dark:text-white mb-6 leading-tight">
+              Premium Aesthetic <br/>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-bronze to-gold-metallic">Machines & Equipment</span>
+            </h2>
+            <p className="text-lg text-zinc-600 dark:text-zinc-400 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+              We provide world-class, advanced aesthetic machines for clinics, salons, and beauty professionals. Upgrade your practice with cutting-edge technology directly from industry leaders.
+            </p>
+            <button 
+              onClick={() => window.open('https://skkoreantechnologies.com/', '_blank')}
+              className="bg-gold-gradient text-zinc-900 shadow-[0_0_15px_rgba(212,175,55,0.4)] hover:shadow-[0_0_25px_rgba(212,175,55,0.6)] hover:scale-105 transition-all py-4 px-10 text-lg font-extrabold flex items-center justify-center gap-2 rounded-full mx-auto lg:mx-0 uppercase tracking-wide w-full sm:w-auto"
+            >
+              Explore Machines <ArrowRight className="w-5 h-5" />
+            </button>
+          </div>
+
+          <div className="flex-1 w-full relative">
+            <div className="absolute inset-0 bg-gradient-to-tr from-gold-bronze/20 to-transparent rounded-3xl transform translate-x-4 translate-y-4" />
+            <img 
+              src="/machines/DSC05547 (1).JPG" 
+              alt="SK Korean Technologies Aesthetic Machines" 
+              className="w-full h-[300px] md:h-[400px] object-cover rounded-3xl shadow-xl relative z-10"
+            />
+          </div>
+
+        </div>
+      </div>
+    </motion.section>
+  );
+}
+
 // 10. Contact Section
 export function ContactSection() {
   return (
@@ -708,7 +821,10 @@ export function FinalCTASection() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 text-zinc-900">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight mb-6 uppercase">Ready to Transform Your Future?</h2>
         <p className="text-lg sm:text-xl font-medium mb-10 max-w-2xl mx-auto">Enroll today and take the first step towards a successful career in the beauty and aesthetics industry.</p>
-        <button className="bg-zinc-900 text-white hover:bg-black px-6 py-4 sm:px-10 sm:py-5 rounded-full font-bold text-base sm:text-lg shadow-2xl hover:scale-105 transition-transform inline-flex items-center gap-3">
+        <button 
+          onClick={() => window.open('https://wa.me/918610345830', '_blank')}
+          className="bg-zinc-900 text-white hover:bg-black px-6 py-4 sm:px-10 sm:py-5 rounded-full font-bold text-base sm:text-lg shadow-2xl hover:scale-105 transition-transform inline-flex items-center gap-3"
+        >
           Join SK Academy <ArrowRight className="w-6 h-6" />
         </button>
       </div>

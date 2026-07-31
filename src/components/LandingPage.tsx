@@ -10,7 +10,8 @@ import {
   UpcomingBatchPopup, 
   ContactSection, 
   FinalCTASection,
-  WhyChooseUsSection
+  WhyChooseUsSection,
+  EquipmentSalesSection
 } from './NewSections';
 import Footer from './Footer';
 
@@ -23,6 +24,7 @@ export default function LandingPage({ isDark, toggleTheme, onNavigate }: { isDar
         <AboutSection onNavigate={onNavigate} />
         <WhyChooseUsSection />
         <CoursesGrid onNavigate={onNavigate} />
+        <EquipmentSalesSection />
         <TrainingExperienceSection />
         <GallerySection onNavigate={onNavigate} />
 

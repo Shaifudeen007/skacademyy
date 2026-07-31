@@ -45,7 +45,10 @@ export default function Hero() {
               Turn creativity into a profession with hands-on beauty education designed for future salon professionals, makeup artists, and beauty entrepreneurs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <button className="bg-gold-gradient text-zinc-900 shadow-[0_0_15px_rgba(212,175,55,0.4)] hover:shadow-[0_0_25px_rgba(212,175,55,0.6)] hover:scale-105 transition-all py-3 px-6 sm:px-8 text-base sm:text-lg font-extrabold w-full sm:w-auto flex items-center justify-center gap-2 rounded-[1.5rem]">
+              <button 
+                onClick={() => window.open('https://wa.me/918610345830', '_blank')}
+                className="bg-gold-gradient text-zinc-900 shadow-[0_0_15px_rgba(212,175,55,0.4)] hover:shadow-[0_0_25px_rgba(212,175,55,0.6)] hover:scale-105 transition-all py-3 px-6 sm:px-8 text-base sm:text-lg font-extrabold w-full sm:w-auto flex items-center justify-center gap-2 rounded-[1.5rem]"
+              >
                 <Calendar className="w-5 h-5" />
                 Enroll Now
               </button>

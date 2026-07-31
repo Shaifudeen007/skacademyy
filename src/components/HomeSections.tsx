@@ -154,9 +154,11 @@ export const servicesData = [
   { category: 'Nails & Spa', icon: Flower2, type: 'Service', title: "Waxing", price: "₹499", desc: "Method of hair removal that removes the hair directly from the root.", img: "https://images.unsplash.com/photo-1519014816548-bf5fe059e98b?auto=format&fit=crop&q=80" },
 
   // Courses
-  { category: 'Courses', icon: GraduationCap, type: 'Course', title: "Aesthetic Course", price: "₹24,999 - ₹44,999", desc: "In-depth training with a globally valid LAPT certificate. Covers dermal fillers, chemical peels, microneedling.", img: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&q=80" },
-  { category: 'Courses', icon: GraduationCap, type: 'Course', title: "Beautician & Cosmetology", price: "₹14,999 - ₹24,999", desc: "Comprehensive training in skincare, haircare, makeup, and nail art. Provides both theoretical knowledge and hands-on practice.", img: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&q=80" },
-  { category: 'Courses', icon: GraduationCap, type: 'Course', title: "Semi-Permanent Makeup", price: "₹14,999", desc: "2-Day intensive course covering fundamentals to advanced techniques in eyebrow microblading, lip blush, and eyeliner tattooing.", img: "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&q=80" },
+  { category: 'Courses', icon: GraduationCap, type: 'Course', title: "Aesthetic Course", price: "Contact for price", desc: "Professional aesthetic training covering various advanced techniques and treatments.", img: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&q=80" },
+  { category: 'Courses', icon: GraduationCap, type: 'Course', title: "PMU Course", price: "Contact for price", desc: "Intensive training in Permanent Makeup, including eyebrow, lip, and eyeliner techniques.", img: "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&q=80" },
+  { category: 'Courses', icon: GraduationCap, type: 'Course', title: "Nail Art Course", price: "Contact for price", desc: "Master the art of nail design, extensions, and professional nail care.", img: "https://images.unsplash.com/photo-1519014816548-bf5fe059e98b?auto=format&fit=crop&q=80" },
+  { category: 'Courses', icon: GraduationCap, type: 'Course', title: "Hair Course", price: "Contact for price", desc: "Comprehensive training in haircuts, styling, coloring, and hair treatments.", img: "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&q=80" },
+  { category: 'Courses', icon: GraduationCap, type: 'Course', title: "Hair Extension", price: "Contact for price", desc: "Learn advanced hair extension techniques and proper maintenance.", img: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&q=80" },
 ];
 
 export function ServicesGrid({ onNavigate }: { onNavigate?: (page: string) => void }) {
@@ -247,7 +249,7 @@ export function CoursesGrid({ onNavigate }: { onNavigate?: (page: string) => voi
           <p className="text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">Transform your passion into a career with our globally valid certification courses.</p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:[&>*:nth-child(3n+2)]:translate-y-12 pb-12">
+        <div className="flex flex-wrap justify-center gap-8 lg:[&>*:nth-child(3n+2)]:translate-y-12 pb-12">
           {courses.map((svc, idx) => {
             const Icon = svc.icon;
             return (
@@ -258,7 +260,14 @@ export function CoursesGrid({ onNavigate }: { onNavigate?: (page: string) => voi
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.4, delay: idx * 0.1 }}
                 whileHover={{ y: -10 }}
-                className="group glass-card rounded-2xl overflow-hidden cursor-pointer flex flex-col h-full hover:shadow-2xl hover:shadow-gold-metallic/10 transition-all duration-300 border border-zinc-200 dark:border-zinc-800"
+                onClick={() => { 
+                  if (svc.title === 'Aesthetic Course' && onNavigate) onNavigate('course-aesthetic');
+                  else if (svc.title === 'PMU Course' && onNavigate) onNavigate('course-pmu');
+                  else if (svc.title === 'Nail Art Course' && onNavigate) onNavigate('course-nailart');
+                  else if (svc.title === 'Hair Extension' && onNavigate) onNavigate('course-hair-extension');
+                  else if (svc.title === 'Hair Course' && onNavigate) onNavigate('course-hair');
+                }}
+                className="w-full md:w-[calc(50%-1rem)] lg:w-[calc((100%-4rem)/3)] group glass-card rounded-2xl overflow-hidden cursor-pointer flex flex-col h-full hover:shadow-2xl hover:shadow-gold-metallic/10 transition-all duration-300 border border-zinc-200 dark:border-zinc-800"
               >
                 <div className="h-56 relative overflow-hidden">
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10" />
@@ -276,8 +285,15 @@ export function CoursesGrid({ onNavigate }: { onNavigate?: (page: string) => voi
                     </div>
                   )}
                   <p className="text-zinc-600 dark:text-zinc-400 text-sm lg:text-base mb-8 flex-1 leading-relaxed">{svc.desc}</p>
-                  <a href="#" className="inline-flex items-center gap-2 text-sm font-bold text-gold-bronze dark:text-gold-champagne group-hover:gap-3 transition-all mt-auto uppercase tracking-wide">
-                    Enroll Now <ArrowRight className="w-4 h-4" />
+                  <a href="#" onClick={(e) => { 
+                    e.preventDefault(); 
+                    if (svc.title === 'Aesthetic Course' && onNavigate) onNavigate('course-aesthetic'); 
+                    else if (svc.title === 'PMU Course' && onNavigate) onNavigate('course-pmu');
+                    else if (svc.title === 'Nail Art Course' && onNavigate) onNavigate('course-nailart');
+                    else if (svc.title === 'Hair Extension' && onNavigate) onNavigate('course-hair-extension');
+                    else if (svc.title === 'Hair Course' && onNavigate) onNavigate('course-hair');
+                  }} className="inline-flex items-center gap-2 text-sm font-bold text-gold-bronze dark:text-gold-champagne group-hover:gap-3 transition-all mt-auto uppercase tracking-wide">
+                    {['Aesthetic Course', 'PMU Course', 'Nail Art Course', 'Hair Extension', 'Hair Course'].includes(svc.title) ? 'Know More' : 'Enroll Now'} <ArrowRight className="w-4 h-4" />
                   </a>
                 </div>
               </motion.div>
