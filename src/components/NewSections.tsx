@@ -267,7 +267,18 @@ export function GallerySection({ onNavigate, limit }: { onNavigate?: (page: stri
     '/gallery/DSC05487.JPG',
     '/gallery/DSC05488.JPG',
     '/gallery/DSC05523.JPG',
-    '/gallery/DSC05524.JPG'
+    '/gallery/DSC05524.JPG',
+    '/gallery/DSC05547.JPG',
+    '/gallery/DSC05682.JPG',
+    '/gallery/DSC05701.JPG',
+    '/gallery/DSC05703.JPG',
+    '/gallery/DSC05747.JPG',
+    '/gallery/DSC05760.JPG',
+    '/gallery/DSC05773.JPG',
+    '/gallery/DSC05892.JPG',
+    '/gallery/DSC05897.JPG',
+    '/gallery/DSC05912.JPG',
+    '/gallery/DSC05916.JPG'
   ];
   
   const images = limit ? allImages.slice(0, limit) : allImages;
