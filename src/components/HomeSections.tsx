@@ -267,24 +267,28 @@ export function CoursesGrid({ onNavigate }: { onNavigate?: (page: string) => voi
                   else if (svc.title === 'Hair Extension' && onNavigate) onNavigate('course-hair-extension');
                   else if (svc.title === 'Hair Course' && onNavigate) onNavigate('course-hair');
                 }}
-                className="w-full md:w-[calc(50%-1rem)] lg:w-[calc((100%-4rem)/3)] group glass-card rounded-2xl overflow-hidden cursor-pointer flex flex-col h-full hover:shadow-2xl hover:shadow-gold-metallic/10 transition-all duration-300 border border-zinc-200 dark:border-zinc-800"
+                className="w-full md:w-[calc(50%-1rem)] lg:w-[calc((100%-4rem)/3)] group rounded-2xl overflow-hidden cursor-pointer flex flex-col relative min-h-[420px] hover:shadow-2xl hover:shadow-gold-metallic/10 transition-all duration-300 border border-zinc-200 dark:border-zinc-800"
               >
-                <div className="h-48 relative flex items-center justify-center bg-zinc-100 dark:bg-[#1a1a1a] group-hover:bg-gold-bronze/10 dark:group-hover:bg-gold-metallic/10 transition-colors duration-500 overflow-hidden">
-                  <img src={svc.img} alt={svc.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
-                  <div className="absolute top-4 left-4 z-20 px-3 py-2 bg-white/90 dark:bg-black/80 backdrop-blur-md rounded-lg flex items-center gap-2 shadow-sm">
-                    <Icon className="w-4 h-4 text-gold-bronze dark:text-gold-metallic" />
-                    <span className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-white">{svc.type}</span>
-                  </div>
+                {/* Background Image */}
+                <img src={svc.img} alt={svc.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                {/* Gradient Overlay for text readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/70 to-black/10 pointer-events-none group-hover:from-black/90 transition-colors duration-500" />
+                
+                {/* Top Badge */}
+                <div className="absolute top-4 left-4 z-20 px-3 py-2 bg-white/90 dark:bg-black/80 backdrop-blur-md rounded-lg flex items-center gap-2 shadow-sm">
+                  <Icon className="w-4 h-4 text-gold-bronze dark:text-gold-metallic" />
+                  <span className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-white">{svc.type}</span>
                 </div>
-                <div className="p-8 flex-1 flex flex-col bg-zinc-50 dark:bg-[#111]">
-                  <h3 className="font-extrabold text-xl lg:text-2xl mb-3 text-zinc-900 dark:text-white leading-tight">{svc.title}</h3>
+
+                {/* Content Container */}
+                <div className="relative z-10 p-8 flex flex-col justify-end mt-auto">
+                  <h3 className="font-extrabold text-xl lg:text-2xl mb-3 text-white leading-tight">{svc.title}</h3>
                   {svc.price && (
-                    <div className="inline-block px-3 py-1 bg-gold-bronze/10 dark:bg-gold-metallic/10 rounded-full text-gold-bronze dark:text-gold-champagne font-bold text-sm mb-4 w-fit border border-gold-bronze/20 dark:border-gold-metallic/20">
+                    <div className="inline-block px-3 py-1 bg-black/40 backdrop-blur-md rounded-full text-gold-champagne font-bold text-sm mb-4 w-fit border border-gold-metallic/30">
                       {svc.price}
                     </div>
                   )}
-                  <p className="text-zinc-600 dark:text-zinc-400 text-sm lg:text-base mb-8 flex-1 leading-relaxed">{svc.desc}</p>
+                  <p className="text-zinc-300 text-sm lg:text-base mb-8 leading-relaxed">{svc.desc}</p>
                   <a href="#" onClick={(e) => { 
                     e.preventDefault(); 
                     if (svc.title === 'Aesthetic Course' && onNavigate) onNavigate('course-aesthetic'); 
@@ -292,7 +296,7 @@ export function CoursesGrid({ onNavigate }: { onNavigate?: (page: string) => voi
                     else if (svc.title === 'Nail Art Course' && onNavigate) onNavigate('course-nailart');
                     else if (svc.title === 'Hair Extension' && onNavigate) onNavigate('course-hair-extension');
                     else if (svc.title === 'Hair Course' && onNavigate) onNavigate('course-hair');
-                  }} className="inline-flex items-center gap-2 text-sm font-bold text-gold-bronze dark:text-gold-champagne group-hover:gap-3 transition-all mt-auto uppercase tracking-wide">
+                  }} className="inline-flex items-center gap-2 text-sm font-bold text-gold-champagne group-hover:gap-3 transition-all mt-auto uppercase tracking-wide">
                     {['Aesthetic Course', 'PMU Course', 'Nail Art Course', 'Hair Extension', 'Hair Course'].includes(svc.title) ? 'Know More' : 'Enroll Now'} <ArrowRight className="w-4 h-4" />
                   </a>
                 </div>

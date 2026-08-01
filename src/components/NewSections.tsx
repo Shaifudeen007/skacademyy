@@ -44,7 +44,7 @@ export function AboutSection({ onNavigate }: { onNavigate?: (page: string) => vo
     { title: "Doctors Trained", num: 100, suffix: "+", icon: Heart },
     { title: "Years Experience", num: 3, suffix: "+", icon: Award },
 
-    { title: "UK Accredited", text: "LAPT", icon: ShieldCheck }
+    { title: "Accredited", text: "LAPT UK", icon: ShieldCheck }
   ];
 
   return (
