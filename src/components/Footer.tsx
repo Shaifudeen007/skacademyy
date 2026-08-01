@@ -19,7 +19,7 @@ export default function Footer() {
               <span className="font-bold text-lg tracking-wide">SK Beauty-Verse</span>
             </div>
             <p className="text-zinc-600 dark:text-zinc-400 text-sm mb-4">
-              Aesthetic clinic, and academy led by Sushmitha Karthik.
+              Aesthetic clinic, and academy led by Sushmitha.
             </p>
           </div>
           

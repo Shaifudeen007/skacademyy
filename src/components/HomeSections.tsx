@@ -102,13 +102,13 @@ export function FounderSpotlight() {
           <div className="lg:w-2/5 min-h-[350px] lg:min-h-[450px] relative overflow-hidden">
             <img 
               src="/hero/Founder%20pic/Sushmitha.png" 
-              alt="Sushmitha Karthick"
+              alt="Sushmitha"
               className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-1000 group-hover:scale-105 z-0"
             />
           </div>
           <div className="lg:w-3/5 p-8 lg:p-12 xl:p-16 flex flex-col justify-center bg-white/50 dark:bg-black/20 relative z-20">
             <h2 className="text-sm font-bold tracking-widest text-gold-bronze dark:text-gold-metallic uppercase mb-2">About The Founder</h2>
-            <h3 className="text-3xl lg:text-4xl font-extrabold mb-2">Sushmitha Karthick</h3>
+            <h3 className="text-3xl lg:text-4xl font-extrabold mb-2">Sushmitha</h3>
             <p className="text-lg italic text-gold-bronze dark:text-gold-champagne mb-8 font-medium">"Empowering Dreams Through Beauty Education."</p>
             <div className="text-zinc-700 dark:text-zinc-300 text-base lg:text-lg leading-relaxed space-y-6 mb-8">
               <p>
