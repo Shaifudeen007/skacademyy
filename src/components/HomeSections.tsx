@@ -369,7 +369,7 @@ export function Testimonials() {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-extrabold text-zinc-900 dark:text-white mb-6">What Our Students Say</h2>
+          <h2 className="text-3xl md:text-5xl font-extrabold text-zinc-900 dark:text-white mb-6">&quot;What Our Students Say&quot;</h2>
           <p className="text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">Real feedback from our graduates who have successfully transformed their careers.</p>
         </div>
 
