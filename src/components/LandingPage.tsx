@@ -7,7 +7,6 @@ import {
   TrainingExperienceSection, 
   GallerySection, 
   WhoCanJoinSection, 
-  UpcomingBatchPopup, 
   ContactSection, 
   FinalCTASection,
   WhyChooseUsSection,
@@ -30,7 +29,6 @@ export default function LandingPage({ isDark, toggleTheme, onNavigate }: { isDar
 
         <WhoCanJoinSection />
         <Testimonials />
-        <UpcomingBatchPopup />
         <ContactSection />
         <FinalCTASection />
       </main>
