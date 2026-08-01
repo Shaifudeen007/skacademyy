@@ -35,10 +35,10 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-2xl order-last lg:order-first mt-2 lg:mt-0 text-left"
+            className="max-w-2xl mt-2 lg:mt-0 text-center lg:text-left"
           >
-            <div className="-mt-8 -mb-12 sm:-mb-16 lg:-mb-24 w-full flex justify-start">
-              <img src="/N0__48102__Angalamman_Kovil_St__Choolai__Chennai__Tamil_Nadu_600112.-removebg-preview.png" alt="SK Academy Logo" className="h-40 sm:h-48 md:h-56 lg:h-64 object-contain drop-shadow-xl -ml-4 sm:-ml-8 lg:-ml-12" />
+            <div className="-mt-8 -mb-12 sm:-mb-16 lg:-mb-24 w-full flex justify-center lg:justify-start">
+              <img src="/N0__48102__Angalamman_Kovil_St__Choolai__Chennai__Tamil_Nadu_600112.-removebg-preview.png" alt="SK Academy Logo" className="h-40 sm:h-48 md:h-56 lg:h-64 object-contain drop-shadow-xl lg:-ml-12" />
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] mb-6 uppercase text-zinc-900 dark:text-white">
               LEARN TODAY. <br className="hidden lg:block"/>
@@ -70,7 +70,7 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative lg:h-[600px] flex items-center justify-center order-first lg:order-last w-full"
+            className="relative lg:h-[600px] flex items-center justify-center w-full"
           >
             <div className="relative w-full max-w-full lg:max-w-lg aspect-[2/3] lg:aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border border-zinc-200/50 dark:border-gold-metallic/30 bg-zinc-100">
               <div className="absolute inset-0 bg-gold-gradient opacity-10 mix-blend-overlay z-10 pointer-events-none"></div>
