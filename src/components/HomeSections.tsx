@@ -281,7 +281,7 @@ export function CoursesGrid({ onNavigate }: { onNavigate?: (page: string) => voi
                 </div>
 
                 {/* Content Container */}
-                <div className="relative z-10 p-8 flex flex-col justify-end mt-auto">
+                <div className="relative z-10 p-8 flex-1 flex flex-col justify-end pt-48 mt-auto">
                   <h3 className="font-extrabold text-xl lg:text-2xl mb-3 text-white leading-tight">{svc.title}</h3>
                   {svc.price && (
                     <div className="inline-block px-3 py-1 bg-black/40 backdrop-blur-md rounded-full text-gold-champagne font-bold text-sm mb-4 w-fit border border-gold-metallic/30">
