@@ -41,7 +41,7 @@ export function CreativeUnderline({ className = "justify-center" }: { className?
 export function AboutSection({ onNavigate }: { onNavigate?: (page: string) => void }) {
   const stats = [
     { title: "Students Trained", num: 1000, suffix: "+", icon: GraduationCap },
-    { title: "Satisfied Clients", num: 500, suffix: "+", icon: Heart },
+    { title: "Doctors Trained", num: 100, suffix: "+", icon: Heart },
     { title: "Years Experience", num: 3, suffix: "+", icon: Award },
     { title: "Govt Registered", text: "ISO & UDYAM", icon: ShieldCheck }
   ];
@@ -773,7 +773,7 @@ export function ContactSection() {
                 </div>
                 <div>
                   <h4 className="font-bold">Location</h4>
-                  <p className="text-zinc-500">No 50/80, Swamibakthan Street,<br />Ramalingpuram, Chennai - 600 012</p>
+                  <p className="text-zinc-500">SK Beauty verse pvt.ltd<br />48/102 , Angalamman Kovil st, Choolai , Chennai - 600 012</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -782,7 +782,7 @@ export function ContactSection() {
                 </div>
                 <div>
                   <h4 className="font-bold">Phone</h4>
-                  <p className="text-zinc-500">+91 86103 45830<br />+91 63853 33115</p>
+                  <p className="text-zinc-500">+91 86103 45830<br />+91 744 888 5802</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">

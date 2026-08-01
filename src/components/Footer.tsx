@@ -28,7 +28,7 @@ export default function Footer() {
             <h4 className="font-bold mb-4">Contact Us</h4>
             <ul className="space-y-3 text-sm text-zinc-600 dark:text-zinc-400">
               <li>+91 86103 45830</li>
-              <li>+91 63853 33115</li>
+              <li>+91 744 888 5802</li>
               <li>skbeautyverse@gmail.com</li>
             </ul>
           </div>
@@ -37,8 +37,9 @@ export default function Footer() {
           <div>
             <h4 className="font-bold mb-4">Visit Us</h4>
             <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-              No 50/80, Swamibakthan Street,<br />
-              Ramalingpuram, Chennai - 600 012
+              SK Beauty verse pvt.ltd<br />
+              48/102 , Angalamman Kovil st,<br />
+              Choolai , Chennai - 600 012
             </p>
           </div>
           
@@ -46,7 +47,7 @@ export default function Footer() {
           <div>
             <h4 className="font-bold mb-4">Registrations</h4>
             <ul className="space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
-              <li>GST: 33LEVPS8977N1ZR</li>
+              <li>GST: 33AAOCB4562B1ZX</li>
               <li>ISO 9001:2005</li>
               <li>UDYAM-TN-02-0245303</li>
             </ul>

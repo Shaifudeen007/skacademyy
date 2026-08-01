@@ -29,7 +29,7 @@ export function AnimatedCounter({ from, to, suffix, prefix = "", duration = 2.5 
 export function Advantage() {
   const features = [
     { icon: Sparkles, title: "Certified Expertise", sub: "Lakmé Academy Certified & Trained" },
-    { icon: Award, title: <><AnimatedCounter from={0} to={3} suffix="+" /> Years Experience</>, sub: <><AnimatedCounter from={0} to={488} suffix="+" /> Satisfied Clients</> },
+    { icon: Award, title: <><AnimatedCounter from={0} to={3} suffix="+" /> Years Experience</>, sub: <><AnimatedCounter from={0} to={100} suffix="+" /> Doctors Trained</> },
     { icon: GraduationCap, title: "Hands-on Training", sub: <>Trained <AnimatedCounter from={0} to={500} suffix="+" /> Students</> },
     { icon: ShieldCheck, title: "Govt Registered", sub: "ISO 9001:2005 & UDYAM Certified" }
   ];
