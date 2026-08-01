@@ -154,7 +154,7 @@ export const servicesData = [
   { category: 'Nails & Spa', icon: Flower2, type: 'Service', title: "Waxing", price: "₹499", desc: "Method of hair removal that removes the hair directly from the root.", img: "https://images.unsplash.com/photo-1519014816548-bf5fe059e98b?auto=format&fit=crop&q=80" },
 
   // Courses
-  { category: 'Courses', icon: GraduationCap, type: 'Course', title: "Aesthetic Course", price: "Contact for price", desc: "Professional aesthetic training covering various advanced techniques and treatments.", img: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&q=80" },
+  { category: 'Courses', icon: GraduationCap, type: 'Course', title: "Aesthetic Course", price: "Contact for price", desc: "Professional aesthetic training covering various advanced techniques and treatments.", img: "/DSC04305.JPG" },
   { category: 'Courses', icon: GraduationCap, type: 'Course', title: "PMU Course", price: "Contact for price", desc: "Intensive training in Permanent Makeup, including eyebrow, lip, and eyeliner techniques.", img: "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&q=80" },
   { category: 'Courses', icon: GraduationCap, type: 'Course', title: "Nail Art Course", price: "Contact for price", desc: "Master the art of nail design, extensions, and professional nail care.", img: "https://images.unsplash.com/photo-1519014816548-bf5fe059e98b?auto=format&fit=crop&q=80" },
   { category: 'Courses', icon: GraduationCap, type: 'Course', title: "Hair Course", price: "Contact for price", desc: "Comprehensive training in haircuts, styling, coloring, and hair treatments.", img: "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&q=80" },
@@ -270,8 +270,8 @@ export function CoursesGrid({ onNavigate }: { onNavigate?: (page: string) => voi
                 className="w-full md:w-[calc(50%-1rem)] lg:w-[calc((100%-4rem)/3)] group glass-card rounded-2xl overflow-hidden cursor-pointer flex flex-col h-full hover:shadow-2xl hover:shadow-gold-metallic/10 transition-all duration-300 border border-zinc-200 dark:border-zinc-800"
               >
                 <div className="h-48 relative flex items-center justify-center bg-zinc-100 dark:bg-[#1a1a1a] group-hover:bg-gold-bronze/10 dark:group-hover:bg-gold-metallic/10 transition-colors duration-500 overflow-hidden">
-                  <Icon className="w-24 h-24 text-gold-bronze dark:text-gold-metallic opacity-20 absolute -right-4 -bottom-4 group-hover:scale-110 transition-transform duration-700" />
-                  <Icon className="w-16 h-16 text-gold-bronze dark:text-gold-metallic group-hover:scale-110 transition-transform duration-700 relative z-10" />
+                  <img src={svc.img} alt={svc.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
                   <div className="absolute top-4 left-4 z-20 px-3 py-2 bg-white/90 dark:bg-black/80 backdrop-blur-md rounded-lg flex items-center gap-2 shadow-sm">
                     <Icon className="w-4 h-4 text-gold-bronze dark:text-gold-metallic" />
                     <span className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-white">{svc.type}</span>
@@ -441,7 +441,7 @@ export function VideoTestimonials() {
       viewport={{ once: true, margin: "-100px" }}
       className="pt-4 pb-0 md:pt-8 md:pb-4 bg-zinc-50 dark:bg-[#111]"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-extrabold text-zinc-900 dark:text-white mb-6">Student Testimonials</h2>
           <CreativeUnderline />

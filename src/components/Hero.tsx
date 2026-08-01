@@ -35,10 +35,10 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-2xl order-last lg:order-first mt-2 lg:mt-0 text-center lg:text-left"
+            className="max-w-2xl order-last lg:order-first mt-2 lg:mt-0 text-left"
           >
-            <div className="-mt-8 -mb-12 sm:-mb-16 lg:-mb-24 w-full flex justify-center lg:justify-start">
-              <img src="/N0__48102__Angalamman_Kovil_St__Choolai__Chennai__Tamil_Nadu_600112.-removebg-preview.png" alt="SK Academy Logo" className="h-40 sm:h-48 md:h-56 lg:h-64 object-contain drop-shadow-xl mx-auto lg:mx-0" />
+            <div className="-mt-8 -mb-12 sm:-mb-16 lg:-mb-24 w-full flex justify-start">
+              <img src="/N0__48102__Angalamman_Kovil_St__Choolai__Chennai__Tamil_Nadu_600112.-removebg-preview.png" alt="SK Academy Logo" className="h-40 sm:h-48 md:h-56 lg:h-64 object-contain drop-shadow-xl -ml-4 sm:-ml-8 lg:-ml-12" />
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] mb-6 uppercase text-zinc-900 dark:text-white">
               LEARN TODAY. <br className="hidden lg:block"/>

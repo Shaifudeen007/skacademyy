@@ -426,7 +426,7 @@ export function BeforeAfterSection() {
 export function CertificationSection() {
   const accreditations = [
     "Lakmé Academy Certified",
-    "LAPT Certification (UK)",
+    "LAPT UK Accredited",
     "ISO 9001:2005",
     "UDYAM Registered"
   ];
@@ -452,9 +452,9 @@ export function CertificationSection() {
             <motion.div 
               key={i}
               whileHover={{ scale: 1.05 }}
-              className="px-8 py-4 bg-gold-bronze/10 dark:bg-gold-metallic/10 border border-gold-bronze/30 dark:border-gold-metallic/30 rounded-full font-bold text-gold-bronze dark:text-gold-champagne shadow-[0_0_15px_rgba(212,175,55,0.15)] hover:shadow-[0_0_30px_rgba(212,175,55,0.3)] transition-shadow flex items-center gap-3 cursor-default"
+              className="px-6 sm:px-8 py-3 sm:py-4 bg-gold-bronze/10 dark:bg-gold-metallic/10 border border-gold-bronze/30 dark:border-gold-metallic/30 rounded-full font-bold text-sm sm:text-base text-gold-bronze dark:text-gold-champagne shadow-[0_0_15px_rgba(212,175,55,0.15)] hover:shadow-[0_0_30px_rgba(212,175,55,0.3)] transition-shadow flex items-center gap-2 sm:gap-3 cursor-default whitespace-nowrap"
             >
-              <ShieldCheck className="w-5 h-5" /> {acc}
+              <ShieldCheck className="w-4 sm:w-5 h-4 sm:h-5" /> {acc}
             </motion.div>
           ))}
         </div>
