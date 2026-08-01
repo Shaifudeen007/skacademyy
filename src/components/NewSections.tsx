@@ -53,7 +53,7 @@ export function AboutSection({ onNavigate }: { onNavigate?: (page: string) => vo
       whileInView={{ opacity: 1 }} 
       transition={{ duration: 0.8 }} 
       viewport={{ once: true, margin: "-100px" }}
-      className="py-24 bg-white dark:bg-[#09090B]"
+      className="py-12 md:py-20 bg-white dark:bg-[#09090B]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-900 dark:text-white mb-6">About SK International Institute of Skills</h2>
