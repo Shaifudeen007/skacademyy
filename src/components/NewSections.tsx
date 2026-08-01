@@ -43,7 +43,8 @@ export function AboutSection({ onNavigate }: { onNavigate?: (page: string) => vo
     { title: "Students Trained", num: 1000, suffix: "+", icon: GraduationCap },
     { title: "Doctors Trained", num: 100, suffix: "+", icon: Heart },
     { title: "Years Experience", num: 3, suffix: "+", icon: Award },
-    { title: "Govt Registered", text: "ISO & UDYAM", icon: ShieldCheck }
+
+    { title: "UK Accredited", text: "LAPT", icon: ShieldCheck }
   ];
 
   return (
@@ -102,7 +103,7 @@ export function AboutSection({ onNavigate }: { onNavigate?: (page: string) => vo
 // 1.5 Why Choose Us Section
 export function WhyChooseUsSection() {
   const reasons = [
-    { title: "LAPT-UK Accredited", desc: "Certificates Valid in 180+ Countries", icon: Award },
+    { title: "LAPT-UK Accredited", desc: <>Certificates Valid in <span className="font-extrabold text-gold-bronze dark:text-gold-metallic bg-gold-metallic/10 px-1.5 py-0.5 rounded-md">180+ Countries</span></>, icon: Award },
     { title: "Industry-Expert Trainers", desc: "Learn from Certified Beauty Professionals", icon: Sparkles },
     { title: "100% Practical Training", desc: "Hands-On Learning with Live Models", icon: CheckCircle },
     { title: "Career & Business Support", desc: "Job Assistance and Salon Startup Guidance", icon: Briefcase }
@@ -183,7 +184,7 @@ export function TrainingExperienceSection() {
       whileInView={{ opacity: 1 }} 
       transition={{ duration: 0.8 }} 
       viewport={{ once: true, margin: "-100px" }}
-      className="py-12 md:py-16 bg-zinc-50 dark:bg-[#111]"
+      className="pt-4 pb-4 md:pt-8 md:pb-8 bg-zinc-50 dark:bg-[#111]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
@@ -293,7 +294,7 @@ export function GallerySection({ onNavigate, limit }: { onNavigate?: (page: stri
         whileInView={{ opacity: 1 }} 
         transition={{ duration: 0.8 }} 
         viewport={{ once: true, margin: "-100px" }}
-        className="py-12 md:py-16 bg-white dark:bg-[#09090B]"
+        className="pt-4 pb-8 md:pt-8 md:pb-12 bg-white dark:bg-[#09090B]"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -323,7 +324,7 @@ export function GallerySection({ onNavigate, limit }: { onNavigate?: (page: stri
             ))}
           </div>
           {limit && (
-            <div className="mt-16 text-center">
+            <div className="mt-8 text-center">
               <button 
                 onClick={() => onNavigate && onNavigate('gallery')}
                 className="inline-flex items-center gap-2 px-8 py-4 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold rounded-full hover:scale-105 transition-transform shadow-xl"
@@ -496,7 +497,7 @@ export function WhoCanJoinSection() {
       whileInView={{ opacity: 1 }} 
       transition={{ duration: 0.8 }} 
       viewport={{ once: true, margin: "-100px" }}
-      className="py-12 md:py-16 bg-zinc-50 dark:bg-[#111]"
+      className="pt-12 pb-4 md:pt-16 md:pb-8 bg-zinc-50 dark:bg-[#111]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center gap-12">
@@ -705,7 +706,7 @@ export function EquipmentSalesSection() {
       whileInView={{ opacity: 1 }} 
       transition={{ duration: 0.8 }} 
       viewport={{ once: true, margin: "-100px" }}
-      className="py-12 md:py-16 bg-white dark:bg-[#09090B] relative overflow-hidden"
+      className="pt-4 pb-4 md:pt-8 md:pb-8 bg-white dark:bg-[#09090B] relative overflow-hidden"
     >
       <div className="absolute inset-0 bg-gold-bronze/5 dark:bg-gold-metallic/5" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -755,7 +756,7 @@ export function ContactSection() {
       whileInView={{ opacity: 1 }} 
       transition={{ duration: 0.8 }} 
       viewport={{ once: true, margin: "-100px" }}
-      className="py-12 md:py-16 bg-zinc-50 dark:bg-[#111]"
+      className="pt-4 pb-12 md:pt-8 md:pb-16 bg-zinc-50 dark:bg-[#111]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">

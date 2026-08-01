@@ -12,7 +12,7 @@ import { SchedulePopup } from './components/SchedulePopup';
 import { motion, AnimatePresence } from 'framer-motion';
 
 function App() {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
 
   // Splash screen timeout
@@ -87,23 +87,23 @@ function App() {
       </AnimatePresence>
 
       {currentPage === 'about' ? (
-        <AboutPage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
+        <AboutPage isDark={isDark} onNavigate={setCurrentPage} />
       ) : currentPage === 'courses' ? (
-        <CoursesPage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
+        <CoursesPage isDark={isDark} onNavigate={setCurrentPage} />
       ) : currentPage === 'course-aesthetic' ? (
-        <AestheticCoursePage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
+        <AestheticCoursePage isDark={isDark} onNavigate={setCurrentPage} />
       ) : currentPage === 'course-pmu' ? (
-        <PmuCoursePage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
+        <PmuCoursePage isDark={isDark} onNavigate={setCurrentPage} />
       ) : currentPage === 'course-nailart' ? (
-        <NailArtCoursePage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
+        <NailArtCoursePage isDark={isDark} onNavigate={setCurrentPage} />
       ) : currentPage === 'course-hair-extension' ? (
-        <HairExtensionCoursePage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
+        <HairExtensionCoursePage isDark={isDark} onNavigate={setCurrentPage} />
       ) : currentPage === 'course-hair' ? (
-        <HairCoursePage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
+        <HairCoursePage isDark={isDark} onNavigate={setCurrentPage} />
       ) : currentPage === 'gallery' ? (
-        <GalleryPage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
+        <GalleryPage isDark={isDark} onNavigate={setCurrentPage} />
       ) : (
-        <LandingPage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
+        <LandingPage isDark={isDark} onNavigate={setCurrentPage} />
       )}
 
       <SchedulePopup />

@@ -5,14 +5,14 @@ import Footer from './Footer';
 import { CreativeUnderline } from './NewSections';
 import { CheckCircle, GraduationCap, Sparkles, BookOpen, ArrowLeft } from 'lucide-react';
 
-export default function NailArtCoursePage({ isDark, toggleTheme, onNavigate }: { isDark: boolean, toggleTheme: () => void, onNavigate: (page: string) => void }) {
+export default function NailArtCoursePage({ isDark, onNavigate }: { isDark: boolean, onNavigate: (page: string) => void }) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
     <div className={`min-h-screen ${isDark ? 'dark bg-[#09090B] text-zinc-50' : 'bg-white text-zinc-900'} font-sans transition-colors duration-300`}>
-      <Header isDark={isDark} toggleTheme={toggleTheme} onNavigate={onNavigate} />
+      <Header onNavigate={onNavigate} />
       
       <main className="pt-24 md:pt-32 pb-16 relative">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -47,7 +47,7 @@ export default function NailArtCoursePage({ isDark, toggleTheme, onNavigate }: {
           </div>
 
           {/* Highlights */}
-          <div className="mt-16 bg-zinc-50 dark:bg-[#111] rounded-3xl p-8 border border-zinc-200 dark:border-zinc-800 shadow-xl">
+          <div className="mt-16 relative bg-gold-metallic/[0.03] dark:bg-[#0a0a0a] rounded-3xl p-8 border border-gold-metallic/50 shadow-[0_0_40px_rgba(212,175,55,0.2)] overflow-hidden before:absolute before:inset-0 before:bg-gold-gradient before:opacity-[0.05] before:pointer-events-none">
             <h3 className="text-2xl font-bold mb-8 flex items-center gap-3">
               <Sparkles className="text-gold-metallic" /> Course Highlights
             </h3>
@@ -55,7 +55,7 @@ export default function NailArtCoursePage({ isDark, toggleTheme, onNavigate }: {
               {[
                 "7-Day Master Class",
                 "Hands-on Practical Training",
-                "International Certificate (180+ Countries)",
+                <>International Certificate <span className="font-extrabold text-gold-bronze dark:text-gold-metallic bg-gold-metallic/10 px-1.5 py-0.5 rounded-md">(180+ Countries)</span></>,
                 "Expert Trainers & Limited Batch Size",
                 "Career Guidance",
                 "Lifetime Support"

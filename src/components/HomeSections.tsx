@@ -240,7 +240,7 @@ export function CoursesGrid({ onNavigate }: { onNavigate?: (page: string) => voi
       whileInView={{ opacity: 1, y: 0 }} 
       transition={{ duration: 0.8 }} 
       viewport={{ once: true, margin: "-100px" }}
-      className="py-12 md:py-16 bg-white dark:bg-[#09090B]"
+      className="pt-12 pb-4 md:pt-16 md:pb-8 bg-white dark:bg-[#09090B]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
@@ -301,7 +301,7 @@ export function CoursesGrid({ onNavigate }: { onNavigate?: (page: string) => voi
           })}
         </div>
 
-        <div className="mt-16 text-center">
+        <div className="mt-8 text-center">
           <button 
             onClick={() => onNavigate && onNavigate('courses')}
             className="inline-flex items-center gap-2 px-8 py-4 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold rounded-full hover:scale-105 transition-transform shadow-xl"
@@ -359,7 +359,7 @@ export function Testimonials() {
       whileInView={{ opacity: 1 }} 
       transition={{ duration: 0.8 }} 
       viewport={{ once: true, margin: "-100px" }}
-      className="py-32 relative overflow-hidden bg-zinc-50 dark:bg-[#111]"
+      className="pt-12 pb-12 md:pt-16 md:pb-16 relative overflow-hidden bg-zinc-50 dark:bg-[#111]"
     >
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-gold-metallic/5 blur-[120px] rounded-full pointer-events-none -z-10"></div>
       
@@ -420,6 +420,52 @@ export function Testimonials() {
             </button>
           </div>
 
+        </div>
+      </div>
+    </motion.section>
+  );
+}
+
+export function VideoTestimonials() {
+  const videos = [
+    { title: "PMU & Aesthetic Course", src: "/videos/aestheticandpmu.mp4" },
+    { title: "Nail Course", src: "/videos/Video-80734.mp4" },
+    { title: "Hair Course", src: "/videos/Video-81156.mp4" },
+  ];
+
+  return (
+    <motion.section 
+      initial={{ opacity: 0 }} 
+      whileInView={{ opacity: 1 }} 
+      transition={{ duration: 0.8 }} 
+      viewport={{ once: true, margin: "-100px" }}
+      className="pt-4 pb-0 md:pt-8 md:pb-4 bg-zinc-50 dark:bg-[#111]"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-zinc-900 dark:text-white mb-6">Student Testimonials</h2>
+          <CreativeUnderline />
+        </div>
+        <div className="flex flex-wrap md:flex-nowrap justify-center gap-4 md:gap-8">
+          {videos.map((video, idx) => (
+            <motion.div 
+              key={idx} 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: idx * 0.15 }}
+              viewport={{ once: true }}
+              className="w-[calc(50%-0.5rem)] md:w-full md:flex-1 bg-white dark:bg-zinc-900 p-3 sm:p-6 rounded-2xl sm:rounded-3xl border border-gold-metallic/30 shadow-[0_0_30px_rgba(212,175,55,0.1)] overflow-hidden flex flex-col hover:-translate-y-2 transition-transform duration-300"
+            >
+              <h3 className="text-sm sm:text-xl font-bold text-center text-zinc-900 dark:text-white mb-2 sm:mb-4 flex items-center justify-center min-h-[2.5rem] sm:min-h-[auto]">{video.title}</h3>
+              <div className="relative w-full aspect-[9/16] bg-zinc-100 dark:bg-zinc-800 rounded-lg sm:rounded-2xl overflow-hidden shadow-inner group">
+                <video 
+                  src={video.src} 
+                  controls 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </motion.section>

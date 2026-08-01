@@ -1,6 +1,6 @@
-import { Moon, Sun, Home, Sparkles, GraduationCap, Info } from 'lucide-react';
+import { Home, Sparkles, GraduationCap, Info } from 'lucide-react';
 
-export default function Header({ toggleTheme, isDark, onNavigate }: { toggleTheme?: () => void, isDark?: boolean, onNavigate?: (page: string) => void }) {
+export default function Header({ onNavigate }: { onNavigate?: (page: string) => void }) {
   return (
     <>
       <div className="fixed top-0 md:top-6 left-0 right-0 z-50 flex justify-center md:px-4 pointer-events-none">
@@ -47,11 +47,7 @@ export default function Header({ toggleTheme, isDark, onNavigate }: { toggleThem
           
           {/* Actions */}
           <div className="flex items-center gap-2 pl-2">
-            {toggleTheme && (
-              <button onClick={toggleTheme} className="p-2.5 rounded-full hover:bg-white/10 transition-colors pointer-events-auto">
-                {isDark ? <Sun className="w-4 h-4 text-gold-metallic" /> : <Moon className="w-4 h-4 text-zinc-400" />}
-              </button>
-            )}
+            {/* Theme toggle removed per user request to always keep dark mode */}
 
           </div>
         </header>

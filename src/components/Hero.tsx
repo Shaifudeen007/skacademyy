@@ -3,9 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
 const heroImages = [
-  '/hero/C4899T01.JPG',
   '/hero/C4955T01.JPG',
-  '/hero/DSC04294.JPG'
+  '/hero/DSC05461.JPG',
+  '/hero/DSC05487.JPG',
+  '/hero/DSC05762.JPG',
+  '/hero/DSC05770 (1).JPG'
 ];
 
 export default function Hero() {
@@ -24,7 +26,7 @@ export default function Hero() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
-      className="relative overflow-hidden pt-20 pb-8 lg:pt-32 lg:pb-12"
+      className="relative overflow-hidden pt-12 pb-8 lg:pt-20 lg:pb-12"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
@@ -33,8 +35,11 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-2xl order-last lg:order-first mt-8 lg:mt-0 text-center lg:text-left"
+            className="max-w-2xl order-last lg:order-first mt-2 lg:mt-0 text-center lg:text-left"
           >
+            <div className="-mt-8 -mb-12 sm:-mb-16 lg:-mb-24 w-full flex justify-center lg:justify-start">
+              <img src="/N0__48102__Angalamman_Kovil_St__Choolai__Chennai__Tamil_Nadu_600112.-removebg-preview.png" alt="SK Academy Logo" className="h-40 sm:h-48 md:h-56 lg:h-64 object-contain drop-shadow-xl mx-auto lg:mx-0" />
+            </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] mb-6 uppercase text-zinc-900 dark:text-white">
               LEARN TODAY. <br className="hidden lg:block"/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-bronze to-gold-metallic dark:from-gold-champagne dark:to-gold-metallic">SHINE TOMORROW.</span>
@@ -79,7 +84,7 @@ export default function Hero() {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 1.5, ease: "easeInOut" }}
-                  className="absolute inset-0 object-cover w-full h-full"
+                  className={`absolute inset-0 object-cover w-full h-full ${heroImages[currentImgIndex].includes('DSC05762.JPG') ? 'object-[80%_center]' : 'object-center'}`}
                 />
               </AnimatePresence>
               
