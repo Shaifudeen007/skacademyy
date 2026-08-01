@@ -40,7 +40,7 @@ export function Advantage() {
       whileInView={{ opacity: 1 }} 
       transition={{ duration: 0.8 }} 
       viewport={{ once: true, margin: "-100px" }}
-      className="py-24 relative overflow-hidden bg-zinc-50 dark:bg-[#09090B]"
+      className="py-12 md:py-16 relative overflow-hidden bg-zinc-50 dark:bg-[#09090B]"
     >
       <div className="absolute inset-0 bg-gold-gradient opacity-[0.03] pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -90,7 +90,7 @@ export function FounderSpotlight() {
       whileInView={{ opacity: 1, y: 0 }} 
       transition={{ duration: 0.8 }} 
       viewport={{ once: true, margin: "-100px" }}
-      className="py-24"
+      className="py-12 md:py-16"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="glass-card rounded-3xl overflow-hidden flex flex-col lg:flex-row shadow-2xl relative group">
@@ -171,7 +171,7 @@ export function ServicesGrid({ onNavigate }: { onNavigate?: (page: string) => vo
       whileInView={{ opacity: 1, y: 0 }} 
       transition={{ duration: 0.8 }} 
       viewport={{ once: true, margin: "-100px" }}
-      className="py-24 bg-zinc-50 dark:bg-[#0c0c0e]"
+      className="py-12 md:py-16 bg-zinc-50 dark:bg-[#0c0c0e]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
@@ -240,7 +240,7 @@ export function CoursesGrid({ onNavigate }: { onNavigate?: (page: string) => voi
       whileInView={{ opacity: 1, y: 0 }} 
       transition={{ duration: 0.8 }} 
       viewport={{ once: true, margin: "-100px" }}
-      className="py-24 bg-white dark:bg-[#09090B]"
+      className="py-12 md:py-16 bg-white dark:bg-[#09090B]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">

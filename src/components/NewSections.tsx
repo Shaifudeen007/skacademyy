@@ -115,7 +115,7 @@ export function WhyChooseUsSection() {
       whileInView={{ opacity: 1 }} 
       transition={{ duration: 0.8 }} 
       viewport={{ once: true, margin: "-100px" }}
-      className="py-24 bg-zinc-50 dark:bg-[#111]"
+      className="py-12 md:py-16 bg-zinc-50 dark:bg-[#111]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
@@ -183,7 +183,7 @@ export function TrainingExperienceSection() {
       whileInView={{ opacity: 1 }} 
       transition={{ duration: 0.8 }} 
       viewport={{ once: true, margin: "-100px" }}
-      className="py-24 bg-zinc-50 dark:bg-[#111]"
+      className="py-12 md:py-16 bg-zinc-50 dark:bg-[#111]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
@@ -293,7 +293,7 @@ export function GallerySection({ onNavigate, limit }: { onNavigate?: (page: stri
         whileInView={{ opacity: 1 }} 
         transition={{ duration: 0.8 }} 
         viewport={{ once: true, margin: "-100px" }}
-        className="py-24 bg-white dark:bg-[#09090B]"
+        className="py-12 md:py-16 bg-white dark:bg-[#09090B]"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -390,7 +390,7 @@ export function BeforeAfterSection() {
       whileInView={{ opacity: 1 }} 
       transition={{ duration: 0.8 }} 
       viewport={{ once: true, margin: "-100px" }}
-      className="py-24 bg-zinc-50 dark:bg-[#111]"
+      className="py-12 md:py-16 bg-zinc-50 dark:bg-[#111]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-900 dark:text-white mb-6">Transformations</h2>
@@ -437,7 +437,7 @@ export function CertificationSection() {
       whileInView={{ opacity: 1 }} 
       transition={{ duration: 0.8 }} 
       viewport={{ once: true, margin: "-100px" }}
-      className="py-24 bg-white dark:bg-[#09090B]"
+      className="py-12 md:py-16 bg-white dark:bg-[#09090B]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <Award className="w-16 h-16 text-gold-metallic mx-auto mb-4" />
@@ -496,7 +496,7 @@ export function WhoCanJoinSection() {
       whileInView={{ opacity: 1 }} 
       transition={{ duration: 0.8 }} 
       viewport={{ once: true, margin: "-100px" }}
-      className="py-24 bg-zinc-50 dark:bg-[#111]"
+      className="py-12 md:py-16 bg-zinc-50 dark:bg-[#111]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center gap-12">
@@ -553,7 +553,7 @@ export function AchievementsSection() {
       whileInView={{ opacity: 1 }} 
       transition={{ duration: 0.8 }} 
       viewport={{ once: true, margin: "-100px" }}
-      className="py-24 bg-white dark:bg-[#09090B]"
+      className="py-12 md:py-16 bg-white dark:bg-[#09090B]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-900 dark:text-white mb-6">Our Achievements</h2>
@@ -653,7 +653,7 @@ export function FAQSection() {
       whileInView={{ opacity: 1 }} 
       transition={{ duration: 0.8 }} 
       viewport={{ once: true, margin: "-100px" }}
-      className="py-24 bg-white dark:bg-[#09090B]"
+      className="py-12 md:py-16 bg-white dark:bg-[#09090B]"
     >
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
@@ -705,7 +705,7 @@ export function EquipmentSalesSection() {
       whileInView={{ opacity: 1 }} 
       transition={{ duration: 0.8 }} 
       viewport={{ once: true, margin: "-100px" }}
-      className="py-24 bg-white dark:bg-[#09090B] relative overflow-hidden"
+      className="py-12 md:py-16 bg-white dark:bg-[#09090B] relative overflow-hidden"
     >
       <div className="absolute inset-0 bg-gold-bronze/5 dark:bg-gold-metallic/5" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -755,7 +755,7 @@ export function ContactSection() {
       whileInView={{ opacity: 1 }} 
       transition={{ duration: 0.8 }} 
       viewport={{ once: true, margin: "-100px" }}
-      className="py-24 bg-zinc-50 dark:bg-[#111]"
+      className="py-12 md:py-16 bg-zinc-50 dark:bg-[#111]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
@@ -820,7 +820,7 @@ export function FinalCTASection() {
       whileInView={{ opacity: 1 }} 
       transition={{ duration: 0.8 }} 
       viewport={{ once: true, margin: "-100px" }}
-      className="py-24 relative overflow-hidden bg-gold-gradient"
+      className="py-12 md:py-16 relative overflow-hidden bg-gold-gradient"
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 text-zinc-900">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight mb-6 uppercase">Ready to Transform Your Future?</h2>
