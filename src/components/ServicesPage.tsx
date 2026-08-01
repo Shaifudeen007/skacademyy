@@ -5,7 +5,7 @@ import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, ArrowRight } from 'lucide-react';
 
-export default function ServicesPage({ isDark, onNavigate }: { isDark: boolean, onNavigate: (page: string) => void }) {
+export default function ServicesPage({ isDark, toggleTheme, onNavigate }: { isDark: boolean, toggleTheme: () => void, onNavigate: (page: string) => void }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [activeCategory, setActiveCategory] = useState('All');
 
@@ -22,7 +22,7 @@ export default function ServicesPage({ isDark, onNavigate }: { isDark: boolean, 
 
   return (
     <div className={`min-h-screen ${isDark ? 'dark bg-obsidian text-zinc-50' : 'bg-white text-zinc-900'} font-sans transition-colors duration-300`}>
-      <Header onNavigate={onNavigate} />
+      <Header isDark={isDark} toggleTheme={toggleTheme} onNavigate={onNavigate} />
       
       <main className="pt-32 pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
