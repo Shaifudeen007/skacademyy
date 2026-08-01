@@ -44,8 +44,10 @@ export function SchedulePopup() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
+          onClick={() => setIsOpen(false)}
         >
           <motion.div 
+            onClick={(e) => e.stopPropagation()}
             className="bg-white dark:bg-[#09090B] rounded-3xl w-full max-w-2xl overflow-hidden shadow-[0_0_50px_rgba(212,175,55,0.2)] border border-gold-metallic/20 relative flex flex-col"
             initial={{ scale: 0.9, y: 20, opacity: 0 }}
             animate={{ scale: 1, y: 0, opacity: 1 }}
@@ -56,8 +58,9 @@ export function SchedulePopup() {
             <div className="bg-zinc-900 text-white p-4 relative overflow-hidden shrink-0">
               <div className="absolute inset-0 bg-gold-gradient opacity-20"></div>
               <button 
+                type="button"
                 onClick={() => setIsOpen(false)}
-                className="absolute top-4 right-4 text-white/70 hover:text-white bg-black/20 hover:bg-black/40 rounded-full p-2 transition-all z-10"
+                className="absolute top-4 right-4 text-white/70 hover:text-white bg-black/20 hover:bg-black/40 rounded-full p-2 transition-all z-50 cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
