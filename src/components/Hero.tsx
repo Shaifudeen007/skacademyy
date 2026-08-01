@@ -24,7 +24,7 @@ export default function Hero() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
-      className="relative overflow-hidden pt-20 pb-12 lg:pt-32 lg:pb-20"
+      className="relative overflow-hidden pt-20 pb-8 lg:pt-32 lg:pb-12"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
