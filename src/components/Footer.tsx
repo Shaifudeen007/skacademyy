@@ -13,10 +13,8 @@ export default function Footer() {
           {/* Brand Info */}
           <div>
             <div className="flex items-center gap-2 mb-6">
-              <div className="w-8 h-8 rounded-full bg-gold-gradient flex items-center justify-center">
-                <span className="text-obsidian font-bold text-sm tracking-tighter">SK</span>
-              </div>
-              <span className="font-bold text-lg tracking-wide">SK Beauty-Verse</span>
+              <img src="/N0__48102__Angalamman_Kovil_St__Choolai__Chennai__Tamil_Nadu_600112.-removebg-preview.png" alt="Logo" className="h-16 md:h-20 w-auto object-contain drop-shadow-md scale-125 origin-left" />
+              <span className="font-bold text-lg tracking-wide pl-2">SK International Institute of Skills</span>
             </div>
             <p className="text-zinc-600 dark:text-zinc-400 text-sm mb-4">
               Aesthetic clinic, and academy led by Sushmitha.
@@ -66,7 +64,7 @@ export default function Footer() {
         </div>
         
         <div className="pt-8 border-t border-zinc-200 dark:border-zinc-800/50 flex justify-center items-center gap-4">
-          <p className="text-sm text-zinc-500 text-center">© 2026 SK Beauty-Verse. All rights reserved.</p>
+          <p className="text-sm text-zinc-500 text-center">© 2026 SK International Institute of Skills. All rights reserved.</p>
         </div>
       </div>
     </footer>

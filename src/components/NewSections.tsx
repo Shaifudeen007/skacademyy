@@ -38,7 +38,7 @@ export function CreativeUnderline({ className = "justify-center" }: { className?
 }
 
 // 1. About Section
-export function AboutSection({ onNavigate }: { onNavigate?: (page: string) => void }) {
+export function AboutSection({ onNavigate, showStats = false }: { onNavigate?: (page: string) => void, showStats?: boolean }) {
   const stats = [
     { title: "Students Trained", num: 1000, suffix: "+", icon: GraduationCap },
     { title: "Doctors Trained", num: 100, suffix: "+", icon: Heart },
@@ -71,30 +71,32 @@ export function AboutSection({ onNavigate }: { onNavigate?: (page: string) => vo
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {stats.map((stat, i) => (
-            <motion.div 
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1, duration: 0.5 }}
-              viewport={{ once: true }}
-              className="glass-card p-8 rounded-3xl border border-zinc-200 dark:border-zinc-800 flex flex-col items-center justify-center gap-4 hover:-translate-y-2 transition-transform duration-300 shadow-xl"
-            >
-              <motion.div animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}>
-                <stat.icon className="w-10 h-10 text-gold-bronze dark:text-gold-metallic mb-2" fill="currentColor" fillOpacity={0.2} />
+        {showStats && (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
+            {stats.map((stat, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+                viewport={{ once: true }}
+                className="glass-card p-8 rounded-3xl border border-zinc-200 dark:border-zinc-800 flex flex-col items-center justify-center gap-4 hover:-translate-y-2 transition-transform duration-300 shadow-xl"
+              >
+                <motion.div animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}>
+                  <stat.icon className="w-10 h-10 text-gold-bronze dark:text-gold-metallic mb-2" fill="currentColor" fillOpacity={0.2} />
+                </motion.div>
+                <div className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-gold-bronze to-gold-metallic dark:from-gold-champagne dark:to-gold-metallic">
+                  {stat.num !== undefined ? (
+                    <AnimatedCounter from={0} to={stat.num} suffix={stat.suffix || ""} duration={2} />
+                  ) : (
+                    <span className="text-2xl">{stat.text}</span>
+                  )}
+                </div>
+                <h3 className="text-zinc-900 dark:text-white font-bold text-lg">{stat.title}</h3>
               </motion.div>
-              <div className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-gold-bronze to-gold-metallic dark:from-gold-champagne dark:to-gold-metallic">
-                {stat.num !== undefined ? (
-                  <AnimatedCounter from={0} to={stat.num} suffix={stat.suffix || ""} duration={2} />
-                ) : (
-                  <span className="text-2xl">{stat.text}</span>
-                )}
-              </div>
-              <h3 className="text-zinc-900 dark:text-white font-bold text-lg">{stat.title}</h3>
-            </motion.div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </motion.section>
   );
@@ -258,7 +260,7 @@ export function TrainingExperienceSection() {
 }
 
 // 3. Gallery Section
-export function GallerySection({ onNavigate, limit }: { onNavigate?: (page: string) => void, limit?: number }) {
+export function GallerySection() {
   const allImages = [
     '/gallery/DSC03560.JPG',
     '/gallery/DSC03564.JPG',
@@ -279,7 +281,7 @@ export function GallerySection({ onNavigate, limit }: { onNavigate?: (page: stri
     '/gallery/DSC05916.JPG'
   ];
   
-  const images = limit ? allImages.slice(0, limit) : allImages;
+  const images = allImages;
   
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
 
@@ -332,16 +334,6 @@ export function GallerySection({ onNavigate, limit }: { onNavigate?: (page: stri
               </motion.div>
             ))}
           </div>
-          {limit && (
-            <div className="mt-8 text-center">
-              <button 
-                onClick={() => onNavigate && onNavigate('gallery')}
-                className="inline-flex items-center gap-2 px-8 py-4 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold rounded-full hover:scale-105 transition-transform shadow-xl"
-              >
-                Explore More <ArrowRight className="w-5 h-5" />
-              </button>
-            </div>
-          )}
         </div>
       </motion.section>
 
@@ -841,6 +833,71 @@ export function FinalCTASection() {
         >
           Join SK Academy <ArrowRight className="w-6 h-6" />
         </button>
+      </div>
+    </motion.section>
+  );
+}
+
+// 12. Instagram Profiles Section
+export function InstagramProfilesSection() {
+  const profiles = [
+    {
+      handle: "skkoreanaesthetictechnologies",
+      name: "SK Korean Aesthetic",
+      link: "https://www.instagram.com/skkoreanaesthetictechnologies/",
+      bio: "Advanced aesthetic technologies and treatments."
+    },
+    {
+      handle: "skbeautyverseacademy",
+      name: "SK Beauty-Verse Academy",
+      link: "https://www.instagram.com/skbeautyverseacademy/",
+      bio: "Learn professional makeup and aesthetic skills."
+    }
+  ];
+
+  return (
+    <motion.section 
+      initial={{ opacity: 0 }} 
+      whileInView={{ opacity: 1 }} 
+      transition={{ duration: 0.8 }} 
+      viewport={{ once: true, margin: "-100px" }}
+      className="py-12 md:py-16 bg-white dark:bg-[#09090B]"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-900 dark:text-white mb-6">Follow Us on Instagram</h2>
+        <CreativeUnderline />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 max-w-4xl mx-auto">
+          {profiles.map((profile, idx) => (
+            <motion.a
+              href={profile.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              key={idx}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: idx * 0.2 }}
+              viewport={{ once: true }}
+              className="group block p-8 rounded-3xl border-2 border-transparent hover:border-gold-metallic bg-zinc-50 dark:bg-zinc-900 shadow-lg hover:shadow-2xl transition-all duration-300 relative overflow-hidden"
+            >
+              <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 opacity-80" />
+              <div className="flex flex-col items-center gap-4">
+                <div className="w-20 h-20 rounded-full bg-gradient-to-tr from-orange-500 via-pink-500 to-purple-500 p-1">
+                  <div className="w-full h-full rounded-full bg-white dark:bg-zinc-900 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-pink-500 w-10 h-10"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                  </div>
+                </div>
+                <div>
+                  <h3 className="font-bold text-xl text-zinc-900 dark:text-white group-hover:text-gold-bronze dark:group-hover:text-gold-metallic transition-colors">{profile.name}</h3>
+                  <p className="text-sm font-medium text-zinc-500 mb-4">@{profile.handle}</p>
+                  <p className="text-zinc-600 dark:text-zinc-400 text-sm mb-6 max-w-xs mx-auto">{profile.bio}</p>
+                </div>
+                <span className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold text-sm hover:scale-105 transition-transform">
+                  Follow <ArrowRight className="w-4 h-4" />
+                </span>
+              </div>
+            </motion.a>
+          ))}
+        </div>
       </div>
     </motion.section>
   );

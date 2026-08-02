@@ -112,7 +112,7 @@ export function FounderSpotlight() {
             <p className="text-lg italic text-gold-bronze dark:text-gold-champagne mb-8 font-medium">"Empowering Dreams Through Beauty Education."</p>
             <div className="text-zinc-700 dark:text-zinc-300 text-base lg:text-lg leading-relaxed space-y-6 mb-8">
               <p>
-                As the creative force behind SK Beauty-Verse, I am a dedicated makeup artist with a deep passion for skin, hair, aesthetics, and SPMU. Treating every face as a unique canvas, I specialize in bridal makeup and advanced skincare. My goal is to make your most cherished moments truly unforgettable by enhancing your natural beauty. Let me help you shine with a look that elevates your confidence and lasts far beyond the moment.
+                As the creative force behind SK International Institute of Skills, I am a dedicated makeup artist with a deep passion for skin, hair, aesthetics, and SPMU. Treating every face as a unique canvas, I specialize in bridal makeup and advanced skincare. My goal is to make your most cherished moments truly unforgettable by enhancing your natural beauty. Let me help you shine with a look that elevates your confidence and lasts far beyond the moment.
               </p>
             </div>
           </div>
@@ -303,15 +303,6 @@ export function CoursesGrid({ onNavigate }: { onNavigate?: (page: string) => voi
               </motion.div>
             )
           })}
-        </div>
-
-        <div className="mt-8 text-center">
-          <button 
-            onClick={() => onNavigate && onNavigate('courses')}
-            className="inline-flex items-center gap-2 px-8 py-4 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold rounded-full hover:scale-105 transition-transform shadow-xl"
-          >
-            Explore More <ArrowRight className="w-5 h-5" />
-          </button>
         </div>
       </div>
     </motion.section>

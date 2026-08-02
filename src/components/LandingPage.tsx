@@ -1,16 +1,15 @@
 
 import Header from './Header';
 import Hero from './Hero';
-import { CoursesGrid, Testimonials, VideoTestimonials } from './HomeSections';
+
 import { 
-  AboutSection, 
   TrainingExperienceSection, 
-  GallerySection, 
   WhoCanJoinSection, 
   ContactSection, 
   FinalCTASection,
   WhyChooseUsSection,
-  EquipmentSalesSection
+  EquipmentSalesSection,
+  InstagramProfilesSection
 } from './NewSections';
 import Footer from './Footer';
 
@@ -20,16 +19,11 @@ export default function LandingPage({ isDark, toggleTheme, onNavigate }: { isDar
       <Header isDark={isDark} toggleTheme={toggleTheme} onNavigate={onNavigate} />
       <main>
         <Hero />
-        <AboutSection onNavigate={onNavigate} />
-        <WhyChooseUsSection />
-        <CoursesGrid onNavigate={onNavigate} />
         <EquipmentSalesSection />
         <TrainingExperienceSection />
-        <GallerySection onNavigate={onNavigate} limit={6} />
-
         <WhoCanJoinSection />
-        <VideoTestimonials />
-        <Testimonials />
+        <WhyChooseUsSection />
+        <InstagramProfilesSection />
         <ContactSection />
         <FinalCTASection />
       </main>

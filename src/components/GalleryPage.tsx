@@ -6,7 +6,7 @@ export default function GalleryPage({ isDark, toggleTheme, onNavigate }: { isDar
     <div className={`min-h-screen ${isDark ? 'dark bg-[#09090B] text-zinc-50' : 'bg-white text-zinc-900'} font-sans transition-colors duration-300`}>
       <Header isDark={isDark} toggleTheme={toggleTheme} onNavigate={onNavigate} />
       <main className="pt-20 md:pt-16">
-        <GallerySection onNavigate={onNavigate} />
+        <GallerySection />
       </main>
     </div>
   );

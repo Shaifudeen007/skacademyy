@@ -9,6 +9,7 @@ import NailArtCoursePage from './components/NailArtCoursePage';
 import HairExtensionCoursePage from './components/HairExtensionCoursePage';
 import HairCoursePage from './components/HairCoursePage';
 import { SchedulePopup } from './components/SchedulePopup';
+import TestimonialsPage from './components/TestimonialsPage';
 import { motion, AnimatePresence } from 'framer-motion';
 
 function App() {
@@ -102,6 +103,8 @@ function App() {
         <HairCoursePage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
       ) : currentPage === 'gallery' ? (
         <GalleryPage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
+      ) : currentPage === 'testimonials' ? (
+        <TestimonialsPage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
       ) : (
         <LandingPage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
       )}

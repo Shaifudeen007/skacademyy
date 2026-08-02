@@ -1,4 +1,4 @@
-import { Home, Sparkles, GraduationCap, Info, Moon, Sun } from 'lucide-react';
+import { Home, Sparkles, GraduationCap, Info, Moon, Sun, MessageSquareHeart } from 'lucide-react';
 
 export default function Header({ toggleTheme, isDark, onNavigate }: { toggleTheme?: () => void, isDark?: boolean, onNavigate?: (page: string) => void }) {
   return (
@@ -20,7 +20,7 @@ export default function Header({ toggleTheme, isDark, onNavigate }: { toggleThem
           
           {/* Nav Links */}
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
-            {['Home', 'About', 'Courses', 'Gallery', 'Contact'].map((item) => (
+            {['Home', 'About', 'Courses', 'Gallery', 'Testimonials', 'Contact'].map((item) => (
               <a 
                 key={item} 
                 href={`#${item.toLowerCase()}`} 
@@ -29,6 +29,7 @@ export default function Header({ toggleTheme, isDark, onNavigate }: { toggleThem
                   if (item === 'About' && onNavigate) onNavigate('about');
                   else if (item === 'Courses' && onNavigate) onNavigate('courses');
                   else if (item === 'Gallery' && onNavigate) onNavigate('gallery');
+                  else if (item === 'Testimonials' && onNavigate) onNavigate('testimonials');
                   else if (onNavigate) {
                     onNavigate('home');
                     if (item === 'Contact') {
@@ -73,6 +74,10 @@ export default function Header({ toggleTheme, isDark, onNavigate }: { toggleThem
           <a href="#gallery" onClick={(e) => { e.preventDefault(); if (onNavigate) onNavigate('gallery'); }} className="flex flex-col items-center gap-1 text-zinc-500 dark:text-zinc-400 hover:text-gold-bronze dark:hover:text-gold-metallic hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.6)] transition-all duration-300">
             <Sparkles className="w-5 h-5" />
             <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider">Gallery</span>
+          </a>
+          <a href="#testimonials" onClick={(e) => { e.preventDefault(); if (onNavigate) onNavigate('testimonials'); }} className="flex flex-col items-center gap-1 text-zinc-500 dark:text-zinc-400 hover:text-gold-bronze dark:hover:text-gold-metallic hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.6)] transition-all duration-300">
+            <MessageSquareHeart className="w-5 h-5" />
+            <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider">Reviews</span>
           </a>
         </nav>
       </div>
