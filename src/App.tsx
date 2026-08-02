@@ -27,6 +27,17 @@ function App() {
   const [currentPage, setCurrentPage] = useState('home');
 
   useEffect(() => {
+    const handleNavigate = (e: Event) => {
+      const customEvent = e as CustomEvent<string>;
+      if (customEvent.detail) {
+        setCurrentPage(customEvent.detail);
+      }
+    };
+    window.addEventListener('navigate', handleNavigate);
+    return () => window.removeEventListener('navigate', handleNavigate);
+  }, []);
+
+  useEffect(() => {
     if (isDark) {
       document.documentElement.classList.add('dark');
     } else {
@@ -130,3 +141,4 @@ function App() {
 }
 
 export default App;
+

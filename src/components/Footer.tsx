@@ -1,6 +1,12 @@
 
 
+
 export default function Footer() {
+  const handleNav = (e: React.MouseEvent, page: string) => {
+    e.preventDefault();
+    window.dispatchEvent(new CustomEvent('navigate', { detail: page }));
+  };
+
   return (
     <footer id="contact" className="relative bg-zinc-100 dark:bg-[#050505] pt-16 pb-8 border-t border-zinc-200 dark:border-zinc-800/50 overflow-hidden">
       {/* Watermark Background */}
@@ -9,14 +15,14 @@ export default function Footer() {
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12 mb-12">
           {/* Brand Info */}
-          <div>
+          <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-6">
               <img src="/N0__48102__Angalamman_Kovil_St__Choolai__Chennai__Tamil_Nadu_600112.-removebg-preview.png" alt="Logo" className="h-16 md:h-20 w-auto object-contain drop-shadow-md scale-125 origin-left" />
               <span className="font-bold text-lg tracking-wide pl-2">SK International Institute of Skills</span>
             </div>
-            <p className="text-zinc-600 dark:text-zinc-400 text-sm mb-4">
+            <p className="text-zinc-600 dark:text-zinc-400 text-sm mb-4 max-w-sm">
               Aesthetic clinic, and academy led by Sushmitha.
             </p>
             <div className="flex items-center gap-4 mt-6">
@@ -30,6 +36,18 @@ export default function Footer() {
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
               </a>
             </div>
+          </div>
+          
+          {/* Quick Links */}
+          <div>
+            <h4 className="font-bold mb-4">Quick Links</h4>
+            <ul className="space-y-3 text-sm text-zinc-600 dark:text-zinc-400">
+              <li><a href="#home" onClick={(e) => handleNav(e, 'home')} className="hover:text-gold-metallic transition-colors">Home</a></li>
+              <li><a href="#about" onClick={(e) => handleNav(e, 'about')} className="hover:text-gold-metallic transition-colors">About</a></li>
+              <li><a href="#courses" onClick={(e) => handleNav(e, 'courses')} className="hover:text-gold-metallic transition-colors">Courses</a></li>
+              <li><a href="#gallery" onClick={(e) => handleNav(e, 'gallery')} className="hover:text-gold-metallic transition-colors">Gallery</a></li>
+              <li><a href="#testimonials" onClick={(e) => handleNav(e, 'testimonials')} className="hover:text-gold-metallic transition-colors">Reviews</a></li>
+            </ul>
           </div>
           
           {/* Contact Info */}
@@ -51,22 +69,13 @@ export default function Footer() {
               Choolai , Chennai - 600 012
             </p>
           </div>
-          
-          {/* Legal */}
-          <div>
-            <h4 className="font-bold mb-4">Registrations</h4>
-            <ul className="space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
-              <li>GST: 33AAOCB4562B1ZX</li>
-              <li>ISO 9001:2005</li>
-              <li>UDYAM-TN-02-0245303</li>
-            </ul>
-          </div>
         </div>
         
         <div className="pt-8 border-t border-zinc-200 dark:border-zinc-800/50 flex justify-center items-center gap-4">
-          <p className="text-sm text-zinc-500 text-center">Â© 2026 SK International Institute of Skills. All rights reserved.</p>
+          <p className="text-sm text-zinc-500 text-center">© 2026 SK International Institute of Skills. All rights reserved.</p>
         </div>
       </div>
     </footer>
   );
 }
+

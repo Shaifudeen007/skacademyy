@@ -15,7 +15,7 @@ export default function Header({ toggleTheme, isDark, onNavigate }: { toggleThem
             </a>
             
             {/* Brand Name for Mobile */}
-            <span className="md:hidden font-extrabold tracking-wide text-lg text-zinc-900 dark:text-white">Beauty Academy</span>
+            <span className="md:hidden font-extrabold tracking-wide text-lg text-zinc-900 dark:text-white">International Institute of Skills</span>
           </div>
           
           {/* Nav Links */}
