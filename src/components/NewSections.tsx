@@ -844,13 +844,13 @@ export function InstagramProfilesSection() {
   const profiles = [
     {
       handle: "skkoreanaesthetictechnologies",
-      name: "SK Korean Aesthetic",
+      name: "SK Korean Aesthetic Technologies",
       link: "https://www.instagram.com/skkoreanaesthetictechnologies/",
       bio: "Premium Korean aesthetic machines, clinical equipment, and advanced technologies."
     },
     {
       handle: "skbeautyverseacademy",
-      name: "SK Beauty-Verse Academy",
+      name: "SK International Institute of Skills",
       link: "https://www.instagram.com/skbeautyverseacademy/",
       bio: "Learn professional makeup and aesthetic skills."
     }
