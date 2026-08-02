@@ -1,4 +1,4 @@
-﻿
+
 
 
 export default function Footer() {
@@ -18,14 +18,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12 mb-12">
           {/* Brand Info */}
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-2 mb-6">
+            <div className="flex items-center gap-2 mb-2">
               <img src="/N0__48102__Angalamman_Kovil_St__Choolai__Chennai__Tamil_Nadu_600112.-removebg-preview.png" alt="Logo" className="h-16 md:h-20 w-auto object-contain drop-shadow-md scale-125 origin-left" />
               <span className="font-bold text-lg tracking-wide pl-2">SK International Institute of Skills</span>
             </div>
-            <p className="text-zinc-600 dark:text-zinc-400 text-sm mb-4 max-w-sm">
+            <p className="text-zinc-600 dark:text-zinc-400 text-sm mb-3 max-w-sm">
               Aesthetic clinic, and academy led by Sushmitha.
             </p>
-            <div className="flex items-center gap-4 mt-6">
+            <div className="flex items-center gap-4 mt-3">
               <a 
                 href="https://www.instagram.com/skbeautyverseacademy/" 
                 target="_blank" 

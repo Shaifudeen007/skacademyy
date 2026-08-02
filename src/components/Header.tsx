@@ -8,10 +8,12 @@ export default function Header({ toggleTheme, isDark, onNavigate }: { toggleThem
           
           <div className="flex items-center gap-3">
             {/* Brand Circular Icon */}
-            <a href="#home" onClick={() => onNavigate && onNavigate('home')} className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center shrink-0 hover:scale-105 transition-transform">
-              <div className="relative inline-block pr-1">
-                <span className="font-black text-xl md:text-2xl tracking-tighter bg-clip-text text-transparent bg-glare-gradient bg-[length:200%_auto] animate-text-glare">SK</span>
-              </div>
+            <a href="#home" onClick={() => onNavigate && onNavigate('home')} className="h-10 md:h-12 flex items-center justify-center shrink-0 hover:scale-110 transition-transform ml-2 md:ml-4">
+              <img 
+                src="/N0__48102__Angalamman_Kovil_St__Choolai__Chennai__Tamil_Nadu_600112.-removebg-preview.png" 
+                alt="SK Academy Logo" 
+                className="h-full object-contain scale-[2] translate-y-2"
+              />
             </a>
             
             {/* Brand Name for Mobile */}
