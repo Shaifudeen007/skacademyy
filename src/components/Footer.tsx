@@ -1,4 +1,4 @@
-
+﻿
 
 
 export default function Footer() {
@@ -72,7 +72,7 @@ export default function Footer() {
         </div>
         
         <div className="pt-8 border-t border-zinc-200 dark:border-zinc-800/50 flex justify-center items-center gap-4">
-          <p className="text-sm text-zinc-500 text-center">� 2026 SK International Institute of Skills. All rights reserved.</p>
+          <p className="text-sm text-zinc-500 text-center">© 2026 SK International Institute of Skills. All rights reserved.</p>
         </div>
       </div>
     </footer>
