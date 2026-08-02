@@ -846,7 +846,7 @@ export function InstagramProfilesSection() {
       handle: "skkoreanaesthetictechnologies",
       name: "SK Korean Aesthetic",
       link: "https://www.instagram.com/skkoreanaesthetictechnologies/",
-      bio: "Advanced aesthetic technologies and treatments."
+      bio: "Premium Korean aesthetic machines, clinical equipment, and advanced technologies."
     },
     {
       handle: "skbeautyverseacademy",
