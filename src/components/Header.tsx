@@ -4,11 +4,11 @@ export default function Header({ toggleTheme, isDark, onNavigate }: { toggleThem
   return (
     <>
       <div className="fixed top-0 md:top-6 left-0 right-0 z-50 flex justify-center md:px-4 pointer-events-none">
-        <header className="pointer-events-auto w-full md:w-auto bg-white dark:bg-[#18181B] md:bg-[#18181B] text-zinc-900 md:text-white dark:text-white shadow-2xl rounded-none md:rounded-full px-4 py-3 md:p-2 flex items-center justify-between md:justify-center gap-4 sm:gap-6 border-b border-zinc-200 dark:border-zinc-700/50 md:border-zinc-700/50">
+        <header className="pointer-events-auto w-full md:w-auto bg-white dark:bg-[#18181B] md:bg-[#18181B] text-zinc-900 md:text-white dark:text-white shadow-2xl rounded-none md:rounded-full px-4 py-2 md:p-2 flex items-center justify-between md:justify-center gap-2 sm:gap-6 border-b border-zinc-200 dark:border-zinc-700/50 md:border-zinc-700/50">
           
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 max-w-[90%]">
             {/* Brand Circular Icon */}
-            <a href="#home" onClick={() => onNavigate && onNavigate('home')} className="h-10 md:h-12 flex items-center justify-center shrink-0 hover:scale-110 transition-transform ml-2 md:ml-4">
+            <a href="#home" onClick={() => onNavigate && onNavigate('home')} className="h-8 md:h-12 flex items-center justify-center shrink-0 hover:scale-110 transition-transform ml-1 md:ml-4">
               <img 
                 src="/N0__48102__Angalamman_Kovil_St__Choolai__Chennai__Tamil_Nadu_600112.-removebg-preview.png" 
                 alt="SK Academy Logo" 
@@ -17,7 +17,7 @@ export default function Header({ toggleTheme, isDark, onNavigate }: { toggleThem
             </a>
             
             {/* Brand Name for Mobile */}
-            <span className="md:hidden font-extrabold tracking-wide text-lg text-zinc-900 dark:text-white">International Institute of Skills</span>
+            <span className="md:hidden font-extrabold tracking-tight text-[17px] sm:text-lg whitespace-nowrap truncate text-zinc-900 dark:text-white">SK International Institute of Skills</span>
           </div>
           
           {/* Nav Links */}
