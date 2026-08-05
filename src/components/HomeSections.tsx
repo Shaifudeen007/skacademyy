@@ -58,7 +58,7 @@ export function Advantage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className="group relative p-8 rounded-3xl transition-all duration-500 shadow-[0_0_15px_rgba(212,175,55,0.1)] hover:shadow-[0_0_35px_rgba(212,175,55,0.3)] dark:shadow-[0_0_15px_rgba(212,175,55,0.2)] dark:hover:shadow-[0_0_35px_rgba(212,175,55,0.5)] border border-gold-metallic/30 hover:border-gold-metallic overflow-hidden flex flex-col items-center text-center bg-white dark:bg-[#111]"
+                className="group relative p-8 rounded-3xl transition-all duration-500 shadow-[0_0_15px_rgba(212,175,55,0.1)] hover:shadow-[0_0_35px_rgba(212,175,55,0.3)] active:scale-[0.98] dark:shadow-[0_0_15px_rgba(212,175,55,0.2)] dark:hover:shadow-[0_0_35px_rgba(212,175,55,0.5)] border border-gold-metallic/30 hover:border-gold-metallic overflow-hidden flex flex-col items-center text-center bg-white dark:bg-[#111]"
               >
                 {/* Glare Effect Overlay */}
                 <div 
@@ -190,7 +190,7 @@ export function ServicesGrid({ onNavigate }: { onNavigate?: (page: string) => vo
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: idx * 0.05 }}
                 whileHover={{ y: -10 }}
-                className="group glass-card rounded-2xl overflow-hidden cursor-pointer flex flex-col h-full hover:shadow-2xl hover:shadow-gold-metallic/10 transition-all duration-300 border border-zinc-200 dark:border-zinc-800"
+                className="group glass-card rounded-2xl overflow-hidden cursor-pointer flex flex-col h-full hover:shadow-2xl hover:shadow-gold-metallic/10 active:scale-[0.98] transition-all duration-300 border border-zinc-200 dark:border-zinc-800"
               >
                 <div className="h-48 relative flex items-center justify-center bg-zinc-100 dark:bg-[#1a1a1a] group-hover:bg-gold-bronze/10 dark:group-hover:bg-gold-metallic/10 transition-colors duration-500 overflow-hidden">
                   <Icon className="w-24 h-24 text-gold-bronze dark:text-gold-metallic opacity-20 absolute -right-4 -bottom-4 group-hover:scale-110 transition-transform duration-700" />
@@ -267,7 +267,7 @@ export function CoursesGrid({ onNavigate }: { onNavigate?: (page: string) => voi
                   else if (svc.title === 'Hair Extension' && onNavigate) onNavigate('course-hair-extension');
                   else if (svc.title === 'Hair Course' && onNavigate) onNavigate('course-hair');
                 }}
-                className="w-full md:w-[calc(50%-1rem)] lg:w-[calc((100%-4rem)/3)] group rounded-2xl overflow-hidden cursor-pointer flex flex-col relative min-h-[420px] hover:shadow-2xl hover:shadow-gold-metallic/10 transition-all duration-300 border border-zinc-200 dark:border-zinc-800"
+                className="w-full md:w-[calc(50%-1rem)] lg:w-[calc((100%-4rem)/3)] group rounded-2xl overflow-hidden cursor-pointer flex flex-col relative min-h-[420px] hover:shadow-2xl hover:shadow-gold-metallic/10 active:scale-[0.98] transition-all duration-300 border border-zinc-200 dark:border-zinc-800"
               >
                 {/* Background Image */}
                 <img src={svc.img} alt={svc.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
@@ -449,7 +449,7 @@ export function VideoTestimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: idx * 0.15 }}
               viewport={{ once: true }}
-              className="w-[calc(50%-0.5rem)] md:w-full md:flex-1 bg-white dark:bg-zinc-900 p-3 sm:p-6 rounded-2xl sm:rounded-3xl border border-gold-metallic/30 shadow-[0_0_30px_rgba(212,175,55,0.1)] overflow-hidden flex flex-col hover:-translate-y-2 transition-transform duration-300"
+              className="w-full sm:w-[calc(50%-0.5rem)] md:w-full md:flex-1 bg-white dark:bg-zinc-900 p-3 sm:p-6 rounded-2xl sm:rounded-3xl border border-gold-metallic/30 shadow-[0_0_30px_rgba(212,175,55,0.1)] overflow-hidden flex flex-col hover:-translate-y-2 transition-transform duration-300"
             >
               <h3 className="text-sm sm:text-xl font-bold text-center text-zinc-900 dark:text-white mb-2 sm:mb-4 flex items-center justify-center min-h-[2.5rem] sm:min-h-[auto]">{video.title}</h3>
               <div className="relative w-full aspect-[9/16] bg-zinc-100 dark:bg-zinc-800 rounded-lg sm:rounded-2xl overflow-hidden shadow-inner group">

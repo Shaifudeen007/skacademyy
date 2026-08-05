@@ -52,12 +52,12 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <button 
                 onClick={() => window.open('https://wa.me/918610345830', '_blank')}
-                className="bg-gold-gradient text-zinc-900 shadow-[0_0_15px_rgba(212,175,55,0.4)] hover:shadow-[0_0_25px_rgba(212,175,55,0.6)] hover:scale-105 transition-all py-3 px-6 sm:px-8 text-base sm:text-lg font-extrabold w-full sm:w-auto flex items-center justify-center gap-2 rounded-[1.5rem]"
+                className="bg-gold-gradient text-zinc-900 shadow-[0_0_15px_rgba(212,175,55,0.4)] hover:shadow-[0_0_25px_rgba(212,175,55,0.6)] hover:scale-105 active:scale-95 transition-all py-3 px-6 sm:px-8 text-base sm:text-lg font-extrabold w-full sm:w-auto flex items-center justify-center gap-2 rounded-[1.5rem]"
               >
                 <Calendar className="w-5 h-5" />
                 Enroll Now
               </button>
-              <button className="bg-transparent border-2 border-gold-metallic text-gold-bronze dark:text-gold-metallic hover:bg-gold-gradient hover:text-zinc-900 dark:hover:text-zinc-900 hover:border-transparent transition-all py-3 px-6 sm:px-8 text-base sm:text-lg font-bold w-full sm:w-auto flex items-center justify-center gap-2 rounded-[1.5rem]">
+              <button className="bg-transparent border-2 border-gold-metallic text-gold-bronze dark:text-gold-metallic hover:bg-gold-gradient hover:text-zinc-900 dark:hover:text-zinc-900 hover:border-transparent active:scale-95 transition-all py-3 px-6 sm:px-8 text-base sm:text-lg font-bold w-full sm:w-auto flex items-center justify-center gap-2 rounded-[1.5rem]">
                 <Sparkles className="w-5 h-5" />
                 Explore Courses
               </button>
