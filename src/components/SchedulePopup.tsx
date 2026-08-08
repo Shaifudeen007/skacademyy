@@ -16,22 +16,17 @@ export function SchedulePopup() {
   const scheduleData = [
     {
       course: "Aesthetic Course",
-      date: "03/08/2026",
-      time: "10:00 AM - 06:00 PM"
-    },
-    {
-      course: "Nail Course",
-      date: "08/08/2026",
-      time: "10:00 AM - 06:00 PM"
-    },
-    {
-      course: "Hair Extension",
-      date: "12/08/2026",
+      date: "10/08/2026",
       time: "10:00 AM - 06:00 PM"
     },
     {
       course: "PMU Course",
-      date: "27/08/2026",
+      date: "14/08/2026",
+      time: "10:00 AM - 06:00 PM"
+    },
+    {
+      course: "Aesthetic Course",
+      date: "17/08/2026",
       time: "10:00 AM - 06:00 PM"
     }
   ];

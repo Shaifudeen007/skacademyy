@@ -802,11 +802,19 @@ export function ContactSection() {
           
           <div className="bg-white dark:bg-[#09090B] p-8 rounded-3xl shadow-xl border border-zinc-100 dark:border-zinc-900">
             <h3 className="text-2xl font-bold mb-6">Send a Message</h3>
-            <form className="space-y-4">
-              <input type="text" placeholder="Your Name" className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-[#111] border border-zinc-200 dark:border-zinc-800 focus:outline-none focus:border-gold-metallic transition-colors" />
-              <input type="email" placeholder="Your Email" className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-[#111] border border-zinc-200 dark:border-zinc-800 focus:outline-none focus:border-gold-metallic transition-colors" />
-              <textarea placeholder="Your Message" rows={4} className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-[#111] border border-zinc-200 dark:border-zinc-800 focus:outline-none focus:border-gold-metallic transition-colors"></textarea>
-              <button className="w-full btn-primary py-4 justify-center text-lg">Submit Request</button>
+            <form className="space-y-4" onSubmit={(e) => {
+              e.preventDefault();
+              const formData = new FormData(e.currentTarget);
+              const name = formData.get('name');
+              const email = formData.get('email');
+              const message = formData.get('message');
+              const text = `Name: ${name}%0AEmail: ${email}%0AMessage: ${message}`;
+              window.open(`https://wa.me/918610345830?text=${text}`, '_blank');
+            }}>
+              <input name="name" type="text" required placeholder="Your Name" className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-[#111] border border-zinc-200 dark:border-zinc-800 focus:outline-none focus:border-gold-metallic transition-colors" />
+              <input name="email" type="email" required placeholder="Your Email" className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-[#111] border border-zinc-200 dark:border-zinc-800 focus:outline-none focus:border-gold-metallic transition-colors" />
+              <textarea name="message" required placeholder="Your Message" rows={4} className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-[#111] border border-zinc-200 dark:border-zinc-800 focus:outline-none focus:border-gold-metallic transition-colors"></textarea>
+              <button type="submit" className="w-full btn-primary py-4 justify-center text-lg">Submit Request</button>
             </form>
           </div>
         </div>
