@@ -26,42 +26,52 @@ export default function Hero() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
-      className="relative overflow-hidden pt-12 pb-8 lg:pt-20 lg:pb-12"
+      className="relative overflow-hidden pt-28 pb-8 lg:pt-40 lg:pb-12"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           {/* Text Content */}
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { opacity: 1, transition: { staggerChildren: 0.2 } }
+            }}
             className="max-w-2xl order-last lg:order-first mt-2 lg:mt-0 text-center lg:text-left"
           >
-            <div className="-mt-8 -mb-12 sm:-mb-16 lg:-mb-24 w-full flex justify-center lg:justify-start">
-              <img src="/N0__48102__Angalamman_Kovil_St__Choolai__Chennai__Tamil_Nadu_600112.-removebg-preview.png" alt="SK Academy Logo" className="h-40 sm:h-48 md:h-56 lg:h-64 object-contain drop-shadow-xl lg:-ml-12" />
-            </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] mb-6 uppercase text-zinc-900 dark:text-white">
+
+            <motion.h1 
+              variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } } }}
+              className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] mb-6 uppercase text-zinc-900 dark:text-white"
+            >
               LEARN TODAY. <br className="hidden lg:block"/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-bronze to-gold-metallic dark:from-gold-champagne dark:to-gold-metallic">SHINE TOMORROW.</span>
               <br className="hidden lg:block"/>
               <span className="text-zinc-800 dark:text-zinc-200">YOUR BEAUTY CAREER STARTS HERE.</span>
-            </h1>
-            <p className="text-lg sm:text-xl text-zinc-600 dark:text-zinc-400 mb-8 leading-relaxed">
+            </motion.h1>
+            <motion.p 
+              variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } } }}
+              className="text-xl sm:text-2xl md:text-xl text-zinc-600 dark:text-zinc-400 mb-8 leading-relaxed"
+            >
               Turn creativity into a profession with hands-on beauty education designed for future salon professionals, makeup artists, and beauty entrepreneurs.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            </motion.p>
+            <motion.div 
+              variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } } }}
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+            >
               <button 
                 onClick={() => window.open('https://wa.me/918610345830', '_blank')}
-                className="bg-gold-gradient text-zinc-900 shadow-[0_0_15px_rgba(212,175,55,0.4)] hover:shadow-[0_0_25px_rgba(212,175,55,0.6)] hover:scale-105 active:scale-95 transition-all py-3 px-6 sm:px-8 text-base sm:text-lg font-extrabold w-full sm:w-auto flex items-center justify-center gap-2 rounded-[1.5rem]"
+                className="bg-gold-gradient text-zinc-900 shadow-[0_0_15px_rgba(212,175,55,0.4)] hover:shadow-[0_0_25px_rgba(212,175,55,0.6)] hover:scale-105 active:scale-95 transition-all py-3 px-6 sm:px-8 text-base sm:text-lg font-extrabold w-full sm:w-auto flex items-center justify-center gap-2 rounded-[1.5px]"
               >
                 <Calendar className="w-5 h-5" />
                 Enroll Now
               </button>
-              <button className="bg-transparent border-2 border-gold-metallic text-gold-bronze dark:text-gold-metallic hover:bg-gold-gradient hover:text-zinc-900 dark:hover:text-zinc-900 hover:border-transparent active:scale-95 transition-all py-3 px-6 sm:px-8 text-base sm:text-lg font-bold w-full sm:w-auto flex items-center justify-center gap-2 rounded-[1.5rem]">
+              <button className="bg-transparent border-2 border-gold-metallic text-gold-bronze dark:text-gold-metallic hover:bg-gold-gradient hover:text-zinc-900 dark:hover:text-zinc-900 hover:border-transparent active:scale-95 transition-all py-3 px-6 sm:px-8 text-base sm:text-lg font-bold w-full sm:w-auto flex items-center justify-center gap-2 rounded-[1.5px]">
                 <Sparkles className="w-5 h-5" />
                 Explore Courses
               </button>
-            </div>
+            </motion.div>
 
           </motion.div>
 
@@ -70,9 +80,9 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative lg:h-[600px] flex items-center justify-center order-first lg:order-last w-full mt-12 sm:mt-16 lg:mt-0"
+            className="relative lg:h-[500px] flex items-center justify-center order-first lg:order-last w-full mt-4 sm:mt-8 lg:mt-0"
           >
-            <div className="relative w-full max-w-full lg:max-w-lg aspect-[2/3] lg:aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border border-zinc-200/50 dark:border-gold-metallic/30 bg-zinc-100">
+            <div className="relative w-full max-w-full sm:max-w-md lg:max-w-md aspect-[2/3] sm:aspect-[4/5] lg:aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border border-zinc-200/50 dark:border-gold-metallic/30 bg-zinc-100">
               <div className="absolute inset-0 bg-gold-gradient opacity-10 mix-blend-overlay z-10 pointer-events-none"></div>
               
               <AnimatePresence mode="popLayout">

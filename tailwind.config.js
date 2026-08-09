@@ -30,11 +30,16 @@ export default {
         'text-glare': {
           '0%': { backgroundPosition: '200% center' },
           '100%': { backgroundPosition: '-200% center' },
+        },
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-100%)' },
         }
       },
       animation: {
         shimmer: 'shimmer 4s linear infinite',
         'text-glare': 'text-glare 3s linear infinite',
+        marquee: 'marquee 35s linear infinite',
       }
     },
   },

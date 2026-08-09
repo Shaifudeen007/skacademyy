@@ -14,7 +14,7 @@ export default function PmuCoursePage({ isDark, toggleTheme, onNavigate }: { isD
     <div className={`min-h-screen ${isDark ? 'dark bg-[#09090B] text-zinc-50' : 'bg-white text-zinc-900'} font-sans transition-colors duration-300`}>
       <Header isDark={isDark} toggleTheme={toggleTheme} onNavigate={onNavigate} />
       
-      <main className="pt-24 md:pt-32 pb-16 relative">
+      <main className="pt-32 md:pt-32 pb-16 relative">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <button 

@@ -8,7 +8,7 @@ import PmuCoursePage from './components/PmuCoursePage';
 import NailArtCoursePage from './components/NailArtCoursePage';
 import HairExtensionCoursePage from './components/HairExtensionCoursePage';
 import HairCoursePage from './components/HairCoursePage';
-import { SchedulePopup } from './components/SchedulePopup';
+
 import TestimonialsPage from './components/TestimonialsPage';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -120,7 +120,7 @@ function App() {
         <LandingPage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
       )}
 
-      <SchedulePopup />
+
 
       {/* Floating WhatsApp Button */}
       <a 

@@ -13,7 +13,7 @@ export default function AboutPage({ isDark, toggleTheme, onNavigate }: { isDark:
   return (
     <div className={`min-h-screen ${isDark ? 'dark bg-obsidian text-zinc-50' : 'bg-white text-zinc-900'} font-sans transition-colors duration-300`}>
       <Header isDark={isDark} toggleTheme={toggleTheme} onNavigate={onNavigate} />
-      <main className="pt-20 md:pt-16">
+      <main className="pt-32 md:pt-32">
         <AboutSection showStats={true} onNavigate={onNavigate} />
         <FounderSpotlight />
         <CertificationSection />

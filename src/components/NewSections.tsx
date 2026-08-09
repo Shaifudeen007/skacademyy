@@ -728,7 +728,7 @@ export function EquipmentSalesSection() {
             </p>
             <button 
               onClick={() => window.open('https://skkoreantechnologies.com/', '_blank')}
-              className="bg-gold-gradient text-zinc-900 shadow-[0_0_15px_rgba(212,175,55,0.4)] hover:shadow-[0_0_25px_rgba(212,175,55,0.6)] hover:scale-105 transition-all py-4 px-10 text-lg font-extrabold flex items-center justify-center gap-2 rounded-full mx-auto lg:mx-0 uppercase tracking-wide w-full sm:w-auto"
+              className="bg-gold-gradient text-zinc-900 shadow-[0_0_15px_rgba(212,175,55,0.4)] hover:shadow-[0_0_25px_rgba(212,175,55,0.6)] hover:scale-105 active:scale-95 transition-all py-3 px-6 sm:px-8 text-base sm:text-lg font-extrabold flex items-center justify-center gap-2 rounded-[1.5px] mx-auto lg:mx-0 uppercase tracking-wide w-full sm:w-auto"
             >
               Explore Machines <ArrowRight className="w-5 h-5" />
             </button>

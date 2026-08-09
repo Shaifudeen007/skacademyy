@@ -36,3 +36,12 @@
     @apply border-gold-metallic text-gold-metallic hover:bg-gold-metallic/10;
   }
 }
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+
+.animate-marquee {
+  animation: marquee 35s linear infinite;
+}
