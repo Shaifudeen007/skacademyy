@@ -1,5 +1,5 @@
 
-import { Sparkles, Award, GraduationCap, ShieldCheck, Scissors, Heart, ArrowRight, Flower2, ChevronLeft, ChevronRight, User, LayoutGrid, List } from 'lucide-react';
+import { Sparkles, Award, GraduationCap, ShieldCheck, Scissors, Heart, ArrowRight, Flower2, ChevronLeft, ChevronRight, User } from 'lucide-react';
 import { motion, useInView, animate, AnimatePresence } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import { CreativeUnderline } from './NewSections';
@@ -163,8 +163,8 @@ export const servicesData = [
   { category: 'Courses', icon: GraduationCap, type: 'Course', title: "Aesthetic Course", price: "Contact for price", desc: "Professional aesthetic training covering various advanced techniques and treatments.", img: "/DSC04305.JPG" },
   { category: 'Courses', icon: GraduationCap, type: 'Course', title: "PMU Course", price: "Contact for price", desc: "Intensive training in Permanent Makeup, including eyebrow, lip, and eyeliner techniques.", img: "/WhatsApp Image 2026-08-01 at 6.23.29 PM.jpeg" },
   { category: 'Courses', icon: GraduationCap, type: 'Course', title: "Nail Art Course", price: "Contact for price", desc: "Master the art of nail design, extensions, and professional nail care.", img: "/DSC05703.JPG" },
-  { category: 'Courses', icon: GraduationCap, type: 'Course', title: "Hair Course", price: "Contact for price", desc: "Comprehensive training in haircuts, styling, coloring, and hair treatments.", img: "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&q=80" },
-  { category: 'Courses', icon: GraduationCap, type: 'Course', title: "Hair Extension", price: "Contact for price", desc: "Learn advanced hair extension techniques and proper maintenance.", img: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&q=80" },
+  { category: 'Courses', icon: GraduationCap, type: 'Course', title: "Hair Course", price: "Contact for price", desc: "Comprehensive training in haircuts, styling, coloring, and hair treatments.", img: "/DSC04559 (1).JPG" },
+  { category: 'Courses', icon: GraduationCap, type: 'Course', title: "Hair Extension", price: "Contact for price", desc: "Learn advanced hair extension techniques and proper maintenance.", img: "/DSC04559 (1).JPG" },
 ];
 
 export function ServicesGrid({ onNavigate }: { onNavigate?: (page: string) => void }) {
@@ -244,7 +244,6 @@ export function ServicesGrid({ onNavigate }: { onNavigate?: (page: string) => vo
   );
 }
 export function CoursesGrid({ onNavigate }: { onNavigate?: (page: string) => void }) {
-  const [viewMode, setViewMode] = useState<'grid' | 'list'>('list');
   const courses = servicesData.filter(s => s.category === 'Courses');
 
   return (
@@ -254,19 +253,19 @@ export function CoursesGrid({ onNavigate }: { onNavigate?: (page: string) => voi
       whileInView={{ opacity: 1, y: 0 }} 
       transition={{ duration: 0.8 }} 
       viewport={{ once: true, margin: "-100px" }}
-      className="pt-16 pb-8 md:pt-24 md:pb-16 bg-white dark:bg-[#09090B] relative overflow-hidden"
+      className="pt-16 pb-16 md:pt-24 md:pb-24 bg-white dark:bg-[#09090B] relative overflow-hidden"
     >
       {/* Decorative Background Elements */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-gold-metallic/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-zinc-400/10 dark:bg-zinc-800/20 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-8 relative">
+        <div className="text-center mb-16 md:mb-24 relative">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold-bronze/10 dark:bg-gold-metallic/10 text-gold-bronze dark:text-gold-champagne font-bold text-sm mb-6 border border-gold-bronze/20 dark:border-gold-metallic/20">
             <GraduationCap className="w-4 h-4" />
             WORLD CLASS EDUCATION
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-zinc-900 dark:text-white text-center tracking-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-7xl font-extrabold mb-6 text-zinc-900 dark:text-white text-center tracking-tight">
             Professional <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-bronze to-gold-metallic">Academy</span>
           </h2>
           <CreativeUnderline />
@@ -275,85 +274,73 @@ export function CoursesGrid({ onNavigate }: { onNavigate?: (page: string) => voi
           </p>
         </div>
         
-        <div className="flex justify-end mb-6 relative z-20 pr-2">
-          <div className="flex items-center gap-1 bg-zinc-100/90 dark:bg-zinc-900/90 backdrop-blur-md p-1 rounded-xl border border-zinc-200 dark:border-zinc-800 shadow-sm">
-            <button 
-              onClick={() => setViewMode('grid')}
-              className={`px-3 py-1.5 sm:py-2 rounded-lg flex items-center gap-1.5 text-xs font-bold transition-all duration-300 ${viewMode === 'grid' ? 'bg-white dark:bg-black shadow-[0_2px_10px_rgba(0,0,0,0.05)] dark:shadow-[0_2px_15px_rgba(0,0,0,0.4)] text-gold-bronze dark:text-gold-champagne' : 'text-zinc-500 hover:text-zinc-900 dark:hover:text-white hover:bg-white/50 dark:hover:bg-zinc-800/50'}`}
-              aria-label="Grid View"
-            >
-              <LayoutGrid className="w-3.5 h-3.5" /> <span className="tracking-wide hidden sm:inline">Grid</span>
-            </button>
-            <button 
-              onClick={() => setViewMode('list')}
-              className={`px-3 py-1.5 sm:py-2 rounded-lg flex items-center gap-1.5 text-xs font-bold transition-all duration-300 ${viewMode === 'list' ? 'bg-white dark:bg-black shadow-[0_2px_10px_rgba(0,0,0,0.05)] dark:shadow-[0_2px_15px_rgba(0,0,0,0.4)] text-gold-bronze dark:text-gold-champagne' : 'text-zinc-500 hover:text-zinc-900 dark:hover:text-white hover:bg-white/50 dark:hover:bg-zinc-800/50'}`}
-              aria-label="List View"
-            >
-              <List className="w-3.5 h-3.5" /> <span className="tracking-wide hidden sm:inline">List</span>
-            </button>
-          </div>
-        </div>
-        
-        <div className={viewMode === 'grid' ? "flex flex-wrap justify-center gap-8 lg:[&>*:nth-child(3n+2)]:translate-y-12 pb-12" : "flex flex-col gap-8 max-w-4xl mx-auto pb-12"}>
+        <div className="flex flex-col gap-12 lg:gap-32 pb-12">
           {courses.map((svc, idx) => {
             const Icon = svc.icon;
+            const isEven = idx % 2 !== 0;
+
             return (
               <motion.div 
                 key={svc.title}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.4, delay: viewMode === 'grid' ? idx * 0.1 : 0 }}
-                whileHover={viewMode === 'grid' ? { y: -10 } : { scale: 1.02 }}
-                onClick={() => { 
-                  if (svc.title === 'Aesthetic Course' && onNavigate) onNavigate('course-aesthetic');
-                  else if (svc.title === 'PMU Course' && onNavigate) onNavigate('course-pmu');
-                  else if (svc.title === 'Nail Art Course' && onNavigate) onNavigate('course-nailart');
-                  else if (svc.title === 'Hair Extension' && onNavigate) onNavigate('course-hair-extension');
-                  else if (svc.title === 'Hair Course' && onNavigate) onNavigate('course-hair');
-                }}
-                className={
-                  viewMode === 'grid' 
-                    ? "w-full md:w-[calc(50%-1rem)] lg:w-[calc((100%-4rem)/3)] group rounded-2xl overflow-hidden cursor-pointer flex flex-col relative min-h-[420px] hover:shadow-2xl hover:shadow-gold-metallic/10 active:scale-[0.98] transition-all duration-300 border border-zinc-200 dark:border-zinc-800"
-                    : "w-full group rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden cursor-pointer flex flex-col sm:flex-row bg-white/50 dark:bg-[#111]/80 backdrop-blur-sm hover:bg-white dark:hover:bg-[#111] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] dark:hover:shadow-[0_8px_30px_rgba(212,175,55,0.08)] active:scale-[0.99] transition-all duration-500 border border-zinc-200/80 dark:border-zinc-800/80 hover:border-gold-bronze/30 dark:hover:border-gold-metallic/30"
-                }
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.7, ease: "easeOut" }}
+                className={`flex flex-col ${isEven ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-6 sm:gap-8 lg:gap-16 group bg-zinc-50/80 dark:bg-[#111]/80 p-5 sm:p-8 lg:p-0 rounded-[2.5rem] lg:bg-transparent lg:dark:bg-transparent`}
               >
-                {/* Background Image / Left Image */}
-                <div className={viewMode === 'grid' ? "absolute inset-0" : "w-full sm:w-[42%] md:w-[45%] h-[200px] sm:h-auto sm:min-h-[340px] relative overflow-hidden shrink-0"}>
-                  <img src={svc.img} alt={svc.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                  {viewMode === 'grid' ? (
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/70 to-black/10 pointer-events-none group-hover:from-black/90 transition-colors duration-500" />
-                  ) : (
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 sm:hidden" />
-                  )}
-                  
-                  {/* Top Badge */}
-                  <div className={`absolute top-3 left-3 sm:top-5 sm:left-5 z-20 px-2 py-1.5 sm:px-3.5 sm:py-2 ${viewMode === 'grid' ? 'bg-white/90 dark:bg-black/80' : 'bg-white/95 dark:bg-black/90'} backdrop-blur-md rounded-lg sm:rounded-xl flex items-center gap-1.5 sm:gap-2 shadow-sm border border-zinc-200/50 dark:border-zinc-800`}>
-                    <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-gold-bronze dark:text-gold-metallic" />
-                    <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-zinc-900 dark:text-white">{svc.type}</span>
+                {/* Image Section */}
+                <div className="w-full lg:w-[55%] relative">
+                  <div className="relative rounded-[2rem] lg:rounded-[3rem] overflow-hidden aspect-[4/3] lg:aspect-[16/10] shadow-[0_10px_30px_rgba(0,0,0,0.1)] lg:shadow-[0_20px_50px_rgba(0,0,0,0.15)] dark:shadow-[0_10px_30px_rgba(0,0,0,0.3)] lg:dark:shadow-[0_20px_50px_rgba(0,0,0,0.4)] border border-zinc-200/50 dark:border-zinc-800/50 group-hover:shadow-[0_30px_60px_rgba(212,175,55,0.15)] transition-all duration-700">
+                    <img 
+                      src={svc.img} 
+                      alt={svc.title} 
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out" 
+                    />
+                    <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-700" />
+                    
+                    {/* Badge */}
+                    <div className="absolute top-4 left-4 sm:top-6 sm:left-6 lg:top-8 lg:left-8 z-20 px-3 py-1.5 sm:px-4 sm:py-2 lg:px-5 lg:py-2.5 bg-white/95 dark:bg-black/90 backdrop-blur-md rounded-xl sm:rounded-2xl flex items-center gap-1.5 sm:gap-2 shadow-lg border border-white/20 dark:border-zinc-700/50">
+                      <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-gold-bronze dark:text-gold-metallic" />
+                      <span className="text-[10px] sm:text-xs lg:text-sm font-bold uppercase tracking-widest text-zinc-900 dark:text-white">{svc.type}</span>
+                    </div>
                   </div>
+                  
+                  {/* Decorative Background Element */}
+                  <div className={`absolute -z-10 w-full h-full rounded-[3rem] border-2 border-gold-metallic/20 hidden lg:block ${isEven ? '-top-8 -right-8' : '-bottom-8 -left-8'} transition-transform duration-700 group-hover:translate-x-0 group-hover:translate-y-0`} />
                 </div>
 
-                {/* Content Container */}
-                <div className={viewMode === 'grid' ? "relative z-10 p-8 flex-1 flex flex-col justify-end pt-48 mt-auto" : "relative z-10 p-5 sm:p-10 lg:p-12 flex-1 flex flex-col justify-center"}>
-                  <h3 className={`font-black tracking-tight ${viewMode === 'grid' ? 'text-xl lg:text-2xl mb-3 text-white' : 'text-2xl sm:text-3xl lg:text-4xl mb-3 sm:mb-4 text-zinc-900 dark:text-white group-hover:text-gold-bronze dark:group-hover:text-gold-champagne transition-colors leading-tight'}`}>{svc.title}</h3>
+                {/* Content Section */}
+                <div className="w-full lg:w-[45%] flex flex-col justify-center py-2 sm:py-4 lg:py-0 px-2 sm:px-0">
+                  <h3 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black mb-4 lg:mb-6 text-zinc-900 dark:text-white leading-[1.1] tracking-tight group-hover:text-gold-bronze dark:group-hover:text-gold-champagne transition-colors">
+                    {svc.title}
+                  </h3>
+                  
                   {svc.price && (
-                    <div className={`inline-block px-3 py-1.5 sm:px-4 sm:py-1.5 backdrop-blur-md rounded-full text-gold-champagne font-bold text-[11px] sm:text-sm mb-3 sm:mb-6 w-fit border ${viewMode === 'grid' ? 'bg-black/40 border-gold-metallic/30' : 'bg-zinc-900 dark:bg-black/60 border-gold-metallic/40 shadow-inner'}`}>
+                    <div className="inline-flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 bg-zinc-200/50 dark:bg-zinc-800/50 lg:bg-zinc-100 lg:dark:bg-zinc-900 rounded-full text-gold-bronze dark:text-gold-champagne font-bold text-xs sm:text-sm mb-6 w-fit border border-zinc-200 dark:border-zinc-800 shadow-sm">
+                      <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                       {svc.price}
                     </div>
                   )}
-                  <p className={`${viewMode === 'grid' ? 'text-zinc-300' : 'text-zinc-600 dark:text-zinc-400'} text-sm sm:text-base lg:text-lg mb-5 sm:mb-8 leading-relaxed max-w-2xl`}>{svc.desc}</p>
                   
-                  <div className={viewMode === 'grid' ? '' : 'pt-4 mt-auto border-t border-zinc-100 dark:border-zinc-800/50'}>
-                    <a href="#" onClick={(e) => { 
-                      e.preventDefault(); 
-                      if (svc.title === 'Aesthetic Course' && onNavigate) onNavigate('course-aesthetic'); 
-                      else if (svc.title === 'PMU Course' && onNavigate) onNavigate('course-pmu');
-                      else if (svc.title === 'Nail Art Course' && onNavigate) onNavigate('course-nailart');
-                      else if (svc.title === 'Hair Extension' && onNavigate) onNavigate('course-hair-extension');
-                      else if (svc.title === 'Hair Course' && onNavigate) onNavigate('course-hair');
-                    }} className={`inline-flex items-center justify-center gap-2 font-bold text-gold-champagne transition-all uppercase tracking-wide w-fit ${viewMode === 'grid' ? 'text-sm mt-auto group-hover:gap-3' : 'text-xs sm:text-base bg-gold-gradient text-zinc-900 px-5 py-2.5 sm:px-6 sm:py-3 rounded-[1.5px] shadow-[0_0_15px_rgba(212,175,55,0.2)] hover:shadow-[0_0_20px_rgba(212,175,55,0.5)] hover:scale-105 active:scale-95'}`}>
-                      {['Aesthetic Course', 'PMU Course', 'Nail Art Course', 'Hair Extension', 'Hair Course'].includes(svc.title) ? 'View Details' : 'Enroll Now'} {viewMode === 'grid' && <ArrowRight className="w-4 h-4" />}
+                  <p className="text-base sm:text-lg lg:text-xl text-zinc-600 dark:text-zinc-400 mb-8 lg:mb-12 leading-relaxed font-medium">
+                    {svc.desc}
+                  </p>
+                  
+                  <div>
+                    <a 
+                      href="#" 
+                      onClick={(e) => { 
+                        e.preventDefault(); 
+                        if (svc.title === 'Aesthetic Course' && onNavigate) onNavigate('course-aesthetic'); 
+                        else if (svc.title === 'PMU Course' && onNavigate) onNavigate('course-pmu');
+                        else if (svc.title === 'Nail Art Course' && onNavigate) onNavigate('course-nailart');
+                        else if (svc.title === 'Hair Extension' && onNavigate) onNavigate('course-hair-extension');
+                        else if (svc.title === 'Hair Course' && onNavigate) onNavigate('course-hair');
+                      }} 
+                      className="inline-flex items-center justify-center gap-2 sm:gap-3 font-bold transition-all uppercase tracking-wider bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 px-6 py-3.5 sm:px-8 sm:py-4 lg:px-10 lg:py-5 text-sm sm:text-base rounded-full hover:bg-gold-gradient hover:text-zinc-900 shadow-xl hover:shadow-[0_15px_30px_rgba(212,175,55,0.3)] hover:-translate-y-1 group/btn w-full sm:w-auto"
+                    >
+                      {['Aesthetic Course', 'PMU Course', 'Nail Art Course', 'Hair Extension', 'Hair Course'].includes(svc.title) ? 'View Course Details' : 'Enroll Now'} 
+                      <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover/btn:translate-x-1 transition-transform" />
                     </a>
                   </div>
                 </div>

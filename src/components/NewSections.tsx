@@ -488,9 +488,9 @@ export function WhoCanJoinSection() {
   ];
 
   const joinImages = [
-    "/img/DSC05488.JPG",
-    "/img/DSC05523.JPG",
-    "/img/DSC05892 (1).JPG"
+    "/Acadmey/DSC05892.JPG",
+    "/Acadmey/DSC05897.JPG",
+    "/Acadmey/DSC05912.JPG"
   ];
   const [currentImg, setCurrentImg] = useState(0);
 

@@ -13,7 +13,7 @@ import TestimonialsPage from './components/TestimonialsPage';
 import { motion, AnimatePresence } from 'framer-motion';
 
 function App() {
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   // Splash screen timeout

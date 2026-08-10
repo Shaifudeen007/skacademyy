@@ -70,7 +70,12 @@ export default function Header({ toggleTheme, isDark, onNavigate }: { toggleThem
         </header>
 
         {/* Marquee */}
-        <div className="overflow-hidden whitespace-nowrap pointer-events-auto w-full bg-gold-gradient text-zinc-900 py-1.5 shadow-md flex font-medium text-xs sm:text-sm tracking-wide border-b border-gold-bronze/20">
+        <a 
+          href="https://wa.me/918610345830?text=Hello%20SK%20Academy,%20I%20would%20like%20to%20know%20more%20about%20the%20courses."
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="overflow-hidden whitespace-nowrap pointer-events-auto w-full bg-gold-gradient text-zinc-900 py-3 sm:py-1.5 shadow-md flex font-medium text-sm tracking-wide border-b border-gold-bronze/20 hover:opacity-90 transition-opacity cursor-pointer block group"
+        >
           <div className="animate-marquee inline-flex shrink-0 items-center">
             <span className="mx-6 font-bold flex items-center gap-1.5"><Sparkles className="w-3.5 h-3.5" /> Upcoming Batches 2026! Reserve your place and begin your journey toward a successful career.</span>
             <span className="mx-2 text-gold-bronze">•</span>
@@ -78,7 +83,7 @@ export default function Header({ toggleTheme, isDark, onNavigate }: { toggleThem
             <span className="mx-2 text-gold-bronze">•</span>
             <span className="mx-6 flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5" /> <span className="font-bold">PMU Course:</span> 14/08/2026 (10:00 AM - 06:00 PM)</span>
             <span className="mx-2 text-gold-bronze">•</span>
-            <span className="mx-6 flex items-center gap-1.5"><MessageCircle className="w-3.5 h-3.5" /> Seats are filling fast! <a href="https://wa.me/918610345830" target="_blank" rel="noopener noreferrer" className="font-bold underline hover:text-white transition-colors">WhatsApp: +91 86103 45830</a> to secure your enrollment. <Sparkles className="w-3.5 h-3.5 ml-1" /></span>
+            <span className="mx-6 flex items-center gap-1.5"><MessageCircle className="w-3.5 h-3.5" /> Seats are filling fast! <span className="font-bold underline group-hover:text-white transition-colors">WhatsApp: +91 86103 45830</span> to secure your enrollment. <Sparkles className="w-3.5 h-3.5 ml-1" /></span>
           </div>
           <div className="animate-marquee inline-flex shrink-0 items-center" aria-hidden="true">
             <span className="mx-6 font-bold flex items-center gap-1.5"><Sparkles className="w-3.5 h-3.5" /> Upcoming Batches 2026! Reserve your place and begin your journey toward a successful career.</span>
@@ -87,9 +92,9 @@ export default function Header({ toggleTheme, isDark, onNavigate }: { toggleThem
             <span className="mx-2 text-gold-bronze">•</span>
             <span className="mx-6 flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5" /> <span className="font-bold">PMU Course:</span> 14/08/2026 (10:00 AM - 06:00 PM)</span>
             <span className="mx-2 text-gold-bronze">•</span>
-            <span className="mx-6 flex items-center gap-1.5"><MessageCircle className="w-3.5 h-3.5" /> Seats are filling fast! <a href="https://wa.me/918610345830" target="_blank" rel="noopener noreferrer" className="font-bold underline hover:text-white transition-colors">WhatsApp: +91 86103 45830</a> to secure your enrollment. <Sparkles className="w-3.5 h-3.5 ml-1" /></span>
+            <span className="mx-6 flex items-center gap-1.5"><MessageCircle className="w-3.5 h-3.5" /> Seats are filling fast! <span className="font-bold underline group-hover:text-white transition-colors">WhatsApp: +91 86103 45830</span> to secure your enrollment. <Sparkles className="w-3.5 h-3.5 ml-1" /></span>
           </div>
-        </div>
+        </a>
       </div>
 
       {/* Mobile Bottom Bar */}

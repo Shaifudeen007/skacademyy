@@ -138,7 +138,7 @@ export default function NailArtCoursePage({ isDark, toggleTheme, onNavigate }: {
               {syllabus.map((item, idx) => (
                 <div key={idx} className="relative group p-8 rounded-3xl bg-zinc-50 dark:bg-[#111] border border-zinc-200 dark:border-zinc-800 hover:border-gold-metallic/50 hover:shadow-[0_10px_30px_rgba(212,175,55,0.1)] transition-all duration-500 hover:-translate-y-1 overflow-hidden z-10">
                   {/* Watermark Number */}
-                  <div className="absolute -right-4 -bottom-6 text-[140px] font-black text-zinc-900/[0.03] dark:text-white/[0.02] group-hover:text-gold-metallic/10 transition-colors z-0 select-none pointer-events-none leading-none">
+                  <div className="absolute -right-4 -bottom-6 text-[140px] font-black text-zinc-900/10 dark:text-white/10 group-hover:text-gold-metallic/20 transition-colors z-0 select-none pointer-events-none leading-none">
                     {String(idx + 1).padStart(2, '0')}
                   </div>
                   
