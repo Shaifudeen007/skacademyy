@@ -1,13 +1,13 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  CheckCircle, 
-  MapPin, 
-  Phone, 
-  Mail, 
-  Calendar, 
-  Trophy, 
-  Award, 
-  Briefcase, 
+import {
+  CheckCircle,
+  MapPin,
+  Phone,
+  Mail,
+  Calendar,
+  Trophy,
+  Award,
+  Briefcase,
   Camera,
   ChevronDown,
   ArrowRight,
@@ -48,16 +48,22 @@ export function AboutSection({ onNavigate, showStats = false }: { onNavigate?: (
   ];
 
   return (
-    <motion.section 
+    <motion.section
       id="about"
-      initial={{ opacity: 0 }} 
-      whileInView={{ opacity: 1 }} 
-      transition={{ duration: 0.8 }} 
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
       viewport={{ once: true, margin: "-100px" }}
       className="pt-12 md:pt-16 pb-12 md:pb-20 bg-white dark:bg-[#09090B] scroll-mt-24"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-900 dark:text-white mb-6">About SK International Institute of Skills</h2>
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gold-bronze/10 dark:bg-gold-metallic/10 text-gold-bronze dark:text-gold-champagne font-bold text-xs mb-4 border border-gold-bronze/20 dark:border-gold-metallic/20">
+          <Award className="w-3.5 h-3.5" />
+          OUR STORY
+        </div>
+        <h2 className="text-3xl md:text-5xl font-extrabold mb-6 text-zinc-900 dark:text-white text-center tracking-tight">
+          About <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-bronze to-gold-metallic">SK International Institute of Skills</span>
+        </h2>
         <CreativeUnderline />
         <div className="text-lg text-zinc-600 dark:text-zinc-400 max-w-4xl mx-auto leading-relaxed mb-16 space-y-6 text-justify">
           <p>
@@ -74,7 +80,7 @@ export function AboutSection({ onNavigate, showStats = false }: { onNavigate?: (
         {showStats && (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
             {stats.map((stat, i) => (
-              <motion.div 
+              <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -112,11 +118,11 @@ export function WhyChooseUsSection() {
   ];
 
   return (
-    <motion.section 
+    <motion.section
       id="why-choose-us"
-      initial={{ opacity: 0 }} 
-      whileInView={{ opacity: 1 }} 
-      transition={{ duration: 0.8 }} 
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
       viewport={{ once: true, margin: "-100px" }}
       className="py-12 md:py-16 bg-zinc-50 dark:bg-[#111]"
     >
@@ -127,7 +133,7 @@ export function WhyChooseUsSection() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {reasons.map((reason, idx) => (
-            <motion.div 
+            <motion.div
               key={idx}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -180,11 +186,11 @@ export function TrainingExperienceSection() {
   }, []);
 
   return (
-    <motion.section 
+    <motion.section
       id="training-experience"
-      initial={{ opacity: 0 }} 
-      whileInView={{ opacity: 1 }} 
-      transition={{ duration: 0.8 }} 
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
       viewport={{ once: true, margin: "-100px" }}
       className="pt-4 pb-4 md:pt-8 md:pb-8 bg-zinc-50 dark:bg-[#111]"
     >
@@ -193,13 +199,13 @@ export function TrainingExperienceSection() {
           <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-900 dark:text-white mb-6">Hands-On Training Experience</h2>
           <CreativeUnderline />
         </div>
-        
+
         <div className="relative w-full max-w-6xl mx-auto rounded-3xl overflow-hidden shadow-2xl bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 flex flex-col md:flex-row min-h-[500px]">
-          
+
           {/* Left Side: Photo */}
           <div className="w-full md:w-1/2 h-64 md:h-auto relative overflow-hidden bg-zinc-200 dark:bg-zinc-800">
             <AnimatePresence mode="wait">
-              <motion.img 
+              <motion.img
                 key={currentSlide}
                 src={trainingSlides[currentSlide].image}
                 initial={{ opacity: 0, scale: 1.05 }}
@@ -229,8 +235,8 @@ export function TrainingExperienceSection() {
                 </p>
                 <ul className="space-y-4">
                   {trainingSlides[currentSlide].bullets.map((item, i) => (
-                    <li 
-                      key={i} 
+                    <li
+                      key={i}
                       className="flex items-center gap-4 font-medium text-zinc-800 dark:text-zinc-200"
                     >
                       <CheckCircle className="w-6 h-6 text-gold-metallic flex-shrink-0" /> {item}
@@ -243,7 +249,7 @@ export function TrainingExperienceSection() {
             {/* Pagination Indicators */}
             <div className="flex gap-3 mt-12">
               {trainingSlides.map((_, idx) => (
-                <button 
+                <button
                   key={idx}
                   onClick={() => setCurrentSlide(idx)}
                   className={`h-2 rounded-full transition-all duration-300 ${currentSlide === idx ? 'w-8 bg-gold-metallic' : 'w-2 bg-zinc-300 dark:bg-zinc-700 hover:bg-gold-metallic/50'}`}
@@ -252,7 +258,7 @@ export function TrainingExperienceSection() {
               ))}
             </div>
           </div>
-          
+
         </div>
       </div>
     </motion.section>
@@ -281,9 +287,9 @@ export function GallerySection() {
     '/gallery/DSC05912.JPG',
     '/gallery/DSC05916.JPG'
   ];
-  
+
   const images = allImages;
-  
+
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
 
   const prevImage = () => {
@@ -300,26 +306,29 @@ export function GallerySection() {
 
   return (
     <>
-      <motion.section 
+      <motion.section
         id="gallery"
-        initial={{ opacity: 0 }} 
-        whileInView={{ opacity: 1 }} 
-        transition={{ duration: 0.8 }} 
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
         viewport={{ once: true, margin: "-100px" }}
         className="pt-4 pb-8 md:pt-8 md:pb-12 bg-white dark:bg-[#09090B]"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <div className="flex items-center justify-center gap-4 mb-4">
-              <Camera className="w-8 h-8 text-gold-metallic" />
-              <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-900 dark:text-white">Academy Gallery</h2>
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gold-bronze/10 dark:bg-gold-metallic/10 text-gold-bronze dark:text-gold-champagne font-bold text-xs mb-4 border border-gold-bronze/20 dark:border-gold-metallic/20">
+              <Camera className="w-3.5 h-3.5" />
+              OUR FACILITIES
             </div>
+            <h2 className="text-3xl md:text-5xl font-extrabold mb-6 text-zinc-900 dark:text-white text-center tracking-tight">
+              Academy <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-bronze to-gold-metallic">Gallery</span>
+            </h2>
             <CreativeUnderline />
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {images.map((imgSrc, i) => (
-              <motion.div 
-                key={i} 
+              <motion.div
+                key={i}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4, delay: (i % 4) * 0.1 }}
@@ -327,9 +336,9 @@ export function GallerySection() {
                 onClick={() => setLightboxIdx(i)}
                 className={`rounded-xl overflow-hidden cursor-pointer ${i === 0 || i === 3 ? 'col-span-2 row-span-2' : ''}`}
               >
-                <img 
-                  src={imgSrc} 
-                  alt={`Gallery Item ${i + 1}`} 
+                <img
+                  src={imgSrc}
+                  alt={`Gallery Item ${i + 1}`}
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-500 min-h-[150px]"
                 />
               </motion.div>
@@ -341,7 +350,7 @@ export function GallerySection() {
       {/* Lightbox */}
       <AnimatePresence>
         {lightboxIdx !== null && (
-          <motion.div 
+          <motion.div
             key="lightbox"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -350,28 +359,28 @@ export function GallerySection() {
             style={{ zIndex: 9999 }}
             onClick={() => setLightboxIdx(null)}
           >
-            <button 
+            <button
               onClick={(e) => { e.stopPropagation(); setLightboxIdx(null); }}
               className="absolute top-4 right-4 md:top-8 md:right-8 w-12 h-12 bg-black/50 rounded-full flex items-center justify-center text-white/70 hover:text-white hover:bg-black/80 transition-all"
             >
               <X className="w-8 h-8" />
             </button>
-            
-            <button 
+
+            <button
               onClick={(e) => { e.stopPropagation(); prevImage(); }}
               className="absolute left-2 md:left-8 w-12 h-12 md:w-16 md:h-16 bg-black/50 rounded-full flex items-center justify-center text-white/70 hover:text-white hover:bg-black/80 transition-all z-10"
             >
               <ChevronLeft className="w-8 h-8 md:w-12 md:h-12" />
             </button>
 
-            <img 
-              src={images[lightboxIdx]} 
+            <img
+              src={images[lightboxIdx]}
               alt={`Gallery Image ${lightboxIdx + 1}`}
               onClick={(e) => e.stopPropagation()}
               className="max-h-[85vh] max-w-[90vw] object-contain rounded-lg shadow-2xl relative z-0"
             />
 
-            <button 
+            <button
               onClick={(e) => { e.stopPropagation(); nextImage(); }}
               className="absolute right-2 md:right-8 w-12 h-12 md:w-16 md:h-16 bg-black/50 rounded-full flex items-center justify-center text-white/70 hover:text-white hover:bg-black/80 transition-all z-10"
             >
@@ -387,11 +396,11 @@ export function GallerySection() {
 // 4. Before/After Section
 export function BeforeAfterSection() {
   return (
-    <motion.section 
+    <motion.section
       id="before-after"
-      initial={{ opacity: 0 }} 
-      whileInView={{ opacity: 1 }} 
-      transition={{ duration: 0.8 }} 
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
       viewport={{ once: true, margin: "-100px" }}
       className="py-12 md:py-16 bg-zinc-50 dark:bg-[#111]"
     >
@@ -413,7 +422,7 @@ export function BeforeAfterSection() {
           ))}
         </div>
         <div className="mt-16 text-center">
-          <button 
+          <button
             className="inline-flex items-center gap-2 px-8 py-4 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold rounded-full hover:scale-105 transition-transform shadow-xl"
           >
             Explore More <ArrowRight className="w-5 h-5" />
@@ -434,11 +443,11 @@ export function CertificationSection() {
   ];
 
   return (
-    <motion.section 
+    <motion.section
       id="certification"
-      initial={{ opacity: 0 }} 
-      whileInView={{ opacity: 1 }} 
-      transition={{ duration: 0.8 }} 
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
       viewport={{ once: true, margin: "-100px" }}
       className="py-12 md:py-16 bg-white dark:bg-[#09090B]"
     >
@@ -451,7 +460,7 @@ export function CertificationSection() {
         </p>
         <div className="flex flex-wrap justify-center gap-6">
           {accreditations.map((acc, i) => (
-            <motion.div 
+            <motion.div
               key={i}
               whileHover={{ scale: 1.05 }}
               className="px-6 sm:px-8 py-3 sm:py-4 bg-gold-bronze/10 dark:bg-gold-metallic/10 border border-gold-bronze/30 dark:border-gold-metallic/30 rounded-full font-bold text-sm sm:text-base text-gold-bronze dark:text-gold-champagne shadow-[0_0_15px_rgba(212,175,55,0.15)] hover:shadow-[0_0_30px_rgba(212,175,55,0.3)] transition-shadow flex items-center gap-2 sm:gap-3 cursor-default whitespace-nowrap"
@@ -493,11 +502,11 @@ export function WhoCanJoinSection() {
   }, []);
 
   return (
-    <motion.section 
+    <motion.section
       id="who-can-join"
-      initial={{ opacity: 0 }} 
-      whileInView={{ opacity: 1 }} 
-      transition={{ duration: 0.8 }} 
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
       viewport={{ once: true, margin: "-100px" }}
       className="pt-12 pb-4 md:pt-16 md:pb-8 bg-zinc-50 dark:bg-[#111]"
     >
@@ -511,8 +520,8 @@ export function WhoCanJoinSection() {
             </p>
             <ul className="space-y-4">
               {audience.map((item, idx) => (
-                <motion.li 
-                  key={idx} 
+                <motion.li
+                  key={idx}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
@@ -528,7 +537,7 @@ export function WhoCanJoinSection() {
           <div className="w-full md:w-1/2">
             <div className="relative w-full h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
               <AnimatePresence mode="wait">
-                <motion.img 
+                <motion.img
                   key={currentImg}
                   src={joinImages[currentImg]}
                   initial={{ opacity: 0, scale: 1.05 }}
@@ -550,11 +559,11 @@ export function WhoCanJoinSection() {
 // 7. Achievements Section
 export function AchievementsSection() {
   return (
-    <motion.section 
+    <motion.section
       id="achievements"
-      initial={{ opacity: 0 }} 
-      whileInView={{ opacity: 1 }} 
-      transition={{ duration: 0.8 }} 
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
       viewport={{ once: true, margin: "-100px" }}
       className="py-12 md:py-16 bg-white dark:bg-[#09090B]"
     >
@@ -567,8 +576,8 @@ export function AchievementsSection() {
             { title: "500+ Successful Alumni", desc: "Graduates working in top brands globally." },
             { title: "Excellence in SPMU", desc: "Awarded for advanced semi-permanent makeup techniques." }
           ].map((item, idx) => (
-            <motion.div 
-              key={idx} 
+            <motion.div
+              key={idx}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: idx * 0.15 }}
@@ -611,24 +620,24 @@ export function UpcomingBatchPopup() {
           exit={{ opacity: 0, scale: 0.9, x: 50 }}
           className="fixed top-20 sm:top-24 right-4 sm:right-6 z-50 bg-white dark:bg-[#111] p-5 sm:p-6 rounded-2xl shadow-2xl border border-zinc-200 dark:border-zinc-800 w-[90vw] sm:w-80 max-w-sm shadow-gold-metallic/20"
         >
-          <button 
+          <button
             onClick={() => { setShow(false); setClosed(true); }}
             className="absolute top-4 right-4 text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
-          
+
           <div className="flex items-center gap-3 mb-3">
             <div className="w-10 h-10 bg-gold-metallic/20 rounded-full flex items-center justify-center">
               <Calendar className="w-5 h-5 text-gold-metallic" />
             </div>
             <h4 className="font-bold text-zinc-900 dark:text-white leading-tight">Join Our Upcoming Batch!</h4>
           </div>
-          
+
           <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-4">
             Next masterclass batch is starting soon. Limited seats available.
           </p>
-          
+
           <button className="w-full bg-gold-gradient text-white font-bold py-2 rounded-lg hover:shadow-lg transition-shadow text-sm">
             Enroll Now
           </button>
@@ -650,11 +659,11 @@ export function FAQSection() {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
 
   return (
-    <motion.section 
+    <motion.section
       id="faq"
-      initial={{ opacity: 0 }} 
-      whileInView={{ opacity: 1 }} 
-      transition={{ duration: 0.8 }} 
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
       viewport={{ once: true, margin: "-100px" }}
       className="py-12 md:py-16 bg-white dark:bg-[#09090B]"
     >
@@ -665,15 +674,15 @@ export function FAQSection() {
         </div>
         <div className="space-y-4">
           {faqs.map((faq, idx) => (
-            <motion.div 
-              key={idx} 
+            <motion.div
+              key={idx}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: idx * 0.1 }}
               viewport={{ once: true }}
               className="border border-zinc-200 dark:border-zinc-800 rounded-xl overflow-hidden"
             >
-              <button 
+              <button
                 onClick={() => setOpenIdx(openIdx === idx ? null : idx)}
                 className="w-full text-left px-6 py-4 flex justify-between items-center font-bold bg-zinc-50 dark:bg-[#111] hover:bg-zinc-100 dark:hover:bg-[#1a1a1a] transition-colors"
               >
@@ -689,7 +698,7 @@ export function FAQSection() {
           ))}
         </div>
         <div className="mt-16 text-center">
-          <button 
+          <button
             className="inline-flex items-center gap-2 px-8 py-4 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold rounded-full hover:scale-105 transition-transform shadow-xl"
           >
             Explore More <ArrowRight className="w-5 h-5" />
@@ -703,44 +712,35 @@ export function FAQSection() {
 // 9.5 Equipment Sales Section
 export function EquipmentSalesSection() {
   return (
-    <motion.section 
-      initial={{ opacity: 0 }} 
-      whileInView={{ opacity: 1 }} 
-      transition={{ duration: 0.8 }} 
+    <motion.section
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
       viewport={{ once: true, margin: "-100px" }}
       className="pt-4 pb-4 md:pt-8 md:pb-8 bg-white dark:bg-[#09090B] relative overflow-hidden"
     >
       <div className="absolute inset-0 bg-gold-bronze/5 dark:bg-gold-metallic/5" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="bg-zinc-50 dark:bg-[#111] rounded-3xl p-8 md:p-12 lg:p-16 border border-zinc-200 dark:border-zinc-800 shadow-2xl flex flex-col lg:flex-row items-center gap-12">
-          
-          <div className="flex-1 text-center lg:text-left">
+        <div className="bg-zinc-50 dark:bg-[#111] rounded-3xl p-8 md:p-12 lg:p-16 border border-zinc-200 dark:border-zinc-800 shadow-2xl flex flex-col items-center gap-12">
+
+          <div className="flex-1 text-center">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold-bronze/10 dark:bg-gold-metallic/10 text-gold-bronze dark:text-gold-champagne font-bold text-sm mb-6 border border-gold-bronze/20 dark:border-gold-metallic/20">
               <Sparkles className="w-4 h-4" />
               SK Korean Technologies
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-zinc-900 dark:text-white mb-6 leading-tight">
-              Premium Aesthetic <br/>
+              Premium Aesthetic <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-bronze to-gold-metallic">Machines & Equipment</span>
             </h2>
-            <p className="text-lg text-zinc-600 dark:text-zinc-400 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+            <p className="text-lg text-zinc-600 dark:text-zinc-400 mb-8 max-w-2xl mx-auto leading-relaxed">
               We provide world-class, advanced aesthetic machines for clinics, salons, and beauty professionals. Upgrade your practice with cutting-edge technology directly from industry leaders.
             </p>
-            <button 
+            <button
               onClick={() => window.open('https://skkoreantechnologies.com/', '_blank')}
-              className="bg-gold-gradient text-zinc-900 shadow-[0_0_15px_rgba(212,175,55,0.4)] hover:shadow-[0_0_25px_rgba(212,175,55,0.6)] hover:scale-105 active:scale-95 transition-all py-3 px-6 sm:px-8 text-base sm:text-lg font-extrabold flex items-center justify-center gap-2 rounded-[1.5px] mx-auto lg:mx-0 uppercase tracking-wide w-full sm:w-auto"
+              className="bg-gold-gradient text-zinc-900 shadow-[0_0_15px_rgba(212,175,55,0.4)] hover:shadow-[0_0_25px_rgba(212,175,55,0.6)] hover:scale-105 active:scale-95 transition-all py-3 px-6 sm:px-8 text-base sm:text-lg font-extrabold flex items-center justify-center gap-2 rounded-[1.5px] mx-auto uppercase tracking-wide w-full sm:w-auto"
             >
               Explore Machines <ArrowRight className="w-5 h-5" />
             </button>
-          </div>
-
-          <div className="flex-1 w-full relative">
-            <div className="absolute inset-0 bg-gradient-to-tr from-gold-bronze/20 to-transparent rounded-3xl transform translate-x-4 translate-y-4" />
-            <img 
-              src="/machines/DSC05547 (1).JPG" 
-              alt="SK Korean Technologies Aesthetic Machines" 
-              className="w-full h-[300px] md:h-[400px] object-cover rounded-3xl shadow-xl relative z-10"
-            />
           </div>
 
         </div>
@@ -752,11 +752,11 @@ export function EquipmentSalesSection() {
 // 10. Contact Section
 export function ContactSection() {
   return (
-    <motion.section 
+    <motion.section
       id="contact"
-      initial={{ opacity: 0 }} 
-      whileInView={{ opacity: 1 }} 
-      transition={{ duration: 0.8 }} 
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
       viewport={{ once: true, margin: "-100px" }}
       className="pt-4 pb-12 md:pt-8 md:pb-16 bg-zinc-50 dark:bg-[#111]"
     >
@@ -768,7 +768,7 @@ export function ContactSection() {
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
-            
+
             <div className="space-y-6 mb-8">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full bg-white dark:bg-black flex items-center justify-center border border-zinc-200 dark:border-zinc-800">
@@ -799,7 +799,7 @@ export function ContactSection() {
               </div>
             </div>
           </div>
-          
+
           <div className="bg-white dark:bg-[#09090B] p-8 rounded-3xl shadow-xl border border-zinc-100 dark:border-zinc-900">
             <h3 className="text-2xl font-bold mb-6">Send a Message</h3>
             <form className="space-y-4" onSubmit={(e) => {
@@ -826,17 +826,17 @@ export function ContactSection() {
 // 11. Final CTA Section
 export function FinalCTASection() {
   return (
-    <motion.section 
-      initial={{ opacity: 0 }} 
-      whileInView={{ opacity: 1 }} 
-      transition={{ duration: 0.8 }} 
+    <motion.section
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
       viewport={{ once: true, margin: "-100px" }}
       className="py-12 md:py-16 relative overflow-hidden bg-gold-gradient"
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 text-zinc-900">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight mb-6 uppercase">Ready to Transform Your Future?</h2>
         <p className="text-lg sm:text-xl font-medium mb-10 max-w-2xl mx-auto">Enroll today and take the first step towards a successful career in the beauty and aesthetics industry.</p>
-        <button 
+        <button
           onClick={() => window.open('https://wa.me/918610345830', '_blank')}
           className="bg-zinc-900 text-white hover:bg-black px-6 py-4 sm:px-10 sm:py-5 rounded-full font-bold text-base sm:text-lg shadow-2xl hover:scale-105 transition-transform inline-flex items-center gap-3"
         >

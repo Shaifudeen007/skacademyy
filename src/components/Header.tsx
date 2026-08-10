@@ -17,49 +17,49 @@ export default function Header({ toggleTheme, isDark, onNavigate }: { toggleThem
       <div className="fixed top-0 left-0 right-0 z-50 flex flex-col pointer-events-none">
         <header className={`pointer-events-auto w-full font-['Work_Sans'] text-zinc-900 dark:text-white rounded-none transition-all duration-300 ${isScrolled ? 'bg-white/70 dark:bg-black/40 backdrop-blur-xl shadow-lg dark:shadow-[0_4px_30px_rgba(0,0,0,0.3)]' : 'bg-transparent'}`}>
           <div className="max-w-7xl mx-auto w-full px-4 py-2 sm:px-6 md:py-2 lg:px-8 flex items-center justify-between gap-2 sm:gap-6">
-          
+
             <div className="flex items-center gap-2 max-w-[80%] md:max-w-none shrink-0">
-            {/* Brand Circular Icon */}
-            <a href="#home" onClick={() => onNavigate && onNavigate('home')} className="h-12 md:h-16 flex items-center justify-center shrink-0 hover:scale-110 transition-transform ml-1 md:ml-4">
-              <img 
-                src="/N0__48102__Angalamman_Kovil_St__Choolai__Chennai__Tamil_Nadu_600112.-removebg-preview.png" 
-                alt="SK Academy Logo" 
-                className="h-full object-contain scale-[2.5] translate-y-3"
-              />
-            </a>
-            
-            {/* Brand Name */}
-            <span className="font-extrabold tracking-tight text-[15px] sm:text-base lg:text-lg whitespace-nowrap truncate text-zinc-900 dark:text-white ml-2">SK International Institute of Skills</span>
-          </div>
-          
-          {/* Nav Links */}
-          <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
-            {['Home', 'About', 'Courses', 'Gallery', 'Testimonials', 'Contact'].map((item) => (
-              <a 
-                key={item} 
-                href={`#${item.toLowerCase()}`} 
-                onClick={(e) => {
-                  e.preventDefault();
-                  if (item === 'About' && onNavigate) onNavigate('about');
-                  else if (item === 'Courses' && onNavigate) onNavigate('courses');
-                  else if (item === 'Gallery' && onNavigate) onNavigate('gallery');
-                  else if (item === 'Testimonials' && onNavigate) onNavigate('testimonials');
-                  else if (onNavigate) {
-                    onNavigate('home');
-                    if (item === 'Contact') {
-                      setTimeout(() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }), 100);
-                    } else {
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }
-                  }
-                }}
-                className="hover:text-gold-metallic transition-colors"
-              >
-                {item}
+              {/* Brand Circular Icon */}
+              <a href="#home" onClick={() => onNavigate && onNavigate('home')} className="h-12 md:h-16 flex items-center justify-center shrink-0 hover:scale-110 transition-transform ml-1 md:ml-4">
+                <img
+                  src="/N0__48102__Angalamman_Kovil_St__Choolai__Chennai__Tamil_Nadu_600112.-removebg-preview.png"
+                  alt="SK Academy Logo"
+                  className="h-full object-contain scale-[2.5] translate-y-3"
+                />
               </a>
-            ))}
-          </nav>
-          
+
+              {/* Brand Name */}
+              <span className="font-extrabold tracking-tight text-[15px] sm:text-base lg:text-lg whitespace-nowrap truncate text-zinc-900 dark:text-white ml-2">SK International Institute of Skills</span>
+            </div>
+
+            {/* Nav Links */}
+            <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
+              {['Home', 'About', 'Courses', 'Gallery', 'Testimonials', 'Contact'].map((item) => (
+                <a
+                  key={item}
+                  href={`#${item.toLowerCase()}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (item === 'About' && onNavigate) onNavigate('about');
+                    else if (item === 'Courses' && onNavigate) onNavigate('courses');
+                    else if (item === 'Gallery' && onNavigate) onNavigate('gallery');
+                    else if (item === 'Testimonials' && onNavigate) onNavigate('testimonials');
+                    else if (onNavigate) {
+                      onNavigate('home');
+                      if (item === 'Contact') {
+                        setTimeout(() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }), 100);
+                      } else {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                      }
+                    }
+                  }}
+                  className="hover:text-gold-metallic transition-colors"
+                >
+                  {item}
+                </a>
+              ))}
+            </nav>
+
             {/* Actions */}
             <div className="flex items-center justify-end gap-2 shrink-0">
               <button onClick={toggleTheme} className="p-2.5 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors pointer-events-auto">
@@ -68,7 +68,7 @@ export default function Header({ toggleTheme, isDark, onNavigate }: { toggleThem
             </div>
           </div>
         </header>
-        
+
         {/* Marquee */}
         <div className="overflow-hidden whitespace-nowrap pointer-events-auto w-full bg-gold-gradient text-zinc-900 py-1.5 shadow-md flex font-medium text-xs sm:text-sm tracking-wide border-b border-gold-bronze/20">
           <div className="animate-marquee inline-flex shrink-0 items-center">
@@ -94,7 +94,7 @@ export default function Header({ toggleTheme, isDark, onNavigate }: { toggleThem
 
       {/* Mobile Bottom Bar */}
       <div className="md:hidden fixed bottom-6 left-4 right-4 z-50">
-        <nav className={`flex justify-around items-center p-3 font-['Work_Sans'] rounded-full transition-all duration-300 ${isScrolled ? 'bg-white/70 dark:bg-black/40 backdrop-blur-xl shadow-lg dark:shadow-[0_4px_30px_rgba(0,0,0,0.3)]' : 'bg-transparent'}`}>
+        <nav className="flex justify-around items-center p-3 font-['Work_Sans'] rounded-full transition-all duration-300 bg-white/70 dark:bg-black/40 backdrop-blur-xl shadow-[0_4px_20px_rgba(0,0,0,0.1)] dark:shadow-[0_4px_30px_rgba(0,0,0,0.3)] border border-zinc-200/50 dark:border-zinc-800/50">
           <a href="#home" onClick={() => onNavigate && onNavigate('home')} className="flex flex-col items-center gap-1 text-zinc-500 dark:text-zinc-400 hover:text-gold-bronze dark:hover:text-gold-metallic hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.6)] transition-all duration-300">
             <Home className="w-5 h-5" />
             <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider">Home</span>

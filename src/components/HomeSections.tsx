@@ -44,8 +44,14 @@ export function Advantage() {
     >
       <div className="absolute inset-0 bg-gold-gradient opacity-[0.03] pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-900 dark:text-white tracking-wider mb-2">Why Choose Us</h2>
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gold-bronze/10 dark:bg-gold-metallic/10 text-gold-bronze dark:text-gold-champagne font-bold text-xs mb-4 border border-gold-bronze/20 dark:border-gold-metallic/20">
+            <ShieldCheck className="w-3.5 h-3.5" />
+            OUR ADVANTAGE
+          </div>
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-6 text-zinc-900 dark:text-white text-center tracking-tight">
+            Why <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-bronze to-gold-metallic">Choose Us</span>
+          </h2>
           <div className="w-24 h-1 bg-gold-metallic mx-auto rounded-full opacity-70"></div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -174,10 +180,18 @@ export function ServicesGrid({ onNavigate }: { onNavigate?: (page: string) => vo
       className="py-12 md:py-16 bg-zinc-50 dark:bg-[#0c0c0e]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-6 text-zinc-900 dark:text-white text-center">Core Services</h2>
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gold-bronze/10 dark:bg-gold-metallic/10 text-gold-bronze dark:text-gold-champagne font-bold text-xs mb-4 border border-gold-bronze/20 dark:border-gold-metallic/20">
+            <Sparkles className="w-3.5 h-3.5" />
+            PREMIUM TREATMENTS
+          </div>
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-6 text-zinc-900 dark:text-white text-center tracking-tight">
+            Core <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-bronze to-gold-metallic">Services</span>
+          </h2>
           <CreativeUnderline />
-          <p className="text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">Explore our extensive range of premium aesthetic treatments.</p>
+          <p className="text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto mt-6">
+            Explore our extensive range of premium aesthetic treatments.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:[&>*:nth-child(3n+2)]:translate-y-12 pb-12">
@@ -229,7 +243,6 @@ export function ServicesGrid({ onNavigate }: { onNavigate?: (page: string) => vo
     </motion.section>
   );
 }
-
 export function CoursesGrid({ onNavigate }: { onNavigate?: (page: string) => void }) {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('list');
   const courses = servicesData.filter(s => s.category === 'Courses');
@@ -241,29 +254,42 @@ export function CoursesGrid({ onNavigate }: { onNavigate?: (page: string) => voi
       whileInView={{ opacity: 1, y: 0 }} 
       transition={{ duration: 0.8 }} 
       viewport={{ once: true, margin: "-100px" }}
-      className="pt-12 pb-4 md:pt-16 md:pb-8 bg-white dark:bg-[#09090B]"
+      className="pt-16 pb-8 md:pt-24 md:pb-16 bg-white dark:bg-[#09090B] relative overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-6 text-zinc-900 dark:text-white text-center">Professional Academy</h2>
+      {/* Decorative Background Elements */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-gold-metallic/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-zinc-400/10 dark:bg-zinc-800/20 rounded-full blur-[150px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center mb-8 relative">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold-bronze/10 dark:bg-gold-metallic/10 text-gold-bronze dark:text-gold-champagne font-bold text-sm mb-6 border border-gold-bronze/20 dark:border-gold-metallic/20">
+            <GraduationCap className="w-4 h-4" />
+            WORLD CLASS EDUCATION
+          </div>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-zinc-900 dark:text-white text-center tracking-tight">
+            Professional <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-bronze to-gold-metallic">Academy</span>
+          </h2>
           <CreativeUnderline />
-          <p className="text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto mb-8">Transform your passion into a career with our globally valid certification courses.</p>
-          
-          {/* Grid/List View Toggle */}
-          <div className="flex justify-center items-center gap-1 sm:gap-2 mb-8 bg-zinc-100/80 dark:bg-zinc-900/80 backdrop-blur-md w-fit mx-auto p-1.5 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-sm">
+          <p className="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto mt-6 leading-relaxed">
+            Transform your passion into a career with our globally valid certification courses. Learn from industry experts and master advanced techniques.
+          </p>
+        </div>
+        
+        <div className="flex justify-end mb-6 relative z-20 pr-2">
+          <div className="flex items-center gap-1 bg-zinc-100/90 dark:bg-zinc-900/90 backdrop-blur-md p-1 rounded-xl border border-zinc-200 dark:border-zinc-800 shadow-sm">
             <button 
               onClick={() => setViewMode('grid')}
-              className={`px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl flex items-center gap-2 text-xs sm:text-sm font-bold transition-all duration-300 ${viewMode === 'grid' ? 'bg-white dark:bg-black shadow-[0_2px_10px_rgba(0,0,0,0.05)] dark:shadow-[0_2px_15px_rgba(0,0,0,0.4)] text-gold-bronze dark:text-gold-champagne' : 'text-zinc-500 hover:text-zinc-900 dark:hover:text-white hover:bg-white/50 dark:hover:bg-zinc-800/50'}`}
+              className={`px-3 py-1.5 sm:py-2 rounded-lg flex items-center gap-1.5 text-xs font-bold transition-all duration-300 ${viewMode === 'grid' ? 'bg-white dark:bg-black shadow-[0_2px_10px_rgba(0,0,0,0.05)] dark:shadow-[0_2px_15px_rgba(0,0,0,0.4)] text-gold-bronze dark:text-gold-champagne' : 'text-zinc-500 hover:text-zinc-900 dark:hover:text-white hover:bg-white/50 dark:hover:bg-zinc-800/50'}`}
               aria-label="Grid View"
             >
-              <LayoutGrid className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> <span className="tracking-wide">Grid View</span>
+              <LayoutGrid className="w-3.5 h-3.5" /> <span className="tracking-wide hidden sm:inline">Grid</span>
             </button>
             <button 
               onClick={() => setViewMode('list')}
-              className={`px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl flex items-center gap-2 text-xs sm:text-sm font-bold transition-all duration-300 ${viewMode === 'list' ? 'bg-white dark:bg-black shadow-[0_2px_10px_rgba(0,0,0,0.05)] dark:shadow-[0_2px_15px_rgba(0,0,0,0.4)] text-gold-bronze dark:text-gold-champagne' : 'text-zinc-500 hover:text-zinc-900 dark:hover:text-white hover:bg-white/50 dark:hover:bg-zinc-800/50'}`}
+              className={`px-3 py-1.5 sm:py-2 rounded-lg flex items-center gap-1.5 text-xs font-bold transition-all duration-300 ${viewMode === 'list' ? 'bg-white dark:bg-black shadow-[0_2px_10px_rgba(0,0,0,0.05)] dark:shadow-[0_2px_15px_rgba(0,0,0,0.4)] text-gold-bronze dark:text-gold-champagne' : 'text-zinc-500 hover:text-zinc-900 dark:hover:text-white hover:bg-white/50 dark:hover:bg-zinc-800/50'}`}
               aria-label="List View"
             >
-              <List className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> <span className="tracking-wide">List View</span>
+              <List className="w-3.5 h-3.5" /> <span className="tracking-wide hidden sm:inline">List</span>
             </button>
           </div>
         </div>
@@ -289,11 +315,11 @@ export function CoursesGrid({ onNavigate }: { onNavigate?: (page: string) => voi
                 className={
                   viewMode === 'grid' 
                     ? "w-full md:w-[calc(50%-1rem)] lg:w-[calc((100%-4rem)/3)] group rounded-2xl overflow-hidden cursor-pointer flex flex-col relative min-h-[420px] hover:shadow-2xl hover:shadow-gold-metallic/10 active:scale-[0.98] transition-all duration-300 border border-zinc-200 dark:border-zinc-800"
-                    : "w-full group rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden cursor-pointer flex flex-row bg-white/50 dark:bg-[#111]/80 backdrop-blur-sm hover:bg-white dark:hover:bg-[#111] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] dark:hover:shadow-[0_8px_30px_rgba(212,175,55,0.08)] active:scale-[0.99] transition-all duration-500 border border-zinc-200/80 dark:border-zinc-800/80 hover:border-gold-bronze/30 dark:hover:border-gold-metallic/30"
+                    : "w-full group rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden cursor-pointer flex flex-col sm:flex-row bg-white/50 dark:bg-[#111]/80 backdrop-blur-sm hover:bg-white dark:hover:bg-[#111] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] dark:hover:shadow-[0_8px_30px_rgba(212,175,55,0.08)] active:scale-[0.99] transition-all duration-500 border border-zinc-200/80 dark:border-zinc-800/80 hover:border-gold-bronze/30 dark:hover:border-gold-metallic/30"
                 }
               >
                 {/* Background Image / Left Image */}
-                <div className={viewMode === 'grid' ? "absolute inset-0" : "w-[40%] sm:w-[42%] md:w-[45%] min-h-[160px] sm:h-auto sm:min-h-[340px] relative overflow-hidden shrink-0"}>
+                <div className={viewMode === 'grid' ? "absolute inset-0" : "w-full sm:w-[42%] md:w-[45%] h-[200px] sm:h-auto sm:min-h-[340px] relative overflow-hidden shrink-0"}>
                   <img src={svc.img} alt={svc.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                   {viewMode === 'grid' ? (
                     <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/70 to-black/10 pointer-events-none group-hover:from-black/90 transition-colors duration-500" />
@@ -302,23 +328,23 @@ export function CoursesGrid({ onNavigate }: { onNavigate?: (page: string) => voi
                   )}
                   
                   {/* Top Badge */}
-                  <div className={`absolute top-2 left-2 sm:top-5 sm:left-5 z-20 px-2 py-1 sm:px-3.5 sm:py-2 ${viewMode === 'grid' ? 'bg-white/90 dark:bg-black/80' : 'bg-white/95 dark:bg-black/90'} backdrop-blur-md rounded-lg sm:rounded-xl flex items-center gap-1 sm:gap-2 shadow-sm border border-zinc-200/50 dark:border-zinc-800`}>
-                    <Icon className="w-3 h-3 sm:w-4 sm:h-4 text-gold-bronze dark:text-gold-metallic" />
+                  <div className={`absolute top-3 left-3 sm:top-5 sm:left-5 z-20 px-2 py-1.5 sm:px-3.5 sm:py-2 ${viewMode === 'grid' ? 'bg-white/90 dark:bg-black/80' : 'bg-white/95 dark:bg-black/90'} backdrop-blur-md rounded-lg sm:rounded-xl flex items-center gap-1.5 sm:gap-2 shadow-sm border border-zinc-200/50 dark:border-zinc-800`}>
+                    <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-gold-bronze dark:text-gold-metallic" />
                     <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-zinc-900 dark:text-white">{svc.type}</span>
                   </div>
                 </div>
 
                 {/* Content Container */}
-                <div className={viewMode === 'grid' ? "relative z-10 p-8 flex-1 flex flex-col justify-end pt-48 mt-auto" : "relative z-10 p-4 sm:p-10 lg:p-12 flex-1 flex flex-col justify-center"}>
-                  <h3 className={`font-black tracking-tight ${viewMode === 'grid' ? 'text-xl lg:text-2xl mb-3 text-white' : 'text-lg sm:text-3xl lg:text-4xl mb-2 sm:mb-4 text-zinc-900 dark:text-white group-hover:text-gold-bronze dark:group-hover:text-gold-champagne transition-colors leading-tight'}`}>{svc.title}</h3>
+                <div className={viewMode === 'grid' ? "relative z-10 p-8 flex-1 flex flex-col justify-end pt-48 mt-auto" : "relative z-10 p-5 sm:p-10 lg:p-12 flex-1 flex flex-col justify-center"}>
+                  <h3 className={`font-black tracking-tight ${viewMode === 'grid' ? 'text-xl lg:text-2xl mb-3 text-white' : 'text-2xl sm:text-3xl lg:text-4xl mb-3 sm:mb-4 text-zinc-900 dark:text-white group-hover:text-gold-bronze dark:group-hover:text-gold-champagne transition-colors leading-tight'}`}>{svc.title}</h3>
                   {svc.price && (
-                    <div className={`inline-block px-2 py-1 sm:px-4 sm:py-1.5 backdrop-blur-md rounded-full text-gold-champagne font-bold text-[10px] sm:text-sm mb-2 sm:mb-6 w-fit border ${viewMode === 'grid' ? 'bg-black/40 border-gold-metallic/30' : 'bg-zinc-900 dark:bg-black/60 border-gold-metallic/40 shadow-inner'}`}>
+                    <div className={`inline-block px-3 py-1.5 sm:px-4 sm:py-1.5 backdrop-blur-md rounded-full text-gold-champagne font-bold text-[11px] sm:text-sm mb-3 sm:mb-6 w-fit border ${viewMode === 'grid' ? 'bg-black/40 border-gold-metallic/30' : 'bg-zinc-900 dark:bg-black/60 border-gold-metallic/40 shadow-inner'}`}>
                       {svc.price}
                     </div>
                   )}
-                  <p className={`${viewMode === 'grid' ? 'text-zinc-300' : 'text-zinc-600 dark:text-zinc-400'} text-[11px] sm:text-base lg:text-lg mb-3 sm:mb-8 leading-relaxed max-w-2xl line-clamp-2 sm:line-clamp-none`}>{svc.desc}</p>
+                  <p className={`${viewMode === 'grid' ? 'text-zinc-300' : 'text-zinc-600 dark:text-zinc-400'} text-sm sm:text-base lg:text-lg mb-5 sm:mb-8 leading-relaxed max-w-2xl`}>{svc.desc}</p>
                   
-                  <div className={viewMode === 'grid' ? '' : 'pt-2 sm:pt-4 mt-auto border-t border-zinc-100 dark:border-zinc-800/50'}>
+                  <div className={viewMode === 'grid' ? '' : 'pt-4 mt-auto border-t border-zinc-100 dark:border-zinc-800/50'}>
                     <a href="#" onClick={(e) => { 
                       e.preventDefault(); 
                       if (svc.title === 'Aesthetic Course' && onNavigate) onNavigate('course-aesthetic'); 
@@ -326,7 +352,7 @@ export function CoursesGrid({ onNavigate }: { onNavigate?: (page: string) => voi
                       else if (svc.title === 'Nail Art Course' && onNavigate) onNavigate('course-nailart');
                       else if (svc.title === 'Hair Extension' && onNavigate) onNavigate('course-hair-extension');
                       else if (svc.title === 'Hair Course' && onNavigate) onNavigate('course-hair');
-                    }} className={`inline-flex items-center justify-center gap-1 sm:gap-2 font-bold text-gold-champagne transition-all uppercase tracking-wide w-fit ${viewMode === 'grid' ? 'text-sm mt-auto group-hover:gap-3' : 'text-[10px] sm:text-base bg-gold-gradient text-zinc-900 px-3 py-1.5 sm:px-6 sm:py-3 rounded-full shadow-[0_0_15px_rgba(212,175,55,0.2)] hover:shadow-[0_0_20px_rgba(212,175,55,0.5)] hover:scale-105 active:scale-95'}`}>
+                    }} className={`inline-flex items-center justify-center gap-2 font-bold text-gold-champagne transition-all uppercase tracking-wide w-fit ${viewMode === 'grid' ? 'text-sm mt-auto group-hover:gap-3' : 'text-xs sm:text-base bg-gold-gradient text-zinc-900 px-5 py-2.5 sm:px-6 sm:py-3 rounded-[1.5px] shadow-[0_0_15px_rgba(212,175,55,0.2)] hover:shadow-[0_0_20px_rgba(212,175,55,0.5)] hover:scale-105 active:scale-95'}`}>
                       {['Aesthetic Course', 'PMU Course', 'Nail Art Course', 'Hair Extension', 'Hair Course'].includes(svc.title) ? 'View Details' : 'Enroll Now'} {viewMode === 'grid' && <ArrowRight className="w-4 h-4" />}
                     </a>
                   </div>
@@ -391,8 +417,17 @@ export function Testimonials() {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-extrabold text-zinc-900 dark:text-white mb-6">&quot;What Our Students Say&quot;</h2>
-          <p className="text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">Real feedback from our graduates who have successfully transformed their careers.</p>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gold-bronze/10 dark:bg-gold-metallic/10 text-gold-bronze dark:text-gold-champagne font-bold text-xs mb-4 border border-gold-bronze/20 dark:border-gold-metallic/20">
+            <Heart className="w-3.5 h-3.5" />
+            SUCCESS STORIES
+          </div>
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-6 text-zinc-900 dark:text-white text-center tracking-tight">
+            What Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-bronze to-gold-metallic">Students Say</span>
+          </h2>
+          <CreativeUnderline />
+          <p className="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto mt-6 leading-relaxed">
+            Real feedback from our graduates who have successfully transformed their careers.
+          </p>
         </div>
 
         <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 relative max-w-5xl mx-auto">
@@ -469,7 +504,13 @@ export function VideoTestimonials() {
     >
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-extrabold text-zinc-900 dark:text-white mb-6">Student Testimonials</h2>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gold-bronze/10 dark:bg-gold-metallic/10 text-gold-bronze dark:text-gold-champagne font-bold text-xs mb-4 border border-gold-bronze/20 dark:border-gold-metallic/20">
+            <Heart className="w-3.5 h-3.5" />
+            HEAR FROM THEM
+          </div>
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-6 text-zinc-900 dark:text-white text-center tracking-tight">
+            Student <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-bronze to-gold-metallic">Testimonials</span>
+          </h2>
           <CreativeUnderline />
         </div>
         <div className="flex flex-wrap md:flex-nowrap justify-center gap-4 md:gap-8">
