@@ -79,18 +79,14 @@ export default function Header({ toggleTheme, isDark, onNavigate }: { toggleThem
           <div className="animate-marquee inline-flex shrink-0 items-center">
             <span className="mx-6 font-bold flex items-center gap-1.5"><Sparkles className="w-3.5 h-3.5" /> Upcoming Batches 2026! Reserve your place and begin your journey toward a successful career.</span>
             <span className="mx-2 text-gold-bronze">•</span>
-            <span className="mx-6 flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5" /> <span className="font-bold">Aesthetic Course:</span> 10/08/2026 & 17/08/2026 (10:00 AM - 06:00 PM)</span>
-            <span className="mx-2 text-gold-bronze">•</span>
-            <span className="mx-6 flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5" /> <span className="font-bold">PMU Course:</span> 14/08/2026 (10:00 AM - 06:00 PM)</span>
+            <span className="mx-6 flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5" /> <span className="font-bold">Aesthetic Course:</span> SEP - 16- 2026 (10:00 AM - 06:00 PM)</span>
             <span className="mx-2 text-gold-bronze">•</span>
             <span className="mx-6 flex items-center gap-1.5"><MessageCircle className="w-3.5 h-3.5" /> Seats are filling fast! <span className="font-bold underline group-hover:text-white transition-colors">WhatsApp: +91 86103 45830</span> to secure your enrollment. <Sparkles className="w-3.5 h-3.5 ml-1" /></span>
           </div>
           <div className="animate-marquee inline-flex shrink-0 items-center" aria-hidden="true">
             <span className="mx-6 font-bold flex items-center gap-1.5"><Sparkles className="w-3.5 h-3.5" /> Upcoming Batches 2026! Reserve your place and begin your journey toward a successful career.</span>
             <span className="mx-2 text-gold-bronze">•</span>
-            <span className="mx-6 flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5" /> <span className="font-bold">Aesthetic Course:</span> 10/08/2026 & 17/08/2026 (10:00 AM - 06:00 PM)</span>
-            <span className="mx-2 text-gold-bronze">•</span>
-            <span className="mx-6 flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5" /> <span className="font-bold">PMU Course:</span> 14/08/2026 (10:00 AM - 06:00 PM)</span>
+            <span className="mx-6 flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5" /> <span className="font-bold">Aesthetic Course:</span> SEP - 16- 2026 (10:00 AM - 06:00 PM)</span>
             <span className="mx-2 text-gold-bronze">•</span>
             <span className="mx-6 flex items-center gap-1.5"><MessageCircle className="w-3.5 h-3.5" /> Seats are filling fast! <span className="font-bold underline group-hover:text-white transition-colors">WhatsApp: +91 86103 45830</span> to secure your enrollment. <Sparkles className="w-3.5 h-3.5 ml-1" /></span>
           </div>
