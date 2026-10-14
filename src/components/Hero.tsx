@@ -3,10 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
 const heroImages = [
-  '/hero/C4955T01.JPG',
-  '/hero/DSC05461.JPG',
-  '/hero/DSC05487.JPG',
-  '/hero/DSC05762.JPG',
+  '/hero/DSC07258.JPG',
+  '/hero/DSC07226.JPG',
+  '/hero/DSC07230.JPG',
+  '/hero/DSC07243.JPG',
+  '/hero/DSC07247.JPG',
   '/hero/DSC05770 (1).JPG'
 ];
 
@@ -43,18 +44,18 @@ export default function Hero() {
 
             <motion.h1 
               variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } } }}
-              className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] mb-6 uppercase text-zinc-900 dark:text-white"
+              className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.15] mb-6 uppercase text-zinc-900 dark:text-white"
             >
-              LEARN TODAY. <br className="hidden lg:block"/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-bronze to-gold-metallic dark:from-gold-champagne dark:to-gold-metallic">SHINE TOMORROW.</span>
+              BEAUTY KNOWS <br className="hidden lg:block"/>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-bronze to-gold-metallic dark:from-gold-champagne dark:to-gold-metallic">NO BOUNDARIES.</span>
               <br className="hidden lg:block"/>
-              <span className="text-zinc-800 dark:text-zinc-200">YOUR BEAUTY CAREER STARTS HERE.</span>
+              <span className="text-zinc-800 dark:text-zinc-200">YOUR TALENT. YOUR FUTURE. OUR GLOBAL REACH.</span>
             </motion.h1>
             <motion.p 
               variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } } }}
               className="text-xl sm:text-2xl md:text-xl text-zinc-600 dark:text-zinc-400 mb-8 leading-relaxed"
             >
-              Turn creativity into a profession with hands-on beauty education designed for future salon professionals, makeup artists, and beauty entrepreneurs.
+              Turn your passion into a profession with expert-led, hands-on beauty education. From India to Sri Lanka, Nepal, the UAE, and beyond, we empower aspiring salon professionals, makeup artists, and beauty entrepreneurs with skills to shine on a global stage.
             </motion.p>
             <motion.div 
               variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } } }}
@@ -66,10 +67,6 @@ export default function Hero() {
               >
                 <Calendar className="w-5 h-5" />
                 Enroll Now
-              </button>
-              <button className="bg-transparent border-2 border-gold-metallic text-gold-bronze dark:text-gold-metallic hover:bg-gold-gradient hover:text-zinc-900 dark:hover:text-zinc-900 hover:border-transparent active:scale-95 transition-all py-3 px-6 sm:px-8 text-base sm:text-lg font-bold w-full sm:w-auto flex items-center justify-center gap-2 rounded-[1.5px]">
-                <Sparkles className="w-5 h-5" />
-                Explore Courses
               </button>
             </motion.div>
 
@@ -94,7 +91,7 @@ export default function Hero() {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 1.5, ease: "easeInOut" }}
-                  className={`absolute inset-0 object-cover w-full h-full ${heroImages[currentImgIndex].includes('DSC05762.JPG') ? 'object-[80%_center]' : 'object-center'}`}
+                  className="absolute inset-0 object-cover w-full h-full object-center"
                 />
               </AnimatePresence>
               

@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import LandingPage from './components/LandingPage';
 import AboutPage from './components/AboutPage';
-import CoursesPage from './components/CoursesPage';
 import GalleryPage from './components/GalleryPage';
 import AestheticCoursePage from './components/AestheticCoursePage';
 import PmuCoursePage from './components/PmuCoursePage';
@@ -100,8 +99,6 @@ function App() {
 
       {currentPage === 'about' ? (
         <AboutPage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
-      ) : currentPage === 'courses' ? (
-        <CoursesPage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
       ) : currentPage === 'course-aesthetic' ? (
         <AestheticCoursePage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
       ) : currentPage === 'course-pmu' ? (

@@ -60,13 +60,13 @@ export default function HairCoursePage({ isDark, toggleTheme, onNavigate }: { is
         
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <button 
-            onClick={() => onNavigate('courses')}
+            onClick={() => onNavigate('home')}
             className="mb-8 inline-flex items-center gap-2 text-zinc-600 dark:text-zinc-400 hover:text-gold-metallic dark:hover:text-gold-metallic transition-colors group"
           >
             <div className="p-2 rounded-full bg-zinc-100 dark:bg-zinc-800 group-hover:bg-gold-metallic/10 transition-colors">
               <ArrowLeft className="w-5 h-5" />
             </div>
-            <span className="font-bold">Back to Courses</span>
+            <span className="font-bold">Back to Home</span>
           </button>
 
           <div className="text-center">
