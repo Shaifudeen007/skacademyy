@@ -17,7 +17,8 @@ import {
   Sparkles,
   X,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  Headphones
 } from 'lucide-react';
 import { AnimatedCounter } from './HomeSections';
 import { useState, useEffect } from 'react';
@@ -270,22 +271,24 @@ export function GallerySection() {
   const allImages = [
     '/gallery/DSC03560.JPG',
     '/gallery/DSC03564.JPG',
-    '/gallery/DSC05461.JPG',
     '/gallery/DSC05480.JPG',
     '/gallery/DSC05487.JPG',
     '/gallery/DSC05523.JPG',
     '/gallery/DSC05547.JPG',
-    '/gallery/DSC05682.JPG',
-    '/DSC04305.JPG',
-    '/WhatsApp Image 2026-08-01 at 6.23.29 PM.jpeg',
-    '/gallery/DSC05703.JPG',
     '/gallery/DSC05747.JPG',
     '/gallery/DSC05760.JPG',
     '/gallery/DSC05773.JPG',
-    '/gallery/DSC05892.JPG',
     '/gallery/DSC05897.JPG',
     '/gallery/DSC05912.JPG',
-    '/gallery/DSC05916.JPG'
+    '/gallery/DSC05916.JPG',
+    '/Srilanka/DSC07258.JPG',
+    '/Srilanka/DSC07243.JPG',
+    '/Srilanka/DSC07247.JPG',
+    '/Srilanka/DSC07319.JPG',
+    '/Srilanka/DSC07492.JPG',
+    '/Srilanka/DSC07505.JPG',
+    '/Srilanka/DSC07226.JPG',
+    '/Srilanka/DSC07230.JPG'
   ];
 
   const images = allImages;
@@ -767,34 +770,76 @@ export function ContactSection() {
           <p className="text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">Ready to start your beauty career? Contact us today to learn more about our courses and enrollment process.</p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div>
-
-            <div className="space-y-6 mb-8">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-white dark:bg-black flex items-center justify-center border border-zinc-200 dark:border-zinc-800">
+          <div className="space-y-6">
+            <div className="p-6 rounded-2xl bg-white dark:bg-[#09090B] border border-zinc-200 dark:border-zinc-800 shadow-md">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-xl bg-gold-bronze/10 dark:bg-gold-metallic/10 flex items-center justify-center border border-gold-bronze/20 dark:border-gold-metallic/20 flex-shrink-0">
                   <MapPin className="w-5 h-5 text-gold-metallic" />
                 </div>
                 <div>
-                  <h4 className="font-bold">Location</h4>
-                  <p className="text-zinc-500">SK Beauty verse pvt.ltd<br />48/102 , Angalamman Kovil st, Choolai , Chennai - 600 012</p>
+                  <h4 className="font-bold text-lg text-zinc-900 dark:text-white">Visit Our Academy</h4>
+                  <p className="text-zinc-600 dark:text-zinc-400 mt-1 leading-relaxed text-sm">
+                    <span className="font-semibold text-zinc-800 dark:text-zinc-200">SK Beauty verse pvt.ltd</span><br />
+                    48/102, Angalamman Kovil st, Choolai, Chennai - 600 012
+                  </p>
                 </div>
               </div>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-white dark:bg-black flex items-center justify-center border border-zinc-200 dark:border-zinc-800">
-                  <Phone className="w-5 h-5 text-gold-metallic" />
+            </div>
+
+            {/* Admissions Card */}
+            <div className="p-6 rounded-2xl bg-white dark:bg-[#09090B] border border-zinc-200 dark:border-zinc-800 shadow-md relative overflow-hidden group hover:border-gold-metallic/50 transition-all">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-xl bg-gold-bronze/10 dark:bg-gold-metallic/10 flex items-center justify-center border border-gold-bronze/20 dark:border-gold-metallic/20 flex-shrink-0">
+                  <GraduationCap className="w-5 h-5 text-gold-metallic" />
                 </div>
-                <div>
-                  <h4 className="font-bold">Phone</h4>
-                  <p className="text-zinc-500">+91 86103 45830<br />+91 744 888 5802</p>
+                <div className="flex-1">
+                  <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-gold-bronze/10 text-gold-bronze dark:text-gold-champagne mb-1.5 uppercase tracking-wider">
+                    Admissions & Enquiries
+                  </span>
+                  <h4 className="font-bold text-lg text-zinc-900 dark:text-white mb-2">Admissions Desk</h4>
+                  <div className="space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
+                    <div>
+                      <a href="tel:+918610345830" className="inline-flex items-center gap-2 hover:text-gold-metallic transition-colors font-medium">
+                        <Phone className="w-4 h-4 text-gold-metallic" />
+                        <span>+91 86103 45830</span>
+                      </a>
+                    </div>
+                    <div>
+                      <a href="mailto:skbeautyverse@gmail.com" className="inline-flex items-center gap-2 hover:text-gold-metallic transition-colors font-medium">
+                        <Mail className="w-4 h-4 text-gold-metallic" />
+                        <span>skbeautyverse@gmail.com</span>
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-white dark:bg-black flex items-center justify-center border border-zinc-200 dark:border-zinc-800">
-                  <Mail className="w-5 h-5 text-gold-metallic" />
+            </div>
+
+            {/* Complaints & Grievances Card */}
+            <div className="p-6 rounded-2xl bg-white dark:bg-[#09090B] border border-zinc-200 dark:border-zinc-800 shadow-md relative overflow-hidden group hover:border-gold-metallic/50 transition-all">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-xl bg-gold-bronze/10 dark:bg-gold-metallic/10 flex items-center justify-center border border-gold-bronze/20 dark:border-gold-metallic/20 flex-shrink-0">
+                  <Headphones className="w-5 h-5 text-gold-metallic" />
                 </div>
-                <div>
-                  <h4 className="font-bold">Email</h4>
-                  <p className="text-zinc-500">skbeautyverse@gmail.com</p>
+                <div className="flex-1">
+                  <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 mb-1.5 uppercase tracking-wider">
+                    Student Support & Resolution
+                  </span>
+                  <h4 className="font-bold text-lg text-zinc-900 dark:text-white mb-2">Complaints & Grievances</h4>
+                  <div className="space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
+                    <div>
+                      <a href="tel:+917448885802" className="inline-flex items-center gap-2 hover:text-gold-metallic transition-colors font-medium">
+                        <Phone className="w-4 h-4 text-gold-metallic" />
+                        <span>+91 744 888 5802</span>
+                      </a>
+                    </div>
+                    <div>
+                      <a href="mailto:complaints.skbeautyverse@gmail.com" className="inline-flex items-center gap-2 hover:text-gold-metallic transition-colors font-medium">
+                        <Mail className="w-4 h-4 text-gold-metallic" />
+                        <span>complaints.skbeautyverse@gmail.com</span>
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -805,15 +850,37 @@ export function ContactSection() {
             <form className="space-y-4" onSubmit={(e) => {
               e.preventDefault();
               const formData = new FormData(e.currentTarget);
+              const dept = formData.get('department') === 'complaints' ? 'Complaints & Grievances' : 'Admissions & Enquiries';
+              const targetNumber = formData.get('department') === 'complaints' ? '917448885802' : '918610345830';
               const name = formData.get('name');
               const email = formData.get('email');
               const message = formData.get('message');
-              const text = `Name: ${name}%0AEmail: ${email}%0AMessage: ${message}`;
-              window.open(`https://wa.me/918610345830?text=${text}`, '_blank');
+              const text = `*Department:* ${dept}%0A*Name:* ${name}%0A*Email:* ${email}%0A*Message:* ${message}`;
+              window.open(`https://wa.me/${targetNumber}?text=${text}`, '_blank');
             }}>
-              <input name="name" type="text" required placeholder="Your Name" className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-[#111] border border-zinc-200 dark:border-zinc-800 focus:outline-none focus:border-gold-metallic transition-colors" />
-              <input name="email" type="email" required placeholder="Your Email" className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-[#111] border border-zinc-200 dark:border-zinc-800 focus:outline-none focus:border-gold-metallic transition-colors" />
-              <textarea name="message" required placeholder="Your Message" rows={4} className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-[#111] border border-zinc-200 dark:border-zinc-800 focus:outline-none focus:border-gold-metallic transition-colors"></textarea>
+              <div>
+                <label className="block text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-2">Department</label>
+                <select
+                  name="department"
+                  defaultValue="admissions"
+                  className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-[#111] border border-zinc-200 dark:border-zinc-800 focus:outline-none focus:border-gold-metallic transition-colors text-zinc-900 dark:text-white"
+                >
+                  <option value="admissions">Course Admissions & Enquiries</option>
+                  <option value="complaints">Complaints & Grievances</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-2">Your Name</label>
+                <input name="name" type="text" required placeholder="Your Name" className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-[#111] border border-zinc-200 dark:border-zinc-800 focus:outline-none focus:border-gold-metallic transition-colors" />
+              </div>
+              <div>
+                <label className="block text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-2">Your Email</label>
+                <input name="email" type="email" required placeholder="Your Email" className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-[#111] border border-zinc-200 dark:border-zinc-800 focus:outline-none focus:border-gold-metallic transition-colors" />
+              </div>
+              <div>
+                <label className="block text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-2">Your Message</label>
+                <textarea name="message" required placeholder="Write your message here..." rows={4} className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-[#111] border border-zinc-200 dark:border-zinc-800 focus:outline-none focus:border-gold-metallic transition-colors"></textarea>
+              </div>
               <button type="submit" className="w-full btn-primary py-4 justify-center text-lg">Submit Request</button>
             </form>
           </div>
@@ -865,10 +932,10 @@ export function InstagramProfilesSection() {
   ];
 
   return (
-    <motion.section 
-      initial={{ opacity: 0 }} 
-      whileInView={{ opacity: 1 }} 
-      transition={{ duration: 0.8 }} 
+    <motion.section
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
       viewport={{ once: true, margin: "-100px" }}
       className="py-12 md:py-16 bg-white dark:bg-[#09090B]"
     >
@@ -892,7 +959,7 @@ export function InstagramProfilesSection() {
               <div className="flex flex-col items-center gap-4">
                 <div className="w-20 h-20 rounded-full bg-gradient-to-tr from-orange-500 via-pink-500 to-purple-500 p-1">
                   <div className="w-full h-full rounded-full bg-white dark:bg-zinc-900 flex items-center justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-pink-500 w-10 h-10"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-pink-500 w-10 h-10"><rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></svg>
                   </div>
                 </div>
                 <div>

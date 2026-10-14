@@ -8,7 +8,7 @@ export default function Footer() {
   };
 
   return (
-    <footer id="contact" className="relative bg-zinc-100 dark:bg-[#050505] pt-16 pb-8 border-t border-zinc-200 dark:border-zinc-800/50 overflow-hidden">
+    <footer className="relative bg-zinc-100 dark:bg-[#050505] pt-16 pb-8 border-t border-zinc-200 dark:border-zinc-800/50 overflow-hidden">
       {/* Watermark Background */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.03] dark:opacity-[0.02] pointer-events-none select-none">
         <span className="text-[300px] font-black tracking-tighter">SK</span>
@@ -43,19 +43,27 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-zinc-600 dark:text-zinc-400">
               <li><a href="#home" onClick={(e) => handleNav(e, 'home')} className="hover:text-gold-metallic transition-colors">Home</a></li>
               <li><a href="#about" onClick={(e) => handleNav(e, 'about')} className="hover:text-gold-metallic transition-colors">About</a></li>
+              <li><a href="#international-programs" onClick={(e) => handleNav(e, 'international-programs')} className="hover:text-gold-metallic transition-colors">International Programs</a></li>
               <li><a href="#gallery" onClick={(e) => handleNav(e, 'gallery')} className="hover:text-gold-metallic transition-colors">Gallery</a></li>
-              <li><a href="#testimonials" onClick={(e) => handleNav(e, 'testimonials')} className="hover:text-gold-metallic transition-colors">Reviews</a></li>
+              <li><a href="#testimonials" onClick={(e) => handleNav(e, 'testimonials')} className="hover:text-gold-metallic transition-colors">Testimonials</a></li>
             </ul>
           </div>
           
           {/* Contact Info */}
           <div>
             <h4 className="font-bold mb-4">Contact Us</h4>
-            <ul className="space-y-3 text-sm text-zinc-600 dark:text-zinc-400">
-              <li>+91 86103 45830</li>
-              <li>+91 744 888 5802</li>
-              <li>skbeautyverse@gmail.com</li>
-            </ul>
+            <div className="space-y-3 text-sm text-zinc-600 dark:text-zinc-400">
+              <div>
+                <span className="block text-[11px] font-bold uppercase tracking-wider text-gold-metallic mb-0.5">Admissions</span>
+                <p><a href="tel:+918610345830" className="hover:text-gold-metallic transition-colors">+91 86103 45830</a></p>
+                <p><a href="mailto:skbeautyverse@gmail.com" className="hover:text-gold-metallic transition-colors">skbeautyverse@gmail.com</a></p>
+              </div>
+              <div>
+                <span className="block text-[11px] font-bold uppercase tracking-wider text-gold-metallic mb-0.5">Complaints</span>
+                <p><a href="tel:+917448885802" className="hover:text-gold-metallic transition-colors">+91 744 888 5802</a></p>
+                <p><a href="mailto:complaints.skbeautyverse@gmail.com" className="hover:text-gold-metallic transition-colors">complaints.skbeautyverse@gmail.com</a></p>
+              </div>
+            </div>
           </div>
           
           {/* Address */}

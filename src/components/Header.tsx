@@ -1,5 +1,12 @@
-import { Home, Sparkles, Info, Moon, Sun, MessageSquareHeart, Calendar, MessageCircle } from 'lucide-react';
+import { Home, Sparkles, Info, Moon, Sun, MessageSquareHeart, Calendar, MessageCircle, ChevronDown, GraduationCap, Globe } from 'lucide-react';
 import { useState, useEffect } from 'react';
+
+const internationalCountries = [
+  { name: 'Sri Lanka', flag: '🇱🇰', flagImg: 'https://flagcdn.com/w40/lk.png', isComingSoon: false },
+  { name: 'Nepal', flag: '🇳🇵', flagImg: 'https://flagcdn.com/w40/np.png', isComingSoon: true },
+  { name: 'Malaysia', flag: '🇲🇾', flagImg: 'https://flagcdn.com/w40/my.png', isComingSoon: true },
+  { name: 'Dubai', flag: '🇦🇪', flagImg: 'https://flagcdn.com/w40/ae.png', isComingSoon: true },
+];
 
 export default function Header({ toggleTheme, isDark, onNavigate }: { toggleTheme?: () => void, isDark?: boolean, onNavigate?: (page: string) => void }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -33,30 +40,141 @@ export default function Header({ toggleTheme, isDark, onNavigate }: { toggleThem
             </div>
 
             {/* Nav Links */}
-            <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
-              {['Home', 'About', 'Gallery', 'Testimonials', 'Contact'].map((item) => (
+            <nav className="hidden md:flex items-center gap-4 lg:gap-6 text-sm font-medium">
+              <a
+                href="#home"
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (onNavigate) {
+                    onNavigate('home');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }
+                }}
+                className="hover:text-gold-metallic transition-colors"
+              >
+                Home
+              </a>
+
+              <a
+                href="#about"
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (onNavigate) onNavigate('about');
+                }}
+                className="hover:text-gold-metallic transition-colors"
+              >
+                About
+              </a>
+
+              {/* International Programs Dropdown */}
+              <div className="relative group">
                 <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
+                  href="#international-programs"
                   onClick={(e) => {
                     e.preventDefault();
-                    if (item === 'About' && onNavigate) onNavigate('about');
-                    else if (item === 'Gallery' && onNavigate) onNavigate('gallery');
-                    else if (item === 'Testimonials' && onNavigate) onNavigate('testimonials');
-                    else if (onNavigate) {
-                      onNavigate('home');
-                      if (item === 'Contact') {
-                        setTimeout(() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }), 100);
-                      } else {
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                      }
-                    }
+                    if (onNavigate) onNavigate('international-programs');
                   }}
-                  className="hover:text-gold-metallic transition-colors"
+                  className="flex items-center gap-1.5 hover:text-gold-metallic transition-colors py-2 cursor-pointer"
                 >
-                  {item}
+                  <span>International Programs</span>
+                  <ChevronDown className="w-3.5 h-3.5 group-hover:rotate-180 transition-transform duration-200 text-gold-metallic" />
                 </a>
-              ))}
+
+                {/* Dropdown Menu */}
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-64 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 z-50">
+                  <div className="p-2 rounded-2xl bg-white/95 dark:bg-[#111]/95 border border-zinc-200 dark:border-zinc-800 shadow-2xl backdrop-blur-xl space-y-1">
+                    <div className="px-3 py-1.5 border-b border-zinc-100 dark:border-zinc-800/80 mb-1">
+                      <span className="block text-[10px] font-bold uppercase tracking-wider text-gold-bronze dark:text-gold-champagne">
+                        Global Student Hubs
+                      </span>
+                    </div>
+
+                    {internationalCountries.map((c) => (
+                      <button
+                        key={c.name}
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          if (onNavigate) onNavigate('international-programs');
+                        }}
+                        className="w-full text-left px-3 py-2.5 rounded-xl hover:bg-gold-bronze/10 dark:hover:bg-gold-metallic/10 transition-colors flex items-center justify-between group/item"
+                      >
+                        <div className="flex items-center gap-2.5">
+                          <img src={c.flagImg} alt={c.name} className="w-5 h-3.5 object-cover rounded-sm shadow-xs border border-zinc-200 dark:border-zinc-700" />
+                          <span className="font-bold text-sm text-zinc-900 dark:text-zinc-100 group-hover/item:text-gold-metallic transition-colors">
+                            {c.name}
+                          </span>
+                        </div>
+
+                        {c.isComingSoon ? (
+                          <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/10 text-amber-500 dark:text-amber-400 border border-amber-500/25 shadow-sm">
+                            <span className="relative flex h-1.5 w-1.5">
+                              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-amber-500"></span>
+                            </span>
+                            <span className="animate-pulse tracking-wide uppercase text-[9px]">Coming Soon</span>
+                          </span>
+                        ) : (
+                          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/25">
+                            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+                            <span>Enrolling</span>
+                          </span>
+                        )}
+                      </button>
+                    ))}
+
+                    <div className="border-t border-zinc-100 dark:border-zinc-800/80 pt-1 mt-1">
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          if (onNavigate) onNavigate('international-programs');
+                        }}
+                        className="w-full text-left px-3 py-2 rounded-xl text-xs font-bold text-gold-bronze dark:text-gold-champagne hover:bg-gold-bronze/10 transition-colors flex items-center justify-between"
+                      >
+                        <span>View International Programs</span>
+                        <span>→</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <a
+                href="#gallery"
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (onNavigate) onNavigate('gallery');
+                }}
+                className="hover:text-gold-metallic transition-colors"
+              >
+                Gallery
+              </a>
+
+              <a
+                href="#testimonials"
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (onNavigate) onNavigate('testimonials');
+                }}
+                className="hover:text-gold-metallic transition-colors"
+              >
+                Testimonials
+              </a>
+
+              <a
+                href="#contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (onNavigate) {
+                    onNavigate('home');
+                    setTimeout(() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }), 100);
+                  }
+                }}
+                className="hover:text-gold-metallic transition-colors"
+              >
+                Contact
+              </a>
             </nav>
 
             {/* Actions */}
@@ -78,12 +196,26 @@ export default function Header({ toggleTheme, isDark, onNavigate }: { toggleThem
           <div className="animate-marquee inline-flex shrink-0 items-center">
             <span className="mx-6 font-bold flex items-center gap-1.5"><Sparkles className="w-3.5 h-3.5" /> Upcoming Batches 2026! Reserve your place and begin your journey toward a successful career.</span>
             <span className="mx-2 text-gold-bronze">•</span>
+            <span className="mx-6 flex items-center gap-2">
+              <Globe className="w-3.5 h-3.5 shrink-0" />
+              <span>
+                <span className="font-bold">International Admissions:</span> Course admission is going on for 4 countries — <span className="font-extrabold underline decoration-zinc-900/40">Sri Lanka, Nepal, Malaysia & Dubai</span>!
+              </span>
+            </span>
+            <span className="mx-2 text-gold-bronze">•</span>
             <span className="mx-6 flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5" /> <span className="font-bold">Aesthetic Course:</span> SEP - 16- 2026 (10:00 AM - 06:00 PM)</span>
             <span className="mx-2 text-gold-bronze">•</span>
             <span className="mx-6 flex items-center gap-1.5"><MessageCircle className="w-3.5 h-3.5" /> Seats are filling fast! <span className="font-bold underline group-hover:text-white transition-colors">WhatsApp: +91 86103 45830</span> to secure your enrollment. <Sparkles className="w-3.5 h-3.5 ml-1" /></span>
           </div>
           <div className="animate-marquee inline-flex shrink-0 items-center" aria-hidden="true">
             <span className="mx-6 font-bold flex items-center gap-1.5"><Sparkles className="w-3.5 h-3.5" /> Upcoming Batches 2026! Reserve your place and begin your journey toward a successful career.</span>
+            <span className="mx-2 text-gold-bronze">•</span>
+            <span className="mx-6 flex items-center gap-2">
+              <Globe className="w-3.5 h-3.5 shrink-0" />
+              <span>
+                <span className="font-bold">International Admissions:</span> Course admission is going on for 4 countries — <span className="font-extrabold underline decoration-zinc-900/40">Sri Lanka, Nepal, Malaysia & Dubai</span>!
+              </span>
+            </span>
             <span className="mx-2 text-gold-bronze">•</span>
             <span className="mx-6 flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5" /> <span className="font-bold">Aesthetic Course:</span> SEP - 16- 2026 (10:00 AM - 06:00 PM)</span>
             <span className="mx-2 text-gold-bronze">•</span>
@@ -104,13 +236,18 @@ export default function Header({ toggleTheme, isDark, onNavigate }: { toggleThem
             <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider">About</span>
           </a>
 
+          <a href="#international-programs" onClick={(e) => { e.preventDefault(); if (onNavigate) onNavigate('international-programs'); }} className="flex flex-col items-center gap-1 text-zinc-500 dark:text-zinc-400 hover:text-gold-bronze dark:hover:text-gold-metallic hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.6)] transition-all duration-300">
+            <GraduationCap className="w-5 h-5" />
+            <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider">Programs</span>
+          </a>
+
           <a href="#gallery" onClick={(e) => { e.preventDefault(); if (onNavigate) onNavigate('gallery'); }} className="flex flex-col items-center gap-1 text-zinc-500 dark:text-zinc-400 hover:text-gold-bronze dark:hover:text-gold-metallic hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.6)] transition-all duration-300">
             <Sparkles className="w-5 h-5" />
             <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider">Gallery</span>
           </a>
           <a href="#testimonials" onClick={(e) => { e.preventDefault(); if (onNavigate) onNavigate('testimonials'); }} className="flex flex-col items-center gap-1 text-zinc-500 dark:text-zinc-400 hover:text-gold-bronze dark:hover:text-gold-metallic hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.6)] transition-all duration-300">
             <MessageSquareHeart className="w-5 h-5" />
-            <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider">Reviews</span>
+            <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider">Testimonials</span>
           </a>
         </nav>
       </div>

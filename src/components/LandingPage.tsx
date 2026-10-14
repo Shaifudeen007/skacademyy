@@ -2,10 +2,11 @@
 import Header from './Header';
 import Hero from './Hero';
 
-import { 
-  TrainingExperienceSection, 
-  WhoCanJoinSection, 
-  ContactSection, 
+import SriLankaBatchSection from './SriLankaBatchSection';
+import {
+  TrainingExperienceSection,
+  WhoCanJoinSection,
+  ContactSection,
   FinalCTASection,
   WhyChooseUsSection,
   EquipmentSalesSection,
@@ -19,6 +20,7 @@ export default function LandingPage({ isDark, toggleTheme, onNavigate }: { isDar
       <Header isDark={isDark} toggleTheme={toggleTheme} onNavigate={onNavigate} />
       <main>
         <Hero />
+        <SriLankaBatchSection onNavigate={onNavigate} />
         <EquipmentSalesSection />
         <TrainingExperienceSection />
         <WhoCanJoinSection />
@@ -28,7 +30,7 @@ export default function LandingPage({ isDark, toggleTheme, onNavigate }: { isDar
         <FinalCTASection />
       </main>
       <Footer />
-      
+
     </div>
   );
 }

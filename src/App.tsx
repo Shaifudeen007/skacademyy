@@ -7,7 +7,7 @@ import PmuCoursePage from './components/PmuCoursePage';
 import NailArtCoursePage from './components/NailArtCoursePage';
 import HairExtensionCoursePage from './components/HairExtensionCoursePage';
 import HairCoursePage from './components/HairCoursePage';
-
+import InternationalProgramsPage from './components/InternationalProgramsPage';
 import TestimonialsPage from './components/TestimonialsPage';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -23,17 +23,36 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  const [currentPage, setCurrentPage] = useState('home');
+  const getPageFromUrl = () => {
+    const hash = window.location.hash.replace('#', '');
+    const validPages = ['about', 'gallery', 'testimonials', 'international-programs', 'course-aesthetic', 'course-pmu', 'course-nailart', 'course-hair-extension', 'course-hair'];
+    if (validPages.includes(hash)) return hash;
+    const path = window.location.pathname.replace(/^\//, '');
+    if (validPages.includes(path)) return path;
+    return 'home';
+  };
+
+  const [currentPage, setCurrentPage] = useState(getPageFromUrl);
 
   useEffect(() => {
     const handleNavigate = (e: Event) => {
       const customEvent = e as CustomEvent<string>;
       if (customEvent.detail) {
         setCurrentPage(customEvent.detail);
+        window.location.hash = customEvent.detail;
       }
     };
+    const onHashOrPop = () => {
+      setCurrentPage(getPageFromUrl());
+    };
     window.addEventListener('navigate', handleNavigate);
-    return () => window.removeEventListener('navigate', handleNavigate);
+    window.addEventListener('hashchange', onHashOrPop);
+    window.addEventListener('popstate', onHashOrPop);
+    return () => {
+      window.removeEventListener('navigate', handleNavigate);
+      window.removeEventListener('hashchange', onHashOrPop);
+      window.removeEventListener('popstate', onHashOrPop);
+    };
   }, []);
 
   useEffect(() => {
@@ -109,6 +128,8 @@ function App() {
         <HairExtensionCoursePage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
       ) : currentPage === 'course-hair' ? (
         <HairCoursePage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
+      ) : currentPage === 'international-programs' ? (
+        <InternationalProgramsPage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
       ) : currentPage === 'gallery' ? (
         <GalleryPage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
       ) : currentPage === 'testimonials' ? (
