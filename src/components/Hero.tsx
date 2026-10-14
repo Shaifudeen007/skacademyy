@@ -44,7 +44,7 @@ export default function Hero() {
 
             <motion.h1 
               variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } } }}
-              className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.15] mb-6 uppercase text-zinc-900 dark:text-white"
+              className="text-4xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight leading-[1.12] mb-6 uppercase text-zinc-900 dark:text-white"
             >
               BEAUTY KNOWS <br className="hidden lg:block"/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-bronze to-gold-metallic dark:from-gold-champagne dark:to-gold-metallic">NO BOUNDARIES.</span>
