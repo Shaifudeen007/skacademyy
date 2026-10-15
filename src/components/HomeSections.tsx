@@ -327,21 +327,29 @@ export function CoursesGrid({ onNavigate }: { onNavigate?: (page: string) => voi
                   </p>
                   
                   <div>
-                    <a 
-                      href="#" 
-                      onClick={(e) => { 
-                        e.preventDefault(); 
-                        if (svc.title === 'Aesthetic Course' && onNavigate) onNavigate('course-aesthetic'); 
-                        else if (svc.title === 'PMU Course' && onNavigate) onNavigate('course-pmu');
-                        else if (svc.title === 'Nail Art Course' && onNavigate) onNavigate('course-nailart');
-                        else if (svc.title === 'Hair Extension' && onNavigate) onNavigate('course-hair-extension');
-                        else if (svc.title === 'Hair Course' && onNavigate) onNavigate('course-hair');
-                      }} 
-                      className="inline-flex items-center justify-center gap-2 sm:gap-3 font-bold transition-all uppercase tracking-wider bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 px-6 py-3.5 sm:px-8 sm:py-4 lg:px-10 lg:py-5 text-sm sm:text-base rounded-full hover:bg-gold-gradient hover:text-zinc-900 shadow-xl hover:shadow-[0_15px_30px_rgba(212,175,55,0.3)] hover:-translate-y-1 group/btn w-full sm:w-auto"
-                    >
-                      {['Aesthetic Course', 'PMU Course', 'Nail Art Course', 'Hair Extension', 'Hair Course'].includes(svc.title) ? 'View Course Details' : 'Enroll Now'} 
-                      <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover/btn:translate-x-1 transition-transform" />
-                    </a>
+                    {['Aesthetic Course', 'PMU Course'].includes(svc.title) ? (
+                      <button 
+                        type="button"
+                        onClick={() => { 
+                          if (svc.title === 'Aesthetic Course' && onNavigate) onNavigate('course-aesthetic'); 
+                          else if (svc.title === 'PMU Course' && onNavigate) onNavigate('course-pmu');
+                        }} 
+                        className="inline-flex items-center justify-center gap-2 sm:gap-3 font-bold transition-all uppercase tracking-wider bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 px-6 py-3.5 sm:px-8 sm:py-4 lg:px-10 lg:py-5 text-sm sm:text-base rounded-full hover:bg-gold-gradient hover:text-zinc-900 shadow-xl hover:shadow-[0_15px_30px_rgba(212,175,55,0.3)] hover:-translate-y-1 group/btn w-full sm:w-auto cursor-pointer"
+                      >
+                        View Course Details
+                        <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover/btn:translate-x-1 transition-transform" />
+                      </button>
+                    ) : (
+                      <a 
+                        href={`https://wa.me/918610345830?text=${encodeURIComponent(`Hello SK Academy, I would like to enroll in the ${svc.title}.`)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-2 sm:gap-3 font-bold transition-all uppercase tracking-wider bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 px-6 py-3.5 sm:px-8 sm:py-4 lg:px-10 lg:py-5 text-sm sm:text-base rounded-full hover:bg-gold-gradient hover:text-zinc-900 shadow-xl hover:shadow-[0_15px_30px_rgba(212,175,55,0.3)] hover:-translate-y-1 group/btn w-full sm:w-auto"
+                      >
+                        Enroll Now
+                        <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover/btn:translate-x-1 transition-transform" />
+                      </a>
+                    )}
                   </div>
                 </div>
               </motion.div>

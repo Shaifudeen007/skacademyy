@@ -4,15 +4,16 @@ import AboutPage from './components/AboutPage';
 import GalleryPage from './components/GalleryPage';
 import AestheticCoursePage from './components/AestheticCoursePage';
 import PmuCoursePage from './components/PmuCoursePage';
-import NailArtCoursePage from './components/NailArtCoursePage';
-import HairExtensionCoursePage from './components/HairExtensionCoursePage';
-import HairCoursePage from './components/HairCoursePage';
 import InternationalProgramsPage from './components/InternationalProgramsPage';
 import TestimonialsPage from './components/TestimonialsPage';
+import CountryPopup from './components/CountryPopup';
 import { motion, AnimatePresence } from 'framer-motion';
 
 function App() {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(() => {
+    const saved = localStorage.getItem('theme');
+    return saved !== null ? saved === 'dark' : true;
+  });
   const [isLoading, setIsLoading] = useState(true);
 
   // Splash screen timeout
@@ -25,7 +26,7 @@ function App() {
 
   const getPageFromUrl = () => {
     const hash = window.location.hash.replace('#', '');
-    const validPages = ['about', 'gallery', 'testimonials', 'international-programs', 'course-aesthetic', 'course-pmu', 'course-nailart', 'course-hair-extension', 'course-hair'];
+    const validPages = ['about', 'gallery', 'testimonials', 'international-programs', 'course-aesthetic', 'course-pmu'];
     if (validPages.includes(hash)) return hash;
     const path = window.location.pathname.replace(/^\//, '');
     if (validPages.includes(path)) return path;
@@ -58,8 +59,10 @@ function App() {
   useEffect(() => {
     if (isDark) {
       document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
     } else {
       document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
     }
   }, [isDark]);
 
@@ -122,12 +125,6 @@ function App() {
         <AestheticCoursePage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
       ) : currentPage === 'course-pmu' ? (
         <PmuCoursePage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
-      ) : currentPage === 'course-nailart' ? (
-        <NailArtCoursePage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
-      ) : currentPage === 'course-hair-extension' ? (
-        <HairExtensionCoursePage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
-      ) : currentPage === 'course-hair' ? (
-        <HairCoursePage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
       ) : currentPage === 'international-programs' ? (
         <InternationalProgramsPage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
       ) : currentPage === 'gallery' ? (
@@ -139,6 +136,9 @@ function App() {
       )}
 
 
+
+      {/* Country and International Programs Popup */}
+      <CountryPopup onNavigate={setCurrentPage} isOpenTrigger={!isLoading} />
 
       {/* Floating WhatsApp Button */}
       <a 

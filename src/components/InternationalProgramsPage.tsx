@@ -124,7 +124,7 @@ export default function InternationalProgramsPage({
               </motion.p>
             </div>
 
-            <div className="flex flex-col gap-6 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
               {destinations.map((dest, idx) => (
                 <motion.div
                   key={dest.country}
@@ -132,69 +132,70 @@ export default function InternationalProgramsPage({
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  className="rounded-3xl bg-white dark:bg-[#111] border border-zinc-200 dark:border-zinc-800 p-6 sm:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-md hover:shadow-2xl hover:border-gold-metallic/50 transition-all group"
+                  className="rounded-3xl bg-white dark:bg-[#111] border border-zinc-200 dark:border-zinc-800 p-6 flex flex-col justify-between shadow-md hover:shadow-2xl hover:border-gold-metallic/50 transition-all group h-full"
                 >
-                  <div className="flex-1">
-                    <div className="flex flex-wrap items-center gap-3 mb-3">
+                  <div className="flex-1 flex flex-col">
+                    <div className="flex items-center justify-between gap-2 mb-4">
                       <img 
                         src={dest.flagImg} 
                         alt={`${dest.country} flag`} 
                         className="w-10 h-7 object-cover rounded-md shadow-sm border border-zinc-200 dark:border-zinc-700 shrink-0" 
                       />
-                      <h3 className="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-white group-hover:text-gold-metallic transition-colors">
-                        {dest.country}
-                      </h3>
                       {dest.isComingSoon ? (
-                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-500/10 text-amber-500 dark:text-amber-400 border border-amber-500/30">
-                          <span className="relative flex h-2 w-2">
+                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-amber-500/10 text-amber-500 dark:text-amber-400 border border-amber-500/30">
+                          <span className="relative flex h-1.5 w-1.5">
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+                            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-amber-500"></span>
                           </span>
                           <span className="animate-pulse tracking-wide">Coming Soon</span>
                         </span>
                       ) : (
-                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
-                          <span className="h-2 w-2 rounded-full bg-emerald-500"></span>
+                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
+                          <span className="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
                           <span>Admissions Open</span>
                         </span>
                       )}
                     </div>
 
-                    <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed mb-5 max-w-2xl">
+                    <h3 className="text-xl sm:text-2xl font-extrabold text-zinc-900 dark:text-white group-hover:text-gold-metallic transition-colors mb-3">
+                      {dest.country}
+                    </h3>
+
+                    <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mb-5">
                       {dest.desc}
                     </p>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 max-w-2xl">
+                    <div className="space-y-2 mb-6 mt-auto">
                       {dest.highlights.map((feat, fIdx) => (
-                        <div key={fIdx} className="flex items-center gap-2 text-xs sm:text-sm text-zinc-700 dark:text-zinc-300">
-                          <CheckCircle2 className="w-4 h-4 text-gold-metallic flex-shrink-0" />
+                        <div key={fIdx} className="flex items-start gap-2 text-xs text-zinc-700 dark:text-zinc-300">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-gold-metallic flex-shrink-0 mt-0.5" />
                           <span>{feat}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
-                  <div className="md:w-64 flex-shrink-0 flex items-center">
+                  <div className="pt-2">
                     {dest.isComingSoon ? (
                       <a
                         href={`https://wa.me/918610345830?text=Hello%20SK%20Academy,%20I%20am%20interested%20in%20the%20upcoming%20International%20Program%20for%20${encodeURIComponent(dest.country)}.`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-full py-3.5 px-5 rounded-2xl bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 hover:dark:bg-zinc-700 text-zinc-800 dark:text-zinc-200 text-sm font-bold transition-all flex items-center justify-center gap-2 shadow-sm group/btn border border-zinc-200 dark:border-zinc-700 text-center"
+                        className="w-full py-3 px-4 rounded-xl bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 hover:dark:bg-zinc-700 text-zinc-800 dark:text-zinc-200 text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-sm group/btn border border-zinc-200 dark:border-zinc-700 text-center"
                       >
-                        <span>Register Early Interest</span>
-                        <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform shrink-0" />
+                        <span>Register Interest</span>
+                        <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform shrink-0" />
                       </a>
                     ) : (
                       <a
                         href={`https://wa.me/918610345830?text=Hello%20SK%20Academy,%20I%20am%20inquiring%20about%20International%20Programs%20for%20students%20from%20${encodeURIComponent(dest.country)}.`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-full py-3.5 px-5 rounded-2xl bg-gold-gradient text-zinc-900 font-extrabold text-sm transition-all flex items-center justify-center gap-2 shadow-md hover:scale-[1.02] group/btn text-center"
+                        className="w-full py-3 px-4 rounded-xl bg-gold-gradient text-zinc-900 font-extrabold text-xs transition-all flex items-center justify-center gap-1.5 shadow-md hover:scale-[1.02] group/btn text-center"
                       >
-                        <GraduationCap className="w-5 h-5 flex-shrink-0" />
-                        <span>Inquire for {dest.country}</span>
-                        <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform shrink-0" />
+                        <GraduationCap className="w-4 h-4 flex-shrink-0" />
+                        <span>Inquire Now</span>
+                        <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform shrink-0" />
                       </a>
                     )}
                   </div>
