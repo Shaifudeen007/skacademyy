@@ -7,8 +7,7 @@ const heroImages = [
   '/hero/DSC07226.JPG',
   '/hero/DSC07230.JPG',
   '/hero/DSC07243.JPG',
-  '/hero/DSC07247.JPG',
-  '/hero/DSC05770 (1).JPG'
+  '/hero/DSC07247.JPG'
 ];
 
 export default function Hero() {
