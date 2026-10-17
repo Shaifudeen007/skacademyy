@@ -33,7 +33,7 @@ export function SchedulePopup() {
         >
           <motion.div 
             onClick={(e) => e.stopPropagation()}
-            className="bg-white dark:bg-[#09090B] rounded-3xl w-full max-w-2xl overflow-hidden shadow-[0_0_50px_rgba(212,175,55,0.2)] border border-gold-metallic/20 relative flex flex-col transform scale-[0.95] sm:scale-100 origin-center"
+            className="bg-white dark:bg-[#09090B] rounded-3xl w-full max-w-lg overflow-hidden shadow-[0_0_50px_rgba(212,175,55,0.2)] border border-gold-metallic/20 relative flex flex-col transform scale-[0.95] sm:scale-100 origin-center"
             initial={{ scale: 0.9, y: 20, opacity: 0 }}
             animate={{ scale: 1, y: 0, opacity: 1 }}
             exit={{ scale: 0.9, y: 20, opacity: 0 }}
