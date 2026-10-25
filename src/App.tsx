@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import LandingPage from './components/LandingPage';
 import AboutPage from './components/AboutPage';
 import GalleryPage from './components/GalleryPage';
+import CoursesPage from './components/CoursesPage';
 import AestheticCoursePage from './components/AestheticCoursePage';
 import PmuCoursePage from './components/PmuCoursePage';
 import InternationalProgramsPage from './components/InternationalProgramsPage';
@@ -26,7 +27,7 @@ function App() {
 
   const getPageFromUrl = () => {
     const hash = window.location.hash.replace('#', '');
-    const validPages = ['about', 'gallery', 'testimonials', 'international-programs', 'course-aesthetic', 'course-pmu'];
+    const validPages = ['about', 'courses', 'gallery', 'testimonials', 'international-programs', 'course-aesthetic', 'course-pmu'];
     if (validPages.includes(hash)) return hash;
     const path = window.location.pathname.replace(/^\//, '');
     if (validPages.includes(path)) return path;
@@ -121,6 +122,8 @@ function App() {
 
       {currentPage === 'about' ? (
         <AboutPage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
+      ) : currentPage === 'courses' ? (
+        <CoursesPage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
       ) : currentPage === 'course-aesthetic' ? (
         <AestheticCoursePage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
       ) : currentPage === 'course-pmu' ? (

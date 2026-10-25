@@ -18,10 +18,11 @@ import {
   X,
   ChevronLeft,
   ChevronRight,
-  Headphones
+  Headphones,
+  Maximize2
 } from 'lucide-react';
 import { AnimatedCounter } from './HomeSections';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export function CreativeUnderline({ className = "justify-center" }: { className?: string }) {
   return (
@@ -267,42 +268,170 @@ export function TrainingExperienceSection() {
 }
 
 // 3. Gallery Section
+interface GalleryPhoto {
+  src: string;
+  caption: string;
+  category: string;
+  country: 'India' | 'Sri Lanka';
+}
+
+const indiaGalleryImages: GalleryPhoto[] = [
+  {
+    src: '/gallery/DSC03560.JPG',
+    caption: 'Clinical Hands-on Practical Training Session',
+    category: 'Practical Training',
+    country: 'India'
+  },
+  {
+    src: '/gallery/DSC03564.JPG',
+    caption: 'Doctor Mentorship & Aesthetic Clinical Guidance',
+    category: 'Doctor Mentorship',
+    country: 'India'
+  },
+  {
+    src: '/gallery/DSC05480.JPG',
+    caption: 'Live Model Treatment & Skin Assessment',
+    category: 'Live Models',
+    country: 'India'
+  },
+  {
+    src: '/gallery/DSC05487.JPG',
+    caption: 'Precision Aesthetic Procedure Guidance',
+    category: 'Precision Technique',
+    country: 'India'
+  },
+  {
+    src: '/gallery/DSC05523.JPG',
+    caption: 'Advanced Facial Aesthetics & Rejuvenation Demo',
+    category: 'Facial Aesthetics',
+    country: 'India'
+  },
+  {
+    src: '/gallery/DSC05547.JPG',
+    caption: 'State-of-the-art Laser Machine & Device Training',
+    category: 'Laser Machines',
+    country: 'India'
+  },
+  {
+    src: '/gallery/DSC05897.JPG',
+    caption: 'Interactive Theory Lecture & Protocol Guidance',
+    category: 'Classroom & Theory',
+    country: 'India'
+  },
+  {
+    src: '/gallery/DSC05912.JPG',
+    caption: 'Small Batch Mentorship & Real-world Practice',
+    category: 'Clinical Practice',
+    country: 'India'
+  },
+  {
+    src: '/gallery/DSC05916.JPG',
+    caption: 'World-class Academy Clinical Infrastructure',
+    category: 'Academy Facility',
+    country: 'India'
+  }
+];
+
+const srilankaGalleryImages: GalleryPhoto[] = [
+  {
+    src: '/Srilanka/DSC07258.JPG',
+    caption: 'Clinical Practical Demonstration with Live Models',
+    category: 'Live Models',
+    country: 'Sri Lanka'
+  },
+  {
+    src: '/Srilanka/DSC07243.JPG',
+    caption: 'Hands-on Aesthetic Machine & Laser Training',
+    category: 'Laser Machines',
+    country: 'Sri Lanka'
+  },
+  {
+    src: '/Srilanka/DSC07247.JPG',
+    caption: '1-on-1 Mentorship with Expert Doctor Guidance',
+    category: 'Doctor Guidance',
+    country: 'Sri Lanka'
+  },
+  {
+    src: '/Srilanka/DSC07319.JPG',
+    caption: 'Advanced Skin Analysis & Clinical Protocols',
+    category: 'Skin Protocols',
+    country: 'Sri Lanka'
+  },
+  {
+    src: '/Srilanka/DSC07492.JPG',
+    caption: 'Comprehensive Aesthetic Procedure Training',
+    category: 'Procedure Training',
+    country: 'Sri Lanka'
+  },
+  {
+    src: '/Srilanka/DSC07505.JPG',
+    caption: 'Student Practical Sessions & Precision Technique',
+    category: 'Precision Practice',
+    country: 'Sri Lanka'
+  },
+  {
+    src: '/Srilanka/DSC07226.JPG',
+    caption: 'Real-world Clinic Environment Learning',
+    category: 'Clinic Setup',
+    country: 'Sri Lanka'
+  },
+  {
+    src: '/Srilanka/DSC07230.JPG',
+    caption: 'Graduation & International UK Diploma Award',
+    category: 'UK Certification',
+    country: 'Sri Lanka'
+  }
+];
+
 export function GallerySection() {
-  const allImages = [
-    '/gallery/DSC03560.JPG',
-    '/gallery/DSC03564.JPG',
-    '/gallery/DSC05480.JPG',
-    '/gallery/DSC05487.JPG',
-    '/gallery/DSC05523.JPG',
-    '/gallery/DSC05547.JPG',
-    '/gallery/DSC05897.JPG',
-    '/gallery/DSC05912.JPG',
-    '/gallery/DSC05916.JPG',
-    '/Srilanka/DSC07258.JPG',
-    '/Srilanka/DSC07243.JPG',
-    '/Srilanka/DSC07247.JPG',
-    '/Srilanka/DSC07319.JPG',
-    '/Srilanka/DSC07492.JPG',
-    '/Srilanka/DSC07505.JPG',
-    '/Srilanka/DSC07226.JPG',
-    '/Srilanka/DSC07230.JPG'
-  ];
+  const [activeTab, setActiveTab] = useState<'all' | 'india' | 'srilanka'>('all');
+  const [lightboxState, setLightboxState] = useState<{ images: GalleryPhoto[]; idx: number } | null>(null);
 
-  const images = allImages;
+  const indiaSectionRef = useRef<HTMLDivElement>(null);
+  const srilankaSectionRef = useRef<HTMLDivElement>(null);
 
-  const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
+  const handleViewIndia = () => {
+    setActiveTab('india');
+    setTimeout(() => {
+      indiaSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 60);
+  };
+
+  const handleViewSriLanka = () => {
+    setActiveTab('srilanka');
+    setTimeout(() => {
+      srilankaSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 60);
+  };
 
   const prevImage = () => {
-    if (lightboxIdx !== null) {
-      setLightboxIdx((lightboxIdx - 1 + images.length) % images.length);
-    }
+    if (!lightboxState) return;
+    setLightboxState({
+      images: lightboxState.images,
+      idx: (lightboxState.idx - 1 + lightboxState.images.length) % lightboxState.images.length
+    });
   };
 
   const nextImage = () => {
-    if (lightboxIdx !== null) {
-      setLightboxIdx((lightboxIdx + 1) % images.length);
-    }
+    if (!lightboxState) return;
+    setLightboxState({
+      images: lightboxState.images,
+      idx: (lightboxState.idx + 1) % lightboxState.images.length
+    });
   };
+
+  useEffect(() => {
+    if (!lightboxState) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setLightboxState(null);
+      if (e.key === 'ArrowLeft') prevImage();
+      if (e.key === 'ArrowRight') nextImage();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [lightboxState]);
+
+  const currentPhoto = lightboxState ? lightboxState.images[lightboxState.idx] : null;
 
   return (
     <>
@@ -312,79 +441,462 @@ export function GallerySection() {
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true, margin: "-100px" }}
-        className="pt-4 pb-8 md:pt-8 md:pb-12 bg-white dark:bg-[#09090B]"
+        className="pt-4 pb-16 md:pt-8 md:pb-20 bg-white dark:bg-[#09090B]"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          {/* Section Header */}
+          <div className="text-center mb-10 md:mb-14">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gold-bronze/10 dark:bg-gold-metallic/10 text-gold-bronze dark:text-gold-champagne font-bold text-xs mb-4 border border-gold-bronze/20 dark:border-gold-metallic/20">
               <Camera className="w-3.5 h-3.5" />
-              OUR FACILITIES
+              OUR CLINICAL & INTERNATIONAL GALLERIES
             </div>
-            <h2 className="text-3xl md:text-5xl font-extrabold mb-6 text-zinc-900 dark:text-white text-center tracking-tight">
+            <h2 className="text-3xl md:text-5xl font-extrabold mb-4 text-zinc-900 dark:text-white text-center tracking-tight">
               Academy <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-bronze to-gold-metallic">Gallery</span>
             </h2>
             <CreativeUnderline />
+            <p className="text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
+              Explore hands-on clinical training, live patient demonstrations, and international batches from our <strong>India</strong> and <strong>Sri Lanka</strong> facilities.
+            </p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {images.map((imgSrc, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: (i % 4) * 0.1 }}
-                viewport={{ once: true }}
-                onClick={() => setLightboxIdx(i)}
-                className={`rounded-xl overflow-hidden cursor-pointer ${i === 0 || i === 3 ? 'col-span-2 row-span-2' : ''}`}
-              >
+
+          {/* 2 Main Cards (India & Sri Lanka) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+            {/* 1. India Card */}
+            <motion.div
+              whileHover={{ y: -4 }}
+              transition={{ duration: 0.3 }}
+              onClick={handleViewIndia}
+              className={`relative rounded-3xl overflow-hidden cursor-pointer transition-all duration-300 border ${
+                activeTab === 'india'
+                  ? 'border-gold-metallic ring-2 ring-gold-metallic/30 shadow-[0_0_25px_rgba(212,175,55,0.25)]'
+                  : 'border-zinc-200 dark:border-zinc-800 hover:border-gold-metallic/50 shadow-lg'
+              } bg-zinc-900 group`}
+            >
+              {/* Background Cover Image with Overlay */}
+              <div className="relative h-56 sm:h-64 overflow-hidden">
                 <img
-                  src={imgSrc}
-                  alt={`Gallery Item ${i + 1}`}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500 min-h-[150px]"
+                  src={indiaGalleryImages[0].src}
+                  alt="India"
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 brightness-[0.75] group-hover:brightness-[0.85]"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+
+                {/* Country Flag Badge & Photo Count */}
+                <div className="absolute top-4 left-4 flex items-center gap-2">
+                  <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white text-xs font-bold">
+                    <img
+                      src="https://flagcdn.com/w80/in.png"
+                      alt="India Flag"
+                      className="w-5 h-3.5 object-cover rounded shadow-xs"
+                    />
+                    <span>India</span>
+                  </div>
+                </div>
+
+                <div className="absolute top-4 right-4">
+                  <span className="px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-gold-metallic/30 text-gold-metallic text-xs font-bold">
+                    {indiaGalleryImages.length} Photos
+                  </span>
+                </div>
+
+                {/* Bottom Content within Image */}
+                <div className="absolute bottom-4 left-4 right-4">
+                  <div className="flex items-center gap-1.5 text-gold-metallic text-xs font-semibold mb-1">
+                    <MapPin className="w-3.5 h-3.5" />
+                    <span>Chennai Campus</span>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-black text-white tracking-wide">
+                    India
+                  </h3>
+                </div>
+              </div>
+
+              {/* Bottom Card Footer Details */}
+              <div className="p-5 bg-zinc-50 dark:bg-zinc-900/90 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-t border-zinc-200 dark:border-zinc-800">
+                <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 line-clamp-1">
+                  Practical demonstrations, patient assessments & aesthetic machinery.
+                </p>
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleViewIndia();
+                  }}
+                  className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold tracking-wider uppercase transition-all shrink-0 bg-gradient-to-r from-gold-bronze to-gold-metallic text-black shadow-md hover:scale-105 active:scale-95"
+                >
+                  <span>View Images</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </motion.div>
+
+            {/* 2. Sri Lanka Card */}
+            <motion.div
+              whileHover={{ y: -4 }}
+              transition={{ duration: 0.3 }}
+              onClick={handleViewSriLanka}
+              className={`relative rounded-3xl overflow-hidden cursor-pointer transition-all duration-300 border ${
+                activeTab === 'srilanka'
+                  ? 'border-gold-metallic ring-2 ring-gold-metallic/30 shadow-[0_0_25px_rgba(212,175,55,0.25)]'
+                  : 'border-zinc-200 dark:border-zinc-800 hover:border-gold-metallic/50 shadow-lg'
+              } bg-zinc-900 group`}
+            >
+              {/* Background Cover Image with Overlay */}
+              <div className="relative h-56 sm:h-64 overflow-hidden">
+                <img
+                  src={srilankaGalleryImages[0].src}
+                  alt="Sri Lanka"
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 brightness-[0.75] group-hover:brightness-[0.85]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+
+                {/* Country Flag Badge & Photo Count */}
+                <div className="absolute top-4 left-4 flex items-center gap-2">
+                  <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white text-xs font-bold">
+                    <img
+                      src="https://flagcdn.com/w80/lk.png"
+                      alt="Sri Lanka Flag"
+                      className="w-5 h-3.5 object-cover rounded shadow-xs"
+                    />
+                    <span>Sri Lanka</span>
+                  </div>
+                </div>
+
+                <div className="absolute top-4 right-4">
+                  <span className="px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-gold-metallic/30 text-gold-metallic text-xs font-bold">
+                    {srilankaGalleryImages.length} Photos
+                  </span>
+                </div>
+
+                {/* Bottom Content within Image */}
+                <div className="absolute bottom-4 left-4 right-4">
+                  <div className="flex items-center gap-1.5 text-gold-metallic text-xs font-semibold mb-1">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    <span>International Doctors Batch</span>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-black text-white tracking-wide">
+                    Sri Lanka
+                  </h3>
+                </div>
+              </div>
+
+              {/* Bottom Card Footer Details */}
+              <div className="p-5 bg-zinc-50 dark:bg-zinc-900/90 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-t border-zinc-200 dark:border-zinc-800">
+                <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 line-clamp-1">
+                  International training batch, doctor mentorship & UK Diploma certification.
+                </p>
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleViewSriLanka();
+                  }}
+                  className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold tracking-wider uppercase transition-all shrink-0 bg-gradient-to-r from-gold-bronze to-gold-metallic text-black shadow-md hover:scale-105 active:scale-95"
+                >
+                  <span>View Images</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Quick Filter Bar */}
+          <div className="flex items-center justify-center gap-2 sm:gap-3 mb-10 flex-wrap">
+            <button
+              onClick={() => {
+                setActiveTab('all');
+                setTimeout(() => {
+                  indiaSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 60);
+              }}
+              className={`px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 ${
+                activeTab === 'all'
+                  ? 'bg-gradient-to-r from-gold-bronze to-gold-metallic text-black shadow-lg shadow-gold-metallic/20 scale-105'
+                  : 'bg-zinc-100 dark:bg-zinc-800/80 text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white border border-zinc-200 dark:border-zinc-700'
+              }`}
+            >
+              All Images ({indiaGalleryImages.length + srilankaGalleryImages.length})
+            </button>
+            <button
+              onClick={handleViewIndia}
+              className={`inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 ${
+                activeTab === 'india'
+                  ? 'bg-gradient-to-r from-gold-bronze to-gold-metallic text-black shadow-lg shadow-gold-metallic/20 scale-105'
+                  : 'bg-zinc-100 dark:bg-zinc-800/80 text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white border border-zinc-200 dark:border-zinc-700'
+              }`}
+            >
+              <img src="https://flagcdn.com/w40/in.png" alt="India" className="w-4 h-3 rounded-xs object-cover" />
+              <span>India ({indiaGalleryImages.length})</span>
+            </button>
+            <button
+              onClick={handleViewSriLanka}
+              className={`inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 ${
+                activeTab === 'srilanka'
+                  ? 'bg-gradient-to-r from-gold-bronze to-gold-metallic text-black shadow-lg shadow-gold-metallic/20 scale-105'
+                  : 'bg-zinc-100 dark:bg-zinc-800/80 text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white border border-zinc-200 dark:border-zinc-700'
+              }`}
+            >
+              <img src="https://flagcdn.com/w40/lk.png" alt="Sri Lanka" className="w-4 h-3 rounded-xs object-cover" />
+              <span>Sri Lanka ({srilankaGalleryImages.length})</span>
+            </button>
+          </div>
+
+          {/* Galleries Display */}
+          <div className="space-y-12">
+            {/* CARD 1: INDIA GALLERY */}
+            {(activeTab === 'all' || activeTab === 'india') && (
+              <motion.div
+                ref={indiaSectionRef}
+                id="india-gallery"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="scroll-mt-28 md:scroll-mt-32 rounded-3xl p-6 sm:p-8 md:p-10 bg-zinc-50/70 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 shadow-xl relative overflow-hidden"
+              >
+                {/* Decorative Top Accent Glow */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-gold-bronze via-gold-metallic to-gold-champagne" />
+
+                {/* India Header */}
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 pb-6 border-b border-zinc-200 dark:border-zinc-800">
+                  <div className="flex items-center gap-3.5">
+                    <img
+                      src="https://flagcdn.com/w80/in.png"
+                      alt="India Flag"
+                      className="w-10 h-7 object-cover rounded-md shadow-md border border-zinc-300 dark:border-zinc-700 shrink-0"
+                    />
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <h3 className="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-white tracking-tight">
+                          India
+                        </h3>
+                        <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-gold-bronze/10 dark:bg-gold-metallic/10 text-gold-bronze dark:text-gold-champagne border border-gold-bronze/20 dark:border-gold-metallic/20">
+                          {indiaGalleryImages.length} Photos
+                        </span>
+                      </div>
+                      <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 mt-1 flex items-center gap-1.5">
+                        <MapPin className="w-3.5 h-3.5 text-gold-metallic" />
+                        <span>Chennai Campus – Practical Training, Laser Demonstrations & Clinical Sessions</span>
+                      </p>
+                    </div>
+                  </div>
+
+                  <span className="text-xs font-semibold text-zinc-500 dark:text-zinc-400 hidden sm:block">
+                    Click any image to view full screen
+                  </span>
+                </div>
+
+                {/* India Images Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                  {indiaGalleryImages.map((photo, i) => (
+                    <motion.div
+                      key={photo.src}
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.4, delay: (i % 3) * 0.08 }}
+                      viewport={{ once: true }}
+                      onClick={() => setLightboxState({ images: indiaGalleryImages, idx: i })}
+                      className="group relative rounded-2xl overflow-hidden cursor-pointer bg-zinc-900 border border-zinc-200 dark:border-zinc-800/80 shadow-md aspect-[4/3]"
+                    >
+                      <img
+                        src={photo.src}
+                        alt={photo.caption}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                      {/* Gradient Overlay & Details */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-4">
+                        <div className="flex justify-between items-start">
+                          <span className="px-2.5 py-1 rounded-full text-[11px] font-bold bg-black/60 backdrop-blur-md text-gold-metallic border border-gold-metallic/30">
+                            {photo.category}
+                          </span>
+                          <span className="w-8 h-8 rounded-full bg-black/60 backdrop-blur-md text-white/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110">
+                            <Maximize2 className="w-4 h-4" />
+                          </span>
+                        </div>
+                        <div>
+                          <p className="text-white text-xs sm:text-sm font-semibold drop-shadow-md line-clamp-2">
+                            {photo.caption}
+                          </p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
               </motion.div>
-            ))}
+            )}
+
+            {/* CARD 2: SRI LANKA GALLERY */}
+            {(activeTab === 'all' || activeTab === 'srilanka') && (
+              <motion.div
+                ref={srilankaSectionRef}
+                id="srilanka-gallery"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="scroll-mt-28 md:scroll-mt-32 rounded-3xl p-6 sm:p-8 md:p-10 bg-zinc-50/70 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 shadow-xl relative overflow-hidden"
+              >
+                {/* Decorative Top Accent Glow */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 via-gold-metallic to-gold-bronze" />
+
+                {/* Sri Lanka Header */}
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 pb-6 border-b border-zinc-200 dark:border-zinc-800">
+                  <div className="flex items-center gap-3.5">
+                    <img
+                      src="https://flagcdn.com/w80/lk.png"
+                      alt="Sri Lanka Flag"
+                      className="w-10 h-7 object-cover rounded-md shadow-md border border-zinc-300 dark:border-zinc-700 shrink-0"
+                    />
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <h3 className="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-white tracking-tight">
+                          Sri Lanka
+                        </h3>
+                        <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
+                          {srilankaGalleryImages.length} Photos
+                        </span>
+                      </div>
+                      <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 mt-1 flex items-center gap-1.5">
+                        <Sparkles className="w-3.5 h-3.5 text-gold-metallic" />
+                        <span>International Training Batch – Live Models, Doctor Guidance & UK Diploma Award</span>
+                      </p>
+                    </div>
+                  </div>
+
+                  <span className="text-xs font-semibold text-zinc-500 dark:text-zinc-400 hidden sm:block">
+                    Click any image to view full screen
+                  </span>
+                </div>
+
+                {/* Sri Lanka Images Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                  {srilankaGalleryImages.map((photo, i) => (
+                    <motion.div
+                      key={photo.src}
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.4, delay: (i % 4) * 0.08 }}
+                      viewport={{ once: true }}
+                      onClick={() => setLightboxState({ images: srilankaGalleryImages, idx: i })}
+                      className="group relative rounded-2xl overflow-hidden cursor-pointer bg-zinc-900 border border-zinc-200 dark:border-zinc-800/80 shadow-md aspect-[4/3]"
+                    >
+                      <img
+                        src={photo.src}
+                        alt={photo.caption}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                      {/* Gradient Overlay & Details */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-4">
+                        <div className="flex justify-between items-start">
+                          <span className="px-2.5 py-1 rounded-full text-[11px] font-bold bg-black/60 backdrop-blur-md text-emerald-400 border border-emerald-500/30">
+                            {photo.category}
+                          </span>
+                          <span className="w-8 h-8 rounded-full bg-black/60 backdrop-blur-md text-white/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110">
+                            <Maximize2 className="w-4 h-4" />
+                          </span>
+                        </div>
+                        <div>
+                          <p className="text-white text-xs sm:text-sm font-semibold drop-shadow-md line-clamp-2">
+                            {photo.caption}
+                          </p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            )}
           </div>
         </div>
       </motion.section>
 
-      {/* Lightbox */}
+      {/* Lightbox Modal */}
       <AnimatePresence>
-        {lightboxIdx !== null && (
+        {lightboxState && currentPhoto && (
           <motion.div
             key="lightbox"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/95 flex items-center justify-center"
+            className="fixed inset-0 bg-black/95 backdrop-blur-md flex items-center justify-center select-none"
             style={{ zIndex: 9999 }}
-            onClick={() => setLightboxIdx(null)}
+            onClick={() => setLightboxState(null)}
           >
-            <button
-              onClick={(e) => { e.stopPropagation(); setLightboxIdx(null); }}
-              className="absolute top-4 right-4 md:top-8 md:right-8 w-12 h-12 bg-black/50 rounded-full flex items-center justify-center text-white/70 hover:text-white hover:bg-black/80 transition-all"
-            >
-              <X className="w-8 h-8" />
-            </button>
-
-            <button
-              onClick={(e) => { e.stopPropagation(); prevImage(); }}
-              className="absolute left-2 md:left-8 w-12 h-12 md:w-16 md:h-16 bg-black/50 rounded-full flex items-center justify-center text-white/70 hover:text-white hover:bg-black/80 transition-all z-10"
-            >
-              <ChevronLeft className="w-8 h-8 md:w-12 md:h-12" />
-            </button>
-
-            <img
-              src={images[lightboxIdx]}
-              alt={`Gallery Image ${lightboxIdx + 1}`}
+            {/* Top Bar with Info and Close */}
+            <div
+              className="absolute top-4 left-4 right-4 sm:top-6 sm:left-8 sm:right-8 flex items-center justify-between z-20"
               onClick={(e) => e.stopPropagation()}
-              className="max-h-[85vh] max-w-[90vw] object-contain rounded-lg shadow-2xl relative z-0"
-            />
-
-            <button
-              onClick={(e) => { e.stopPropagation(); nextImage(); }}
-              className="absolute right-2 md:right-8 w-12 h-12 md:w-16 md:h-16 bg-black/50 rounded-full flex items-center justify-center text-white/70 hover:text-white hover:bg-black/80 transition-all z-10"
             >
-              <ChevronRight className="w-8 h-8 md:w-12 md:h-12" />
+              <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/70 backdrop-blur-md border border-white/20 text-white text-xs font-bold">
+                  <img
+                    src={currentPhoto.country === 'India' ? 'https://flagcdn.com/w40/in.png' : 'https://flagcdn.com/w40/lk.png'}
+                    alt={currentPhoto.country}
+                    className="w-4 h-3 object-cover rounded-xs"
+                  />
+                  <span>{currentPhoto.country} Album</span>
+                </div>
+                <span className="px-3 py-1.5 rounded-full bg-black/70 backdrop-blur-md border border-white/20 text-gold-metallic text-xs font-bold">
+                  {lightboxState.idx + 1} / {lightboxState.images.length}
+                </span>
+              </div>
+
+              <button
+                onClick={() => setLightboxState(null)}
+                className="w-11 h-11 bg-black/60 border border-white/20 rounded-full flex items-center justify-center text-white/80 hover:text-white hover:bg-black/90 transition-all cursor-pointer"
+                aria-label="Close Lightbox"
+              >
+                <X className="w-6 h-6" />
+              </button>
+            </div>
+
+            {/* Left Previous Button */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                prevImage();
+              }}
+              className="absolute left-2 sm:left-6 w-11 h-11 sm:w-14 sm:h-14 bg-black/60 border border-white/20 rounded-full flex items-center justify-center text-white/80 hover:text-white hover:bg-black/90 transition-all z-20 cursor-pointer"
+              aria-label="Previous Image"
+            >
+              <ChevronLeft className="w-7 h-7 sm:w-9 sm:h-9" />
+            </button>
+
+            {/* Main Center Image */}
+            <div
+              className="relative max-h-[80vh] max-w-[92vw] flex flex-col items-center justify-center z-10"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <motion.img
+                key={currentPhoto.src}
+                src={currentPhoto.src}
+                alt={currentPhoto.caption}
+                initial={{ opacity: 0, scale: 0.96 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.25 }}
+                className="max-h-[75vh] max-w-[90vw] object-contain rounded-xl shadow-2xl border border-white/10"
+              />
+              {/* Bottom Caption Pill */}
+              <div className="mt-4 px-4 py-2 rounded-xl bg-black/80 backdrop-blur-md border border-white/15 text-center max-w-2xl">
+                <p className="text-white text-xs sm:text-sm font-semibold tracking-wide">
+                  {currentPhoto.caption}
+                </p>
+                <span className="text-[11px] text-gold-metallic font-medium mt-0.5 block">
+                  {currentPhoto.category} • {currentPhoto.country} Academy
+                </span>
+              </div>
+            </div>
+
+            {/* Right Next Button */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                nextImage();
+              }}
+              className="absolute right-2 sm:right-6 w-11 h-11 sm:w-14 sm:h-14 bg-black/60 border border-white/20 rounded-full flex items-center justify-center text-white/80 hover:text-white hover:bg-black/90 transition-all z-20 cursor-pointer"
+              aria-label="Next Image"
+            >
+              <ChevronRight className="w-7 h-7 sm:w-9 sm:h-9" />
             </button>
           </motion.div>
         )}

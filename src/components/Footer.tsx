@@ -1,10 +1,14 @@
 
 
 
-export default function Footer() {
+export default function Footer({ onNavigate }: { isDark?: boolean, onNavigate?: (page: string) => void } = {}) {
   const handleNav = (e: React.MouseEvent, page: string) => {
     e.preventDefault();
-    window.dispatchEvent(new CustomEvent('navigate', { detail: page }));
+    if (onNavigate) {
+      onNavigate(page);
+    } else {
+      window.dispatchEvent(new CustomEvent('navigate', { detail: page }));
+    }
   };
 
   return (
@@ -18,8 +22,23 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12 mb-12">
           {/* Brand Info */}
           <div className="lg:col-span-2">
-            <div className="flex flex-col gap-1 mb-4">
-              <span className="font-bold text-lg tracking-wide">SK International Institute of Skills</span>
+            <div className="flex flex-col gap-3 mb-4">
+              <div className="flex items-center gap-3">
+                <a 
+                  href="#home" 
+                  onClick={(e) => handleNav(e, 'home')} 
+                  className="h-14 w-14 sm:h-16 sm:w-16 flex items-center justify-center shrink-0 hover:scale-110 transition-transform cursor-pointer"
+                >
+                  <img
+                    src="/N0__48102__Angalamman_Kovil_St__Choolai__Chennai__Tamil_Nadu_600112.-removebg-preview.png"
+                    alt="SK International Institute of Skills Logo"
+                    className="h-full w-full object-contain scale-[2.2] translate-y-1"
+                  />
+                </a>
+                <span className="font-extrabold text-base sm:text-lg tracking-tight text-zinc-900 dark:text-white">
+                  SK International Institute of Skills
+                </span>
+              </div>
               <p className="text-zinc-600 dark:text-zinc-400 text-sm max-w-sm mt-1 leading-relaxed">
                 Aesthetic clinic and academy led by Sushmitha. We offer professional certification courses in skincare, haircare, and bridal makeup, empowering students with hands-on training and industry-leading techniques for a successful career.
               </p>
@@ -43,6 +62,7 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-zinc-600 dark:text-zinc-400">
               <li><a href="#home" onClick={(e) => handleNav(e, 'home')} className="hover:text-gold-metallic transition-colors">Home</a></li>
               <li><a href="#about" onClick={(e) => handleNav(e, 'about')} className="hover:text-gold-metallic transition-colors">About</a></li>
+              <li><a href="#courses" onClick={(e) => handleNav(e, 'courses')} className="hover:text-gold-metallic transition-colors">Courses</a></li>
               <li><a href="#international-programs" onClick={(e) => handleNav(e, 'international-programs')} className="hover:text-gold-metallic transition-colors">International Programs</a></li>
               <li><a href="#gallery" onClick={(e) => handleNav(e, 'gallery')} className="hover:text-gold-metallic transition-colors">Gallery</a></li>
               <li><a href="#testimonials" onClick={(e) => handleNav(e, 'testimonials')} className="hover:text-gold-metallic transition-colors">Testimonials</a></li>

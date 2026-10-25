@@ -1,5 +1,5 @@
 
-import { Sparkles, Award, GraduationCap, ShieldCheck, Scissors, Heart, ArrowRight, Flower2, ChevronLeft, ChevronRight, User } from 'lucide-react';
+import { Sparkles, Award, GraduationCap, ShieldCheck, Scissors, Heart, ArrowRight, Flower2, ChevronLeft, ChevronRight, User, CheckCircle2, Calendar, BookOpen } from 'lucide-react';
 import { motion, useInView, animate, AnimatePresence } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import { CreativeUnderline } from './NewSections';
@@ -161,10 +161,7 @@ export const servicesData = [
 
   // Courses
   { category: 'Courses', icon: GraduationCap, type: 'Course', title: "Aesthetic Course", price: "Contact for price", desc: "Professional aesthetic training covering various advanced techniques and treatments.", img: "/DSC04305.JPG" },
-  { category: 'Courses', icon: GraduationCap, type: 'Course', title: "PMU Course", price: "Contact for price", desc: "Intensive training in Permanent Makeup, including eyebrow, lip, and eyeliner techniques.", img: "/WhatsApp Image 2026-08-01 at 6.23.29 PM.jpeg" },
-  { category: 'Courses', icon: GraduationCap, type: 'Course', title: "Nail Art Course", price: "Contact for price", desc: "Master the art of nail design, extensions, and professional nail care.", img: "/DSC05703.JPG" },
-  { category: 'Courses', icon: GraduationCap, type: 'Course', title: "Hair Course", price: "Contact for price", desc: "Comprehensive training in haircuts, styling, coloring, and hair treatments.", img: "/DSC04559 (1).JPG" },
-  { category: 'Courses', icon: GraduationCap, type: 'Course', title: "Hair Extension", price: "Contact for price", desc: "Learn advanced hair extension techniques and proper maintenance.", img: "/DSC04559 (1).JPG" },
+  { category: 'Courses', icon: GraduationCap, type: 'Course', title: "PMU Course", price: "Contact for price", desc: "Intensive training in Permanent Makeup, including eyebrow, lip, and eyeliner techniques.", img: "/WhatsApp Image 2026-08-01 at 6.23.29 PM.jpeg" }
 ];
 
 export function ServicesGrid({ onNavigate }: { onNavigate?: (page: string) => void }) {
@@ -243,8 +240,20 @@ export function ServicesGrid({ onNavigate }: { onNavigate?: (page: string) => vo
     </motion.section>
   );
 }
-export function CoursesGrid({ onNavigate }: { onNavigate?: (page: string) => void }) {
-  const courses = servicesData.filter(s => s.category === 'Courses');
+export function CoursesGrid({ onNavigate, minimal = false }: { onNavigate?: (page: string) => void, minimal?: boolean }) {
+  const aestheticModules2x2 = [
+    { title: "Chemical Peels", desc: "20+ Peels, Salicylic, Glycolic, TCA & Yellow Peel" },
+    { title: "Laser Technology", desc: "Pico/Q-Switch, Diode Hair Removal & Carbon Peel" },
+    { title: "Mesotherapy & Microneedling", desc: "Electroporation, PRP & GFC Basics, Dermaplaning" },
+    { title: "Advanced Clinical Facials", desc: "Hydra Facial, Medi & Cryo, 40K Cavitation & RF" }
+  ];
+
+  const pmuModules2x2 = [
+    { title: "Microblading & Shading", desc: "Ombré Brows, Powder & Feather Brows, Hair Strokes" },
+    { title: "Lip & Scalp Pigmentation", desc: "Lip Blush, Dark Lip Neutralization, Scalp Micropigmentation" },
+    { title: "BB Glow & Hydra Lips", desc: "Dr. Pen System, Booster Serums, Lash Lamination" },
+    { title: "Machine Handling & Setup", desc: "Sterilization, Needle Depth, Vendor & Salon Setup" }
+  ];
 
   return (
     <motion.section 
@@ -260,101 +269,278 @@ export function CoursesGrid({ onNavigate }: { onNavigate?: (page: string) => voi
       <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-zinc-400/10 dark:bg-zinc-800/20 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16 md:mb-24 relative">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold-bronze/10 dark:bg-gold-metallic/10 text-gold-bronze dark:text-gold-champagne font-bold text-sm mb-6 border border-gold-bronze/20 dark:border-gold-metallic/20">
+        {/* Section Header */}
+        <div className="text-center mb-10 md:mb-14 relative">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold-bronze/10 dark:bg-gold-metallic/10 text-gold-bronze dark:text-gold-champagne font-bold text-xs sm:text-sm mb-4 border border-gold-bronze/20 dark:border-gold-metallic/20">
             <GraduationCap className="w-4 h-4" />
-            WORLD CLASS EDUCATION
+            WORLD CLASS CLINICAL & BEAUTY EDUCATION
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-7xl font-extrabold mb-6 text-zinc-900 dark:text-white text-center tracking-tight">
-            Professional <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-bronze to-gold-metallic">Academy</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 text-zinc-900 dark:text-white text-center tracking-tight">
+            Professional <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-bronze to-gold-metallic">Academy Courses</span>
           </h2>
           <CreativeUnderline />
-          <p className="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto mt-6 leading-relaxed">
-            Transform your passion into a career with our globally valid certification courses. Learn from industry experts and master advanced techniques.
+          <p className="text-sm sm:text-base md:text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto mt-4 leading-relaxed">
+            Gain hands-on clinical mastery and launch a thriving career. Learn advanced <strong>Clinical Aesthetics</strong> and <strong>Permanent Makeup (PMU)</strong> from doctor experts with internationally recognized UK certifications.
           </p>
         </div>
         
-        <div className="flex flex-col gap-12 lg:gap-32 pb-12">
-          {courses.map((svc, idx) => {
-            const Icon = svc.icon;
-            const isEven = idx % 2 !== 0;
+        {/* 2-Column Flagship Courses Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 pb-8">
+          {/* Card 1: Aesthetic Course */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5 }}
+            className="rounded-3xl p-5 sm:p-7 bg-zinc-50/90 dark:bg-[#111]/90 border border-zinc-200 dark:border-zinc-800 shadow-xl relative overflow-hidden flex flex-col justify-between group hover:border-gold-metallic/50 transition-all duration-300"
+          >
+            {/* Top Accent Line */}
+            <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-gold-bronze via-gold-metallic to-gold-champagne" />
 
-            return (
-              <motion.div 
-                key={svc.title}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.7, ease: "easeOut" }}
-                className={`flex flex-col ${isEven ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-6 sm:gap-8 lg:gap-16 group bg-zinc-50/80 dark:bg-[#111]/80 p-5 sm:p-8 lg:p-0 rounded-[2.5rem] lg:bg-transparent lg:dark:bg-transparent`}
+            <div>
+              {/* Image & Top Badges */}
+              <div className="relative rounded-2xl overflow-hidden aspect-[16/10] shadow-md border border-zinc-200 dark:border-zinc-800 mb-5 group/img">
+                <img
+                  src="/DSC04305.JPG"
+                  alt="Aesthetic Course Training"
+                  className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/10" />
+
+                {/* Top Badge */}
+                <div className="absolute top-3 left-3 z-20">
+                  <span className="px-3 py-1 rounded-full bg-black/75 backdrop-blur-md text-gold-metallic border border-gold-metallic/30 text-xs font-bold flex items-center gap-1.5 shadow-sm">
+                    <GraduationCap className="w-3.5 h-3.5" />
+                    UK Certified • LAPT
+                  </span>
+                </div>
+
+                {/* Bottom Info Banner */}
+                <div className="absolute bottom-3 left-3 right-3 z-20 flex items-center justify-between text-xs">
+                  <span className="inline-flex items-center gap-1.5 font-bold text-emerald-400 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-lg border border-emerald-500/30">
+                    <Calendar className="w-3.5 h-3.5" />
+                    Admissions Open 2026
+                  </span>
+                  <span className="text-white/80 font-medium text-[11px] bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-lg">
+                    10 AM - 6 PM
+                  </span>
+                </div>
+              </div>
+
+              {/* Course Name & Minimal Info */}
+              <div className="mb-4">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="text-xs font-bold uppercase tracking-wider text-gold-bronze dark:text-gold-metallic">
+                    Flagship Clinical Program
+                  </span>
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-white tracking-tight mb-2">
+                  Aesthetic Course
+                </h3>
+                <p className="text-zinc-600 dark:text-zinc-400 text-xs sm:text-sm leading-relaxed">
+                  Comprehensive hands-on training with 20+ chemical peels, clinical lasers, microneedling, and body contouring on live patients.
+                </p>
+              </div>
+
+              {/* Detailed Content (when minimal is false) */}
+              {!minimal && (
+                <>
+                  {/* 2x2 Curriculum Modules */}
+                  <div className="mb-6">
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 mb-3 flex items-center gap-1.5">
+                      <BookOpen className="w-3.5 h-3.5 text-gold-metallic" />
+                      <span>Curriculum Highlights</span>
+                    </h4>
+                    <div className="grid grid-cols-2 gap-2.5">
+                      {aestheticModules2x2.map((mod, i) => (
+                        <div key={i} className="p-2.5 sm:p-3 rounded-xl bg-white dark:bg-zinc-800/60 border border-zinc-200/80 dark:border-zinc-800 flex flex-col justify-between">
+                          <div className="flex items-center gap-1.5 mb-1">
+                            <span className="w-4 h-4 rounded-full bg-gold-bronze/10 dark:bg-gold-metallic/15 text-gold-bronze dark:text-gold-metallic text-[10px] font-bold flex items-center justify-center shrink-0">
+                              {i + 1}
+                            </span>
+                            <p className="text-xs font-bold text-zinc-900 dark:text-white truncate">
+                              {mod.title}
+                            </p>
+                          </div>
+                          <p className="text-[11px] text-zinc-500 dark:text-zinc-400 line-clamp-2 leading-tight">
+                            {mod.desc}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* 2x2 Perks Grid */}
+                  <div className="mb-6 grid grid-cols-2 gap-2 text-xs font-semibold text-zinc-700 dark:text-zinc-300">
+                    <div className="flex items-center gap-2 p-2 rounded-xl bg-white dark:bg-zinc-800/40 border border-zinc-200/80 dark:border-zinc-800">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-gold-metallic shrink-0" />
+                      <span className="truncate">Live Patient Practice</span>
+                    </div>
+                    <div className="flex items-center gap-2 p-2 rounded-xl bg-white dark:bg-zinc-800/40 border border-zinc-200/80 dark:border-zinc-800">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-gold-metallic shrink-0" />
+                      <span className="truncate">1-on-1 Doctor Guidance</span>
+                    </div>
+                    <div className="flex items-center gap-2 p-2 rounded-xl bg-white dark:bg-zinc-800/40 border border-zinc-200/80 dark:border-zinc-800">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-gold-metallic shrink-0" />
+                      <span className="truncate">Machine Handling Kit</span>
+                    </div>
+                    <div className="flex items-center gap-2 p-2 rounded-xl bg-white dark:bg-zinc-800/40 border border-zinc-200/80 dark:border-zinc-800">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-gold-metallic shrink-0" />
+                      <span className="truncate">Hostel & Food Available</span>
+                    </div>
+                  </div>
+                </>
+              )}
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row items-center gap-3 pt-4 border-t border-zinc-200/70 dark:border-zinc-800">
+              <button
+                type="button"
+                onClick={() => onNavigate && onNavigate('course-aesthetic')}
+                className="w-full sm:flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-gold-bronze to-gold-metallic text-black shadow-md shadow-gold-metallic/20 hover:scale-[1.02] active:scale-95 transition-all cursor-pointer"
               >
-                {/* Image Section */}
-                <div className="w-full lg:w-[55%] relative">
-                  <div className="relative rounded-[2rem] lg:rounded-[3rem] overflow-hidden aspect-[4/3] lg:aspect-[16/10] shadow-[0_10px_30px_rgba(0,0,0,0.1)] lg:shadow-[0_20px_50px_rgba(0,0,0,0.15)] dark:shadow-[0_10px_30px_rgba(0,0,0,0.3)] lg:dark:shadow-[0_20px_50px_rgba(0,0,0,0.4)] border border-zinc-200/50 dark:border-zinc-800/50 group-hover:shadow-[0_30px_60px_rgba(212,175,55,0.15)] transition-all duration-700">
-                    <img 
-                      src={svc.img} 
-                      alt={svc.title} 
-                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out" 
-                    />
-                    <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-700" />
-                    
-                    {/* Badge */}
-                    <div className="absolute top-4 left-4 sm:top-6 sm:left-6 lg:top-8 lg:left-8 z-20 px-3 py-1.5 sm:px-4 sm:py-2 lg:px-5 lg:py-2.5 bg-white/95 dark:bg-black/90 backdrop-blur-md rounded-xl sm:rounded-2xl flex items-center gap-1.5 sm:gap-2 shadow-lg border border-white/20 dark:border-zinc-700/50">
-                      <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-gold-bronze dark:text-gold-metallic" />
-                      <span className="text-[10px] sm:text-xs lg:text-sm font-bold uppercase tracking-widest text-zinc-900 dark:text-white">{svc.type}</span>
-                    </div>
-                  </div>
-                  
-                  {/* Decorative Background Element */}
-                  <div className={`absolute -z-10 w-full h-full rounded-[3rem] border-2 border-gold-metallic/20 hidden lg:block ${isEven ? '-top-8 -right-8' : '-bottom-8 -left-8'} transition-transform duration-700 group-hover:translate-x-0 group-hover:translate-y-0`} />
+                <span>View Details</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+              <a
+                href={`https://wa.me/918610345830?text=${encodeURIComponent('Hello SK Academy, I would like to enroll in the Aesthetic Course.')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full text-xs font-bold uppercase tracking-wider bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 hover:bg-gold-metallic hover:text-black dark:hover:bg-gold-metallic dark:hover:text-black transition-all shadow-sm"
+              >
+                <span>Enroll Now</span>
+              </a>
+            </div>
+          </motion.div>
+
+          {/* Card 2: PMU Course */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="rounded-3xl p-5 sm:p-7 bg-zinc-50/90 dark:bg-[#111]/90 border border-zinc-200 dark:border-zinc-800 shadow-xl relative overflow-hidden flex flex-col justify-between group hover:border-gold-metallic/50 transition-all duration-300"
+          >
+            {/* Top Accent Line */}
+            <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-emerald-500 via-gold-metallic to-gold-bronze" />
+
+            <div>
+              {/* Image & Top Badges */}
+              <div className="relative rounded-2xl overflow-hidden aspect-[16/10] shadow-md border border-zinc-200 dark:border-zinc-800 mb-5 group/img">
+                <img
+                  src="/WhatsApp Image 2026-08-01 at 6.23.29 PM.jpeg"
+                  alt="PMU Course Training"
+                  className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/10" />
+
+                {/* Top Badge */}
+                <div className="absolute top-3 left-3 z-20">
+                  <span className="px-3 py-1 rounded-full bg-black/75 backdrop-blur-md text-gold-metallic border border-gold-metallic/30 text-xs font-bold flex items-center gap-1.5 shadow-sm">
+                    <GraduationCap className="w-3.5 h-3.5" />
+                    UK Certified • LAPT
+                  </span>
                 </div>
 
-                {/* Content Section */}
-                <div className="w-full lg:w-[45%] flex flex-col justify-center py-2 sm:py-4 lg:py-0 px-2 sm:px-0">
-                  <h3 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black mb-4 lg:mb-6 text-zinc-900 dark:text-white leading-[1.1] tracking-tight group-hover:text-gold-bronze dark:group-hover:text-gold-champagne transition-colors">
-                    {svc.title}
-                  </h3>
-                  
-                  {svc.price && (
-                    <div className="inline-flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 bg-zinc-200/50 dark:bg-zinc-800/50 lg:bg-zinc-100 lg:dark:bg-zinc-900 rounded-full text-gold-bronze dark:text-gold-champagne font-bold text-xs sm:text-sm mb-6 w-fit border border-zinc-200 dark:border-zinc-800 shadow-sm">
-                      <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                      {svc.price}
-                    </div>
-                  )}
-                  
-                  <p className="text-base sm:text-lg lg:text-xl text-zinc-600 dark:text-zinc-400 mb-8 lg:mb-12 leading-relaxed font-medium">
-                    {svc.desc}
-                  </p>
-                  
-                  <div>
-                    {['Aesthetic Course', 'PMU Course'].includes(svc.title) ? (
-                      <button 
-                        type="button"
-                        onClick={() => { 
-                          if (svc.title === 'Aesthetic Course' && onNavigate) onNavigate('course-aesthetic'); 
-                          else if (svc.title === 'PMU Course' && onNavigate) onNavigate('course-pmu');
-                        }} 
-                        className="inline-flex items-center justify-center gap-2 sm:gap-3 font-bold transition-all uppercase tracking-wider bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 px-6 py-3.5 sm:px-8 sm:py-4 lg:px-10 lg:py-5 text-sm sm:text-base rounded-full hover:bg-gold-gradient hover:text-zinc-900 shadow-xl hover:shadow-[0_15px_30px_rgba(212,175,55,0.3)] hover:-translate-y-1 group/btn w-full sm:w-auto cursor-pointer"
-                      >
-                        View Course Details
-                        <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover/btn:translate-x-1 transition-transform" />
-                      </button>
-                    ) : (
-                      <a 
-                        href={`https://wa.me/918610345830?text=${encodeURIComponent(`Hello SK Academy, I would like to enroll in the ${svc.title}.`)}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-2 sm:gap-3 font-bold transition-all uppercase tracking-wider bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 px-6 py-3.5 sm:px-8 sm:py-4 lg:px-10 lg:py-5 text-sm sm:text-base rounded-full hover:bg-gold-gradient hover:text-zinc-900 shadow-xl hover:shadow-[0_15px_30px_rgba(212,175,55,0.3)] hover:-translate-y-1 group/btn w-full sm:w-auto"
-                      >
-                        Enroll Now
-                        <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover/btn:translate-x-1 transition-transform" />
-                      </a>
-                    )}
-                  </div>
+                {/* Bottom Info Banner */}
+                <div className="absolute bottom-3 left-3 right-3 z-20 flex items-center justify-between text-xs">
+                  <span className="inline-flex items-center gap-1.5 font-bold text-gold-metallic bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-lg border border-gold-metallic/30">
+                    <Calendar className="w-3.5 h-3.5" />
+                    Admissions Open 2026
+                  </span>
+                  <span className="text-white/80 font-medium text-[11px] bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-lg">
+                    10 AM - 6 PM
+                  </span>
                 </div>
-              </motion.div>
-            )
-          })}
+              </div>
+
+              {/* Course Name & Minimal Info */}
+              <div className="mb-4">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="text-xs font-bold uppercase tracking-wider text-gold-bronze dark:text-gold-metallic">
+                    Artistry & Permanent Makeup
+                  </span>
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-white tracking-tight mb-2">
+                  PMU Course
+                </h3>
+                <p className="text-zinc-600 dark:text-zinc-400 text-xs sm:text-sm leading-relaxed">
+                  Master Semi-Permanent Makeup (SPMU): precision microblading, ombré shading, lip blush, neutralization & scalp micropigmentation.
+                </p>
+              </div>
+
+              {/* Detailed Content (when minimal is false) */}
+              {!minimal && (
+                <>
+                  {/* 2x2 Curriculum Modules */}
+                  <div className="mb-6">
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 mb-3 flex items-center gap-1.5">
+                      <BookOpen className="w-3.5 h-3.5 text-gold-metallic" />
+                      <span>Curriculum Highlights</span>
+                    </h4>
+                    <div className="grid grid-cols-2 gap-2.5">
+                      {pmuModules2x2.map((mod, i) => (
+                        <div key={i} className="p-2.5 sm:p-3 rounded-xl bg-white dark:bg-zinc-800/60 border border-zinc-200/80 dark:border-zinc-800 flex flex-col justify-between">
+                          <div className="flex items-center gap-1.5 mb-1">
+                            <span className="w-4 h-4 rounded-full bg-gold-bronze/10 dark:bg-gold-metallic/15 text-gold-bronze dark:text-gold-metallic text-[10px] font-bold flex items-center justify-center shrink-0">
+                              {i + 1}
+                            </span>
+                            <p className="text-xs font-bold text-zinc-900 dark:text-white truncate">
+                              {mod.title}
+                            </p>
+                          </div>
+                          <p className="text-[11px] text-zinc-500 dark:text-zinc-400 line-clamp-2 leading-tight">
+                            {mod.desc}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* 2x2 Perks Grid */}
+                  <div className="mb-6 grid grid-cols-2 gap-2 text-xs font-semibold text-zinc-700 dark:text-zinc-300">
+                    <div className="flex items-center gap-2 p-2 rounded-xl bg-white dark:bg-zinc-800/40 border border-zinc-200/80 dark:border-zinc-800">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-gold-metallic shrink-0" />
+                      <span className="truncate">Real Model Practice</span>
+                    </div>
+                    <div className="flex items-center gap-2 p-2 rounded-xl bg-white dark:bg-zinc-800/40 border border-zinc-200/80 dark:border-zinc-800">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-gold-metallic shrink-0" />
+                      <span className="truncate">Practice Kit Included</span>
+                    </div>
+                    <div className="flex items-center gap-2 p-2 rounded-xl bg-white dark:bg-zinc-800/40 border border-zinc-200/80 dark:border-zinc-800">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-gold-metallic shrink-0" />
+                      <span className="truncate">Vendor & Salon Setup</span>
+                    </div>
+                    <div className="flex items-center gap-2 p-2 rounded-xl bg-white dark:bg-zinc-800/40 border border-zinc-200/80 dark:border-zinc-800">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-gold-metallic shrink-0" />
+                      <span className="truncate">Lifetime Mentorship</span>
+                    </div>
+                  </div>
+                </>
+              )}
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row items-center gap-3 pt-4 border-t border-zinc-200/70 dark:border-zinc-800">
+              <button
+                type="button"
+                onClick={() => onNavigate && onNavigate('course-pmu')}
+                className="w-full sm:flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-gold-bronze to-gold-metallic text-black shadow-md shadow-gold-metallic/20 hover:scale-[1.02] active:scale-95 transition-all cursor-pointer"
+              >
+                <span>View Details</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+              <a
+                href={`https://wa.me/918610345830?text=${encodeURIComponent('Hello SK Academy, I would like to enroll in the PMU Course (Permanent Makeup).')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full text-xs font-bold uppercase tracking-wider bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 hover:bg-gold-metallic hover:text-black dark:hover:bg-gold-metallic dark:hover:text-black transition-all shadow-sm"
+              >
+                <span>Enroll Now</span>
+              </a>
+            </div>
+          </motion.div>
         </div>
       </div>
     </motion.section>

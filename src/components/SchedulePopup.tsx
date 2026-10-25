@@ -16,7 +16,7 @@ export function SchedulePopup() {
   const scheduleData = [
     {
       course: "Aesthetic Course",
-      date: "SEP - 16- 2026",
+      date: "Admissions Open 2026",
       time: "10:00 AM - 06:00 PM"
     }
   ];

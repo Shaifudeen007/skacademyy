@@ -3,6 +3,7 @@ import Header from './Header';
 import Hero from './Hero';
 
 import SriLankaBatchSection from './SriLankaBatchSection';
+import { CoursesGrid } from './HomeSections';
 import {
   TrainingExperienceSection,
   WhoCanJoinSection,
@@ -21,6 +22,7 @@ export default function LandingPage({ isDark, toggleTheme, onNavigate }: { isDar
       <main>
         <Hero />
         <SriLankaBatchSection onNavigate={onNavigate} />
+        <CoursesGrid onNavigate={onNavigate} minimal={true} />
         <EquipmentSalesSection />
         <TrainingExperienceSection />
         <WhoCanJoinSection />
