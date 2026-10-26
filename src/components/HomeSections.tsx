@@ -671,8 +671,6 @@ export function Testimonials() {
 export function VideoTestimonials() {
   const videos = [
     { title: "PMU & Aesthetic Course", src: "/videos/aestheticandpmu.mp4" },
-    { title: "Nail Course", src: "/videos/Video-80734.mp4" },
-    { title: "Hair Course", src: "/videos/Video-81156.mp4" },
   ];
 
   return (
@@ -694,7 +692,7 @@ export function VideoTestimonials() {
           </h2>
           <CreativeUnderline />
         </div>
-        <div className="flex flex-wrap md:flex-nowrap justify-center gap-4 md:gap-8">
+        <div className="flex justify-center">
           {videos.map((video, idx) => (
             <motion.div 
               key={idx} 
@@ -702,9 +700,9 @@ export function VideoTestimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: idx * 0.15 }}
               viewport={{ once: true }}
-              className="w-full sm:w-[calc(50%-0.5rem)] md:w-full md:flex-1 bg-white dark:bg-zinc-900 p-3 sm:p-6 rounded-2xl sm:rounded-3xl border border-gold-metallic/30 shadow-[0_0_30px_rgba(212,175,55,0.1)] overflow-hidden flex flex-col hover:-translate-y-2 transition-transform duration-300"
+              className="w-full max-w-sm sm:max-w-md bg-white dark:bg-zinc-900 p-3 sm:p-6 rounded-2xl sm:rounded-3xl border border-gold-metallic/30 shadow-[0_0_30px_rgba(212,175,55,0.1)] overflow-hidden flex flex-col hover:-translate-y-2 transition-transform duration-300"
             >
-              <h3 className="text-sm sm:text-xl font-bold text-center text-zinc-900 dark:text-white mb-2 sm:mb-4 flex items-center justify-center min-h-[2.5rem] sm:min-h-[auto]">{video.title}</h3>
+              <h3 className="text-base sm:text-xl font-bold text-center text-zinc-900 dark:text-white mb-2 sm:mb-4 flex items-center justify-center min-h-[2.5rem] sm:min-h-[auto]">{video.title}</h3>
               <div className="relative w-full aspect-[9/16] bg-zinc-100 dark:bg-zinc-800 rounded-lg sm:rounded-2xl overflow-hidden shadow-inner group">
                 <video 
                   src={video.src} 

@@ -11,14 +11,14 @@ import {
 import { CreativeUnderline } from './NewSections';
 
 const completedBatchPhotos = [
-  { src: '/Srilanka/DSC07258.JPG', caption: 'Clinical Practical Demonstration with Live Models' },
-  { src: '/Srilanka/DSC07243.JPG', caption: 'Hands-on Aesthetic Machine & Laser Training' },
-  { src: '/Srilanka/DSC07247.JPG', caption: '1-on-1 Mentorship with Expert Doctor Guidance' },
-  { src: '/Srilanka/DSC07319.JPG', caption: 'Advanced Skin Analysis & Clinical Protocols' },
-  { src: '/Srilanka/DSC07492.JPG', caption: 'Comprehensive Aesthetic Procedure Training' },
-  { src: '/Srilanka/DSC07505.JPG', caption: 'Student Practical Sessions & Precision Technique' },
-  { src: '/Srilanka/DSC07226.JPG', caption: 'Real-world Clinic Environment Learning' },
-  { src: '/Srilanka/DSC07230.JPG', caption: 'Graduation & International UK Diploma Award' },
+  { src: '/Srilanka/DSC07258.JPG', caption: 'Clinical Practical Demonstration with Live Models', cohort: 'Sri Lanka Cohort' },
+  { src: '/Srilanka/DSC07243.JPG', caption: 'Hands-on Aesthetic Machine & Laser Training', cohort: 'Sri Lanka Cohort' },
+  { src: '/Srilanka/DSC07247.JPG', caption: '1-on-1 Mentorship with Expert Doctor Guidance', cohort: 'Sri Lanka Cohort' },
+  { src: '/Srilanka/DSC07319.JPG', caption: 'Advanced Skin Analysis & Clinical Protocols', cohort: 'Sri Lanka Cohort' },
+  { src: '/gallery/DSC03560.JPG', caption: 'Clinical Hands-on Practical Training Session', cohort: 'Clinical Academy Batch' },
+  { src: '/gallery/DSC03564.JPG', caption: 'Doctor Mentorship & Aesthetic Clinical Guidance', cohort: 'Clinical Academy Batch' },
+  { src: '/gallery/DSC05480.JPG', caption: 'Live Model Treatment & Skin Assessment', cohort: 'Clinical Academy Batch' },
+  { src: '/gallery/DSC05547.JPG', caption: 'State-of-the-art Laser Machine & Device Training', cohort: 'Clinical Academy Batch' },
 ];
 
 export default function SriLankaBatchSection({ onNavigate }: { onNavigate?: (page: string) => void }) {
@@ -93,7 +93,7 @@ export default function SriLankaBatchSection({ onNavigate }: { onNavigate?: (pag
               <div className="absolute top-4 left-4 flex items-center gap-2 z-20">
                 <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/75 backdrop-blur-md border border-white/20 text-white text-xs font-bold shadow-md">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                  <span>Completed Batch Training • Sri Lanka Cohort</span>
+                  <span>Completed Batch Training • {completedBatchPhotos[currentIdx].cohort}</span>
                 </div>
               </div>
 
