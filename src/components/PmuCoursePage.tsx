@@ -1,14 +1,32 @@
 import { useEffect } from 'react';
 import Header from './Header';
 import Footer from './Footer';
-
 import { CreativeUnderline } from './NewSections';
 import { CheckCircle, GraduationCap, Sparkles, BookOpen, ArrowLeft } from 'lucide-react';
+import SEOHead from '../seo/SEOHead';
+import { siteConfig } from '../seo/siteConfig';
+import { getPmuCourseSchema, getBreadcrumbSchema } from '../seo/schemaGenerator';
 
-export default function PmuCoursePage({ isDark, toggleTheme, onNavigate }: { isDark: boolean, toggleTheme: () => void, onNavigate: (page: string) => void }) {
+export default function PmuCoursePage({
+  isDark,
+  toggleTheme,
+  onNavigate,
+}: {
+  isDark: boolean;
+  toggleTheme: () => void;
+  onNavigate: (page: string) => void;
+}) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const courseSEO = siteConfig.routes.coursePmu;
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Courses', path: '/courses' },
+    { name: 'Permanent Makeup (PMU) Course', path: '/course-pmu' },
+  ]);
+  const schemas = [getPmuCourseSchema(), breadcrumbSchema];
 
   const syllabus = [
     {
@@ -51,6 +69,14 @@ export default function PmuCoursePage({ isDark, toggleTheme, onNavigate }: { isD
 
   return (
     <div className={`min-h-screen ${isDark ? 'dark bg-[#09090B] text-zinc-50' : 'bg-white text-zinc-900'} font-sans transition-colors duration-300 relative pb-24`}>
+      <SEOHead
+        title={courseSEO.title}
+        description={courseSEO.description}
+        keywords={courseSEO.keywords}
+        canonical={courseSEO.canonical}
+        ogType={courseSEO.ogType}
+        schemas={schemas}
+      />
       <Header isDark={isDark} toggleTheme={toggleTheme} onNavigate={onNavigate} />
       
       {/* Hero Section */}
@@ -72,20 +98,20 @@ export default function PmuCoursePage({ isDark, toggleTheme, onNavigate }: { isD
           <div className="text-center">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold-bronze/10 dark:bg-gold-metallic/10 text-gold-bronze dark:text-gold-champagne font-bold text-xs sm:text-sm mb-6 border border-gold-bronze/20 dark:border-gold-metallic/20 backdrop-blur-sm">
               <GraduationCap className="w-4 h-4" />
-              LAPT UK CERTIFIED
+              LAPT UK CERTIFIED SPMU TRAINING
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight text-zinc-900 dark:text-white">
-              PMU <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-bronze to-gold-metallic">Course</span>
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold mb-6 tracking-tight text-zinc-900 dark:text-white">
+              Permanent Makeup (PMU) <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-bronze to-gold-metallic">Course in Chennai</span>
             </h1>
             <CreativeUnderline />
             
-            <h2 className="text-xl md:text-2xl font-medium text-zinc-600 dark:text-zinc-400 mt-8 max-w-3xl mx-auto leading-relaxed">
-              Become a Certified Permanent Makeup (PMU) Artist
+            <h2 className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-600 dark:text-zinc-400 mt-8 max-w-3xl mx-auto leading-relaxed">
+              Become a Certified Permanent Makeup (PMU) Artist &amp; Microblading Specialist with UK LAPT International Certification.
             </h2>
             
             <div className="mt-10 flex flex-wrap justify-center gap-4 text-sm font-bold text-zinc-700 dark:text-zinc-300">
-              <span className="px-5 py-2.5 bg-white dark:bg-zinc-900 rounded-full border border-zinc-200 dark:border-zinc-800 shadow-sm flex items-center gap-2"><Sparkles className="w-4 h-4 text-gold-metallic"/> 100% Practical</span>
+              <span className="px-5 py-2.5 bg-white dark:bg-zinc-900 rounded-full border border-zinc-200 dark:border-zinc-800 shadow-sm flex items-center gap-2"><Sparkles className="w-4 h-4 text-gold-metallic"/> 100% Practical Training</span>
               <span className="px-5 py-2.5 bg-white dark:bg-zinc-900 rounded-full border border-zinc-200 dark:border-zinc-800 shadow-sm flex items-center gap-2"><CheckCircle className="w-4 h-4 text-gold-metallic"/> Live Model Practice</span>
               <span className="px-5 py-2.5 bg-white dark:bg-zinc-900 rounded-full border border-zinc-200 dark:border-zinc-800 shadow-sm flex items-center gap-2"><GraduationCap className="w-4 h-4 text-gold-metallic"/> LAPT UK Accredited</span>
             </div>
@@ -98,10 +124,10 @@ export default function PmuCoursePage({ isDark, toggleTheme, onNavigate }: { isD
           
           <div className="prose prose-lg dark:prose-invert max-w-none text-zinc-600 dark:text-zinc-400 leading-relaxed space-y-6 text-center md:text-left bg-zinc-50 dark:bg-[#111] p-8 rounded-3xl border border-zinc-200 dark:border-zinc-800 shadow-sm">
             <p>
-              Our Permanent Makeup (PMU) Course is designed for aspiring beauty professionals who want to master the art of semi-permanent cosmetic enhancements. This intensive program combines detailed theory with extensive hands-on practical training, equipping students with the skills to perform industry-leading PMU procedures with confidence and precision.
+              Our <strong>Permanent Makeup (PMU) Course in Chennai</strong> is designed for aspiring beauty professionals who want to master the art of semi-permanent cosmetic enhancements. This intensive program combines detailed theory with extensive hands-on practical training on live models, equipping students with the skills to perform industry-leading PMU procedures with confidence and precision.
             </p>
             <p>
-              Accredited by <strong>LAPT UK</strong>, the course is delivered by experienced Master Trainers and follows international standards. From eyebrow enhancement and lip pigmentation to BB Glow, scalp micropigmentation, lash and brow treatments, you'll gain real-world expertise using professional tools, machines, and techniques.
+              Accredited by <strong>LAPT UK</strong>, the course is delivered by certified master trainers and follows international safety and hygiene standards. From eyebrow enhancement and microblading to lip blush neutralization, BB Glow, scalp micropigmentation, lash lifting, and brow lamination, you will gain real-world expertise using professional tools, machines, and pigments.
             </p>
           </div>
 
@@ -137,7 +163,7 @@ export default function PmuCoursePage({ isDark, toggleTheme, onNavigate }: { isD
           <div className="mt-24">
             <div className="text-center mb-12">
               <h3 className="text-4xl font-extrabold mb-4">Course Syllabus</h3>
-              <p className="text-zinc-500">Everything you will learn in this intensive program.</p>
+              <p className="text-zinc-500">Everything you will learn in this intensive PMU program.</p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -215,16 +241,16 @@ export default function PmuCoursePage({ isDark, toggleTheme, onNavigate }: { isD
           </div>
 
           <div className="mt-16 bg-zinc-50 dark:bg-[#111] p-8 md:p-12 rounded-3xl border border-zinc-200 dark:border-zinc-800 shadow-xl text-center">
-             <h3 className="text-3xl font-bold mb-6">Why Choose Our PMU Course?</h3>
+             <h3 className="text-3xl font-bold mb-6">Why Choose Our PMU Course in Chennai?</h3>
              <p className="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-3xl mx-auto">
-               Our PMU training goes beyond learning techniques. We focus on developing your practical skills, client consultation abilities, and business knowledge so you can confidently start your own beauty business or work in leading salons and aesthetic clinics. With internationally recognized certification, expert mentorship, and lifetime support, you'll be fully prepared for a successful career in the permanent makeup industry.
+               Our PMU training goes beyond learning basic techniques. We focus on developing your practical precision, client facial anatomy assessment, color theory, and business setup strategies so you can confidently start your own beauty studio or practice in leading aesthetic clinics. With UK LAPT international accreditation, expert mentorship, and lifetime support, you will be fully prepared for a successful career.
              </p>
           </div>
 
         </div>
       </main>
       
-      <Footer />
+      <Footer onNavigate={onNavigate} />
 
       {/* Sticky Bottom Enroll Bar */}
       <div className="fixed bottom-0 left-0 w-full z-50 bg-white/80 dark:bg-[#09090B]/80 backdrop-blur-xl border-t border-gold-metallic/20 p-4 shadow-[0_-10px_40px_rgba(0,0,0,0.1)]">

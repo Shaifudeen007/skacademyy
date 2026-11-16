@@ -11,6 +11,9 @@ import {
   GraduationCap
 } from 'lucide-react';
 import { useEffect } from 'react';
+import SEOHead from '../seo/SEOHead';
+import { siteConfig } from '../seo/siteConfig';
+import { getBreadcrumbSchema } from '../seo/schemaGenerator';
 
 const destinations = [
   {
@@ -84,8 +87,22 @@ export default function InternationalProgramsPage({
     window.scrollTo(0, 0);
   }, []);
 
+  const internationalSEO = siteConfig.routes.internationalPrograms;
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'International Programs', path: '/international-programs' },
+  ]);
+
   return (
     <div className={`min-h-screen ${isDark ? 'dark bg-[#09090B] text-zinc-50' : 'bg-white text-zinc-900'} font-sans transition-colors duration-300`}>
+      <SEOHead
+        title={internationalSEO.title}
+        description={internationalSEO.description}
+        keywords={internationalSEO.keywords}
+        canonical={internationalSEO.canonical}
+        ogType={internationalSEO.ogType}
+        schemas={[breadcrumbSchema]}
+      />
       <Header isDark={isDark} toggleTheme={toggleTheme} onNavigate={onNavigate} />
 
       <main className="pt-28 md:pt-36">

@@ -108,7 +108,9 @@ export function FounderSpotlight() {
           <div className="lg:w-2/5 min-h-[350px] lg:min-h-[450px] relative overflow-hidden">
             <img 
               src="/hero/Founder%20pic/Sushmitha.png" 
-              alt="Sushmitha"
+              alt="Sushmitha - Founder and Director of SK International Institute of Skills Chennai"
+              loading="lazy"
+              decoding="async"
               className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-1000 group-hover:scale-105 z-0"
             />
           </div>
@@ -302,7 +304,9 @@ export function CoursesGrid({ onNavigate, minimal = false }: { onNavigate?: (pag
               <div className="relative rounded-2xl overflow-hidden aspect-[16/10] shadow-md border border-zinc-200 dark:border-zinc-800 mb-5 group/img">
                 <img
                   src="/DSC04305.JPG"
-                  alt="Aesthetic Course Training"
+                  alt="Clinical Aesthetic Course Practical Training on Live Models at SK Academy Chennai"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/10" />
@@ -430,7 +434,9 @@ export function CoursesGrid({ onNavigate, minimal = false }: { onNavigate?: (pag
               <div className="relative rounded-2xl overflow-hidden aspect-[16/10] shadow-md border border-zinc-200 dark:border-zinc-800 mb-5 group/img">
                 <img
                   src="/WhatsApp Image 2026-08-01 at 6.23.29 PM.jpeg"
-                  alt="PMU Course Training"
+                  alt="Permanent Makeup PMU and Microblading Training Batch at SK Academy Chennai"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/10" />

@@ -42,7 +42,7 @@ export default function Header({ toggleTheme, isDark, onNavigate }: { toggleThem
             {/* Nav Links */}
             <nav className="hidden md:flex items-center gap-4 lg:gap-6 text-sm font-medium">
               <a
-                href="#home"
+                href="/"
                 onClick={(e) => {
                   e.preventDefault();
                   if (onNavigate) {
@@ -56,7 +56,7 @@ export default function Header({ toggleTheme, isDark, onNavigate }: { toggleThem
               </a>
 
               <a
-                href="#about"
+                href="/about"
                 onClick={(e) => {
                   e.preventDefault();
                   if (onNavigate) onNavigate('about');
@@ -69,7 +69,7 @@ export default function Header({ toggleTheme, isDark, onNavigate }: { toggleThem
               {/* Courses Dropdown */}
               <div className="relative group">
                 <a
-                  href="#courses"
+                  href="/courses"
                   onClick={(e) => {
                     e.preventDefault();
                     if (onNavigate) onNavigate('courses');
@@ -149,7 +149,7 @@ export default function Header({ toggleTheme, isDark, onNavigate }: { toggleThem
               {/* International Programs Dropdown */}
               <div className="relative group">
                 <a
-                  href="#international-programs"
+                  href="/international-programs"
                   onClick={(e) => {
                     e.preventDefault();
                     if (onNavigate) onNavigate('international-programs');
@@ -221,7 +221,7 @@ export default function Header({ toggleTheme, isDark, onNavigate }: { toggleThem
               </div>
 
               <a
-                href="#gallery"
+                href="/gallery"
                 onClick={(e) => {
                   e.preventDefault();
                   if (onNavigate) onNavigate('gallery');
@@ -232,7 +232,7 @@ export default function Header({ toggleTheme, isDark, onNavigate }: { toggleThem
               </a>
 
               <a
-                href="#testimonials"
+                href="/testimonials"
                 onClick={(e) => {
                   e.preventDefault();
                   if (onNavigate) onNavigate('testimonials');
@@ -243,7 +243,7 @@ export default function Header({ toggleTheme, isDark, onNavigate }: { toggleThem
               </a>
 
               <a
-                href="#contact"
+                href="/#contact"
                 onClick={(e) => {
                   e.preventDefault();
                   if (onNavigate) {
@@ -259,7 +259,7 @@ export default function Header({ toggleTheme, isDark, onNavigate }: { toggleThem
 
             {/* Actions */}
             <div className="flex items-center justify-end gap-2 shrink-0">
-              <button onClick={toggleTheme} className="p-2.5 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors pointer-events-auto">
+              <button onClick={toggleTheme} className="p-2.5 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors pointer-events-auto" aria-label="Toggle dark/light theme">
                 {isDark !== false ? <Sun className="w-4 h-4 text-gold-metallic" /> : <Moon className="w-4 h-4 text-zinc-400" />}
               </button>
             </div>
@@ -307,30 +307,30 @@ export default function Header({ toggleTheme, isDark, onNavigate }: { toggleThem
       {/* Mobile Bottom Bar */}
       <div className="md:hidden fixed bottom-6 left-4 right-4 z-50">
         <nav className="flex justify-around items-center p-3 font-['Work_Sans'] rounded-full transition-all duration-300 bg-white/70 dark:bg-black/40 backdrop-blur-xl shadow-[0_4px_20px_rgba(0,0,0,0.1)] dark:shadow-[0_4px_30px_rgba(0,0,0,0.3)] border border-zinc-200/50 dark:border-zinc-800/50">
-          <a href="#home" onClick={() => onNavigate && onNavigate('home')} className="flex flex-col items-center gap-1 text-zinc-500 dark:text-zinc-400 hover:text-gold-bronze dark:hover:text-gold-metallic hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.6)] transition-all duration-300">
+          <a href="/" onClick={(e) => { e.preventDefault(); if (onNavigate) onNavigate('home'); }} className="flex flex-col items-center gap-1 text-zinc-500 dark:text-zinc-400 hover:text-gold-bronze dark:hover:text-gold-metallic hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.6)] transition-all duration-300">
             <Home className="w-5 h-5" />
             <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider">Home</span>
           </a>
-          <a href="#about" onClick={() => onNavigate && onNavigate('about')} className="flex flex-col items-center gap-1 text-zinc-500 dark:text-zinc-400 hover:text-gold-bronze dark:hover:text-gold-metallic hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.6)] transition-all duration-300">
+          <a href="/about" onClick={(e) => { e.preventDefault(); if (onNavigate) onNavigate('about'); }} className="flex flex-col items-center gap-1 text-zinc-500 dark:text-zinc-400 hover:text-gold-bronze dark:hover:text-gold-metallic hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.6)] transition-all duration-300">
             <Info className="w-5 h-5" />
             <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider">About</span>
           </a>
 
-          <a href="#courses" onClick={(e) => { e.preventDefault(); if (onNavigate) onNavigate('courses'); }} className="flex flex-col items-center gap-1 text-zinc-500 dark:text-zinc-400 hover:text-gold-bronze dark:hover:text-gold-metallic hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.6)] transition-all duration-300">
+          <a href="/courses" onClick={(e) => { e.preventDefault(); if (onNavigate) onNavigate('courses'); }} className="flex flex-col items-center gap-1 text-zinc-500 dark:text-zinc-400 hover:text-gold-bronze dark:hover:text-gold-metallic hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.6)] transition-all duration-300">
             <BookOpen className="w-5 h-5" />
             <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider">Courses</span>
           </a>
 
-          <a href="#international-programs" onClick={(e) => { e.preventDefault(); if (onNavigate) onNavigate('international-programs'); }} className="flex flex-col items-center gap-1 text-zinc-500 dark:text-zinc-400 hover:text-gold-bronze dark:hover:text-gold-metallic hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.6)] transition-all duration-300">
+          <a href="/international-programs" onClick={(e) => { e.preventDefault(); if (onNavigate) onNavigate('international-programs'); }} className="flex flex-col items-center gap-1 text-zinc-500 dark:text-zinc-400 hover:text-gold-bronze dark:hover:text-gold-metallic hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.6)] transition-all duration-300">
             <Globe className="w-5 h-5" />
             <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider">Programs</span>
           </a>
 
-          <a href="#gallery" onClick={(e) => { e.preventDefault(); if (onNavigate) onNavigate('gallery'); }} className="flex flex-col items-center gap-1 text-zinc-500 dark:text-zinc-400 hover:text-gold-bronze dark:hover:text-gold-metallic hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.6)] transition-all duration-300">
+          <a href="/gallery" onClick={(e) => { e.preventDefault(); if (onNavigate) onNavigate('gallery'); }} className="flex flex-col items-center gap-1 text-zinc-500 dark:text-zinc-400 hover:text-gold-bronze dark:hover:text-gold-metallic hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.6)] transition-all duration-300">
             <Sparkles className="w-5 h-5" />
             <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider">Gallery</span>
           </a>
-          <a href="#testimonials" onClick={(e) => { e.preventDefault(); if (onNavigate) onNavigate('testimonials'); }} className="flex flex-col items-center gap-1 text-zinc-500 dark:text-zinc-400 hover:text-gold-bronze dark:hover:text-gold-metallic hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.6)] transition-all duration-300">
+          <a href="/testimonials" onClick={(e) => { e.preventDefault(); if (onNavigate) onNavigate('testimonials'); }} className="flex flex-col items-center gap-1 text-zinc-500 dark:text-zinc-400 hover:text-gold-bronze dark:hover:text-gold-metallic hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.6)] transition-all duration-300">
             <MessageSquareHeart className="w-5 h-5" />
             <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider">Reviews</span>
           </a>

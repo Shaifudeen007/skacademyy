@@ -40,10 +40,20 @@ export default function Hero() {
             }}
             className="max-w-2xl order-last lg:order-first mt-2 lg:mt-0 text-center lg:text-left relative"
           >
+            {/* SEO Eyebrow Badge */}
+            <motion.div
+              variants={{ hidden: { opacity: 0, y: 15 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-bronze/10 dark:bg-gold-metallic/10 text-gold-bronze dark:text-gold-champagne text-xs sm:text-sm font-bold uppercase tracking-wider mb-4 border border-gold-bronze/20 dark:border-gold-metallic/20"
+            >
+              <Sparkles className="w-3.5 h-3.5 text-gold-metallic" />
+              <span>Professional Aesthetic Academy in Chennai</span>
+            </motion.div>
+
             <motion.h1 
               variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } } }}
               className="text-4xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight leading-[1.12] mb-6 uppercase text-zinc-900 dark:text-white"
             >
+              <span className="sr-only">Professional Aesthetic Academy in Chennai - </span>
               BEAUTY KNOWS <br className="hidden lg:block"/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-bronze to-gold-metallic dark:from-gold-champagne dark:to-gold-metallic">NO BOUNDARIES.</span>
               <br className="hidden lg:block"/>
@@ -75,7 +85,7 @@ export default function Hero() {
               variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } } }}
               className="text-xl sm:text-2xl md:text-xl text-zinc-600 dark:text-zinc-400 mb-8 leading-relaxed"
             >
-              Turn your passion into a profession with expert-led, hands-on beauty education. From India to Sri Lanka, Nepal, the UAE, and beyond, we empower aspiring salon professionals, makeup artists, and beauty entrepreneurs with skills to shine on a global stage.
+              Turn your passion into a profession with expert-led, hands-on aesthetic and beauty courses in Chennai. From India to Sri Lanka, Nepal, the UAE, and beyond, we empower aspiring salon professionals, aesthetic practitioners, makeup artists, and beauty entrepreneurs with UK LAPT certified training.
             </motion.p>
             <motion.div 
               variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } } }}
@@ -106,7 +116,10 @@ export default function Hero() {
                 <motion.img 
                   key={currentImgIndex}
                   src={heroImages[currentImgIndex]} 
-                  alt="Luxury Beauty Treatment"
+                  alt="Clinical aesthetic and permanent makeup training demonstration at SK Academy Chennai"
+                  loading={currentImgIndex === 0 ? "eager" : "lazy"}
+                  width={400}
+                  height={500}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}

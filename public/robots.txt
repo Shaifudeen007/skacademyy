@@ -1,0 +1,20 @@
+# Robots.txt for SK International Institute of Skills
+# Website: https://skbeautyverse.com
+
+User-agent: *
+Allow: /
+Allow: /assets/
+Allow: /gallery/
+Allow: /hero/
+Allow: /Srilanka/
+Allow: /Acadmey/
+Allow: /machines/
+
+# Disallow private or non-content files
+Disallow: /api/
+Disallow: /*?*
+Disallow: /*.json$
+
+# Host and Sitemap
+Host: https://skbeautyverse.com
+Sitemap: https://skbeautyverse.com/sitemap.xml

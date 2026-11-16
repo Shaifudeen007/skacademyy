@@ -1,14 +1,32 @@
 import { useEffect } from 'react';
 import Header from './Header';
 import Footer from './Footer';
-
 import { CreativeUnderline } from './NewSections';
 import { CheckCircle, GraduationCap, Sparkles, BookOpen, ArrowLeft } from 'lucide-react';
+import SEOHead from '../seo/SEOHead';
+import { siteConfig } from '../seo/siteConfig';
+import { getAestheticCourseSchema, getBreadcrumbSchema } from '../seo/schemaGenerator';
 
-export default function AestheticCoursePage({ isDark, toggleTheme, onNavigate }: { isDark: boolean, toggleTheme: () => void, onNavigate: (page: string) => void }) {
+export default function AestheticCoursePage({
+  isDark,
+  toggleTheme,
+  onNavigate,
+}: {
+  isDark: boolean;
+  toggleTheme: () => void;
+  onNavigate: (page: string) => void;
+}) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const courseSEO = siteConfig.routes.courseAesthetic;
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Courses', path: '/courses' },
+    { name: 'Clinical Aesthetic Course', path: '/course-aesthetic' },
+  ]);
+  const schemas = [getAestheticCourseSchema(), breadcrumbSchema];
 
   const syllabus = [
     {
@@ -51,6 +69,14 @@ export default function AestheticCoursePage({ isDark, toggleTheme, onNavigate }:
 
   return (
     <div className={`min-h-screen ${isDark ? 'dark bg-[#09090B] text-zinc-50' : 'bg-white text-zinc-900'} font-sans transition-colors duration-300 relative pb-24`}>
+      <SEOHead
+        title={courseSEO.title}
+        description={courseSEO.description}
+        keywords={courseSEO.keywords}
+        canonical={courseSEO.canonical}
+        ogType={courseSEO.ogType}
+        schemas={schemas}
+      />
       <Header isDark={isDark} toggleTheme={toggleTheme} onNavigate={onNavigate} />
       
       {/* Hero Section */}
@@ -72,20 +98,20 @@ export default function AestheticCoursePage({ isDark, toggleTheme, onNavigate }:
           <div className="text-center">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold-bronze/10 dark:bg-gold-metallic/10 text-gold-bronze dark:text-gold-champagne font-bold text-xs sm:text-sm mb-6 border border-gold-bronze/20 dark:border-gold-metallic/20 backdrop-blur-sm">
               <GraduationCap className="w-4 h-4" />
-              LAPT UK CERTIFIED
+              LAPT UK CERTIFIED CLINICAL COSMETOLOGY
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight text-zinc-900 dark:text-white">
-              Aesthetic <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-bronze to-gold-metallic">Course</span>
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold mb-6 tracking-tight text-zinc-900 dark:text-white">
+              Clinical Aesthetic <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-bronze to-gold-metallic">Course in Chennai</span>
             </h1>
             <CreativeUnderline />
             
-            <h2 className="text-xl md:text-2xl font-medium text-zinc-600 dark:text-zinc-400 mt-8 max-w-3xl mx-auto leading-relaxed">
-              Master Advanced Aesthetic Treatments with International Certification.
+            <h2 className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-600 dark:text-zinc-400 mt-8 max-w-3xl mx-auto leading-relaxed">
+              Master Advanced Aesthetic Treatments, Lasers, Chemical Peels &amp; Cosmetology with UK LAPT International Certification.
             </h2>
             
             <div className="mt-10 flex flex-wrap justify-center gap-4 text-sm font-bold text-zinc-700 dark:text-zinc-300">
-              <span className="px-5 py-2.5 bg-white dark:bg-zinc-900 rounded-full border border-zinc-200 dark:border-zinc-800 shadow-sm flex items-center gap-2"><Sparkles className="w-4 h-4 text-gold-metallic"/> 100% Practical</span>
+              <span className="px-5 py-2.5 bg-white dark:bg-zinc-900 rounded-full border border-zinc-200 dark:border-zinc-800 shadow-sm flex items-center gap-2"><Sparkles className="w-4 h-4 text-gold-metallic"/> 100% Practical Training</span>
               <span className="px-5 py-2.5 bg-white dark:bg-zinc-900 rounded-full border border-zinc-200 dark:border-zinc-800 shadow-sm flex items-center gap-2"><CheckCircle className="w-4 h-4 text-gold-metallic"/> Live Patient Practice</span>
               <span className="px-5 py-2.5 bg-white dark:bg-zinc-900 rounded-full border border-zinc-200 dark:border-zinc-800 shadow-sm flex items-center gap-2"><GraduationCap className="w-4 h-4 text-gold-metallic"/> LAPT UK Accredited</span>
             </div>
@@ -98,10 +124,10 @@ export default function AestheticCoursePage({ isDark, toggleTheme, onNavigate }:
           
           <div className="prose prose-lg dark:prose-invert max-w-none text-zinc-600 dark:text-zinc-400 leading-relaxed space-y-6 text-center md:text-left bg-zinc-50 dark:bg-[#111] p-8 rounded-3xl border border-zinc-200 dark:border-zinc-800 shadow-sm">
             <p>
-              Our Aesthetic Course is designed for aspiring beauty professionals, salon owners, doctors, and skincare enthusiasts who want to build a successful career in the rapidly growing aesthetics industry. This comprehensive program combines in-depth theoretical knowledge with intensive hands-on practical training, enabling students to confidently perform advanced skin and aesthetic treatments.
+              Our <strong>Clinical Aesthetic Course in Chennai</strong> is designed for aspiring beauty professionals, salon owners, doctors, cosmetologists, and skincare enthusiasts who want to build a rewarding career in the aesthetics industry. This comprehensive program combines in-depth clinical skin science with intensive hands-on practical training on live models, enabling students to confidently perform advanced clinical treatments.
             </p>
             <p>
-              Accredited by <strong>LAPT UK</strong>, the course follows international standards and is delivered by experienced Master Trainers. From skin analysis and facial treatments to chemical peels, lasers, mesotherapy, and body contouring, you'll gain the practical skills and confidence required to excel in professional aesthetic practice.
+              Accredited by <strong>LAPT UK</strong>, the training adheres to global clinical safety protocols and is delivered by qualified medical and aesthetic faculty. From skin analysis and advanced facial protocols to chemical peels, Pico/Diode laser handling, microneedling, and body contouring, you will gain practical competency and industry-recognized credentials.
             </p>
           </div>
 
@@ -137,7 +163,7 @@ export default function AestheticCoursePage({ isDark, toggleTheme, onNavigate }:
           <div className="mt-24">
             <div className="text-center mb-12">
               <h3 className="text-4xl font-extrabold mb-4">Course Syllabus</h3>
-              <p className="text-zinc-500">Everything you will learn in this intensive program.</p>
+              <p className="text-zinc-500">Everything you will learn in this intensive clinical aesthetic program.</p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -221,13 +247,13 @@ export default function AestheticCoursePage({ isDark, toggleTheme, onNavigate }:
         </div>
       </main>
       
-      <Footer />
+      <Footer onNavigate={onNavigate} />
 
       {/* Sticky Bottom Enroll Bar */}
       <div className="fixed bottom-0 left-0 w-full z-50 bg-white/80 dark:bg-[#09090B]/80 backdrop-blur-xl border-t border-gold-metallic/20 p-4 shadow-[0_-10px_40px_rgba(0,0,0,0.1)]">
         <div className="max-w-5xl mx-auto flex items-center justify-between gap-4">
           <div className="hidden sm:block">
-            <h4 className="font-extrabold text-zinc-900 dark:text-white text-lg">Aesthetic Course</h4>
+            <h4 className="font-extrabold text-zinc-900 dark:text-white text-lg">Clinical Aesthetic Course</h4>
             <p className="text-sm text-zinc-600 dark:text-zinc-400 font-medium">LAPT UK Certified • International Diploma</p>
           </div>
           <button 

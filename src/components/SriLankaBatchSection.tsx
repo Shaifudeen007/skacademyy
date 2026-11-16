@@ -143,7 +143,7 @@ export default function SriLankaBatchSection({ onNavigate }: { onNavigate?: (pag
                       : 'border-transparent opacity-60 hover:opacity-100'
                   }`}
                 >
-                  <img src={photo.src} alt="" className="w-full h-full object-cover" />
+                  <img src={photo.src} alt={photo.caption} loading="lazy" decoding="async" className="w-full h-full object-cover" />
                 </button>
               ))}
             </div>

@@ -60,12 +60,14 @@ export default function Footer({ onNavigate }: { isDark?: boolean, onNavigate?: 
           <div>
             <h4 className="font-bold mb-4">Quick Links</h4>
             <ul className="space-y-3 text-sm text-zinc-600 dark:text-zinc-400">
-              <li><a href="#home" onClick={(e) => handleNav(e, 'home')} className="hover:text-gold-metallic transition-colors">Home</a></li>
-              <li><a href="#about" onClick={(e) => handleNav(e, 'about')} className="hover:text-gold-metallic transition-colors">About</a></li>
-              <li><a href="#courses" onClick={(e) => handleNav(e, 'courses')} className="hover:text-gold-metallic transition-colors">Courses</a></li>
-              <li><a href="#international-programs" onClick={(e) => handleNav(e, 'international-programs')} className="hover:text-gold-metallic transition-colors">International Programs</a></li>
-              <li><a href="#gallery" onClick={(e) => handleNav(e, 'gallery')} className="hover:text-gold-metallic transition-colors">Gallery</a></li>
-              <li><a href="#testimonials" onClick={(e) => handleNav(e, 'testimonials')} className="hover:text-gold-metallic transition-colors">Testimonials</a></li>
+              <li><a href="/" onClick={(e) => handleNav(e, 'home')} className="hover:text-gold-metallic transition-colors">Home</a></li>
+              <li><a href="/about" onClick={(e) => handleNav(e, 'about')} className="hover:text-gold-metallic transition-colors">About Us</a></li>
+              <li><a href="/courses" onClick={(e) => handleNav(e, 'courses')} className="hover:text-gold-metallic transition-colors">Academy Courses</a></li>
+              <li><a href="/course-aesthetic" onClick={(e) => handleNav(e, 'course-aesthetic')} className="hover:text-gold-metallic transition-colors">Clinical Aesthetic Course</a></li>
+              <li><a href="/course-pmu" onClick={(e) => handleNav(e, 'course-pmu')} className="hover:text-gold-metallic transition-colors">Permanent Makeup Course</a></li>
+              <li><a href="/international-programs" onClick={(e) => handleNav(e, 'international-programs')} className="hover:text-gold-metallic transition-colors">International Programs</a></li>
+              <li><a href="/gallery" onClick={(e) => handleNav(e, 'gallery')} className="hover:text-gold-metallic transition-colors">Training Gallery</a></li>
+              <li><a href="/testimonials" onClick={(e) => handleNav(e, 'testimonials')} className="hover:text-gold-metallic transition-colors">Student Reviews</a></li>
             </ul>
           </div>
           

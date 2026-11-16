@@ -36,12 +36,19 @@ function App() {
 
   const [currentPage, setCurrentPage] = useState(getPageFromUrl);
 
+  const navigateToPage = (page: string) => {
+    setCurrentPage(page);
+    const targetUrl = page === 'home' ? '/' : `/${page}`;
+    if (window.location.pathname !== targetUrl) {
+      window.history.pushState({ page }, '', targetUrl);
+    }
+  };
+
   useEffect(() => {
     const handleNavigate = (e: Event) => {
       const customEvent = e as CustomEvent<string>;
       if (customEvent.detail) {
-        setCurrentPage(customEvent.detail);
-        window.location.hash = customEvent.detail;
+        navigateToPage(customEvent.detail);
       }
     };
     const onHashOrPop = () => {
@@ -121,27 +128,25 @@ function App() {
       </AnimatePresence>
 
       {currentPage === 'about' ? (
-        <AboutPage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
+        <AboutPage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={navigateToPage} />
       ) : currentPage === 'courses' ? (
-        <CoursesPage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
+        <CoursesPage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={navigateToPage} />
       ) : currentPage === 'course-aesthetic' ? (
-        <AestheticCoursePage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
+        <AestheticCoursePage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={navigateToPage} />
       ) : currentPage === 'course-pmu' ? (
-        <PmuCoursePage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
+        <PmuCoursePage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={navigateToPage} />
       ) : currentPage === 'international-programs' ? (
-        <InternationalProgramsPage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
+        <InternationalProgramsPage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={navigateToPage} />
       ) : currentPage === 'gallery' ? (
-        <GalleryPage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
+        <GalleryPage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={navigateToPage} />
       ) : currentPage === 'testimonials' ? (
-        <TestimonialsPage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
+        <TestimonialsPage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={navigateToPage} />
       ) : (
-        <LandingPage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={setCurrentPage} />
+        <LandingPage isDark={isDark} toggleTheme={() => setIsDark(!isDark)} onNavigate={navigateToPage} />
       )}
 
-
-
       {/* Country and International Programs Popup */}
-      <CountryPopup onNavigate={setCurrentPage} isOpenTrigger={!isLoading} />
+      <CountryPopup onNavigate={navigateToPage} isOpenTrigger={!isLoading} />
 
       {/* Floating Action Buttons (WhatsApp & Instagram) */}
       <div className="fixed bottom-24 sm:bottom-6 right-4 sm:right-6 z-50 flex flex-col gap-3 items-end">

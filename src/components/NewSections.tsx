@@ -476,7 +476,9 @@ export function GallerySection() {
               <div className="relative h-56 sm:h-64 overflow-hidden">
                 <img
                   src={indiaGalleryImages[0].src}
-                  alt="India"
+                  alt="Hands-on clinical aesthetic training at Chennai campus - SK Academy"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 brightness-[0.75] group-hover:brightness-[0.85]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
@@ -545,7 +547,9 @@ export function GallerySection() {
               <div className="relative h-56 sm:h-64 overflow-hidden">
                 <img
                   src={srilankaGalleryImages[0].src}
-                  alt="Sri Lanka"
+                  alt="Sri Lanka international student cohort practical aesthetic training at SK Academy Chennai"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 brightness-[0.75] group-hover:brightness-[0.85]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
@@ -924,11 +928,11 @@ export function BeforeAfterSection() {
             <div key={i} className="flex gap-2">
               <div className="flex-1 relative rounded-l-2xl overflow-hidden">
                 <div className="absolute top-2 left-2 bg-black/50 text-white px-2 py-1 text-xs rounded z-10">Before</div>
-                <img src={`https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&q=80&w=300&h=400&sig=${i}a`} alt="Before" className="w-full h-full object-cover grayscale opacity-80" />
+                <img src={`https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&q=80&w=300&h=400&sig=${i}a`} alt="Clinical skin treatment before procedure result - SK Academy Chennai" loading="lazy" decoding="async" className="w-full h-full object-cover grayscale opacity-80" />
               </div>
               <div className="flex-1 relative rounded-r-2xl overflow-hidden">
                 <div className="absolute top-2 right-2 bg-gold-metallic text-white px-2 py-1 text-xs rounded z-10">After</div>
-                <img src={`https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&q=80&w=300&h=400&sig=${i}b`} alt="After" className="w-full h-full object-cover" />
+                <img src={`https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&q=80&w=300&h=400&sig=${i}b`} alt="Clinical skin treatment after procedure result - SK Academy Chennai" loading="lazy" decoding="async" className="w-full h-full object-cover" />
               </div>
             </div>
           ))}
