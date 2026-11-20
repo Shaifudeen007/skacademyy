@@ -13,7 +13,7 @@ export const siteConfig = {
   shortName: 'SK Academy',
   legalName: 'SK Beauty verse pvt.ltd',
   tagline: 'Professional Aesthetic Academy in Chennai',
-  baseUrl: (import.meta.env.VITE_SITE_URL as string) || 'https://skbeautyverse.com',
+  baseUrl: (import.meta.env.VITE_SITE_URL as string) || 'https://skinternationalinstitute.com',
   founder: 'Sushmitha',
   admissionsPhone: '+918610345830',
   admissionsPhoneDisplay: '+91 86103 45830',
@@ -47,7 +47,7 @@ export const siteConfig = {
       description: 'Discover professional aesthetic and beauty courses in Chennai at SK International Institute of Skills. Expert doctor-led training in clinical aesthetics, PMU, and cosmetology with UK LAPT certification.',
       keywords: 'Aesthetic Academy in Chennai, Aesthetic Courses in Chennai, Professional Aesthetic Training in Chennai, Beauty Academy in Chennai, Advanced Aesthetic Courses in Chennai, clinical cosmetology training Chennai, PMU course Chennai',
       h1: 'Professional Aesthetic Academy in Chennai',
-      canonical: 'https://skbeautyverse.com/',
+      canonical: 'https://skinternationalinstitute.com/',
       ogType: 'website',
     },
     about: {
@@ -56,7 +56,7 @@ export const siteConfig = {
       description: 'Learn about SK International Institute of Skills in Choolai, Chennai, founded by Sushmitha. Globally accredited UK LAPT certification, clinical facilities, and expert faculty.',
       keywords: 'About Aesthetic Academy Chennai, Sushmitha aesthetic academy, LAPT UK certified beauty academy Chennai, clinical cosmetology school Chennai',
       h1: 'About SK International Institute of Skills',
-      canonical: 'https://skbeautyverse.com/about',
+      canonical: 'https://skinternationalinstitute.com/about',
       ogType: 'website',
     },
     courses: {
@@ -65,7 +65,7 @@ export const siteConfig = {
       description: 'Explore premier aesthetic courses in Chennai. Hands-on clinical training on live models, chemical peels, lasers, microblading, PMU & cosmetology with doctor guidance.',
       keywords: 'Aesthetic Courses in Chennai, PMU course Chennai, clinical cosmetology training Chennai, aesthetic certification courses, semi-permanent makeup classes Chennai',
       h1: 'Professional Aesthetic & PMU Courses in Chennai',
-      canonical: 'https://skbeautyverse.com/courses',
+      canonical: 'https://skinternationalinstitute.com/courses',
       ogType: 'website',
     },
     courseAesthetic: {
@@ -74,7 +74,7 @@ export const siteConfig = {
       description: 'Advanced clinical aesthetic course in Chennai. Comprehensive hands-on training on 20+ chemical peels, Pico & Diode lasers, hydra facials, microneedling & mesotherapy with UK LAPT certification.',
       keywords: 'Clinical aesthetic course Chennai, chemical peel training Chennai, laser aesthetic training Chennai, hydra facial training Chennai, advanced cosmetology course Chennai',
       h1: 'Clinical Aesthetic Course in Chennai',
-      canonical: 'https://skbeautyverse.com/course-aesthetic',
+      canonical: 'https://skinternationalinstitute.com/course-aesthetic',
       ogType: 'article',
     },
     coursePmu: {
@@ -83,7 +83,7 @@ export const siteConfig = {
       description: 'Master Semi-Permanent Makeup (PMU) in Chennai: Microblading, ombré powder brows, lip blush neutralization, BB glow, and scalp micropigmentation with complete machine kit.',
       keywords: 'PMU course in Chennai, microblading course Chennai, lip blush training Chennai, permanent makeup academy Chennai, semi permanent makeup certification Chennai',
       h1: 'Permanent Makeup (PMU) Course in Chennai',
-      canonical: 'https://skbeautyverse.com/course-pmu',
+      canonical: 'https://skinternationalinstitute.com/course-pmu',
       ogType: 'article',
     },
     internationalPrograms: {
@@ -92,7 +92,7 @@ export const siteConfig = {
       description: 'International aesthetic certification programs at SK Academy Chennai. Fast-track batches, live model clinical training, accommodation, and global UK LAPT diploma.',
       keywords: 'International aesthetic academy, aesthetic courses for Sri Lanka students, global cosmetology diploma Chennai, overseas beauty training Chennai',
       h1: 'International Aesthetic Programs & Global Batches',
-      canonical: 'https://skbeautyverse.com/international-programs',
+      canonical: 'https://skinternationalinstitute.com/international-programs',
       ogType: 'website',
     },
     gallery: {
@@ -101,7 +101,7 @@ export const siteConfig = {
       description: 'View live practical training sessions, machine workshops, and student graduation moments at SK International Institute of Skills in Chennai.',
       keywords: 'Aesthetic training photos, clinical cosmetology workshops Chennai, live model aesthetic training, beauty academy gallery Chennai',
       h1: 'Practical Training & Academy Gallery',
-      canonical: 'https://skbeautyverse.com/gallery',
+      canonical: 'https://skinternationalinstitute.com/gallery',
       ogType: 'website',
     },
     testimonials: {
@@ -110,7 +110,7 @@ export const siteConfig = {
       description: 'Read genuine reviews and success stories from students who completed clinical aesthetic and PMU courses at SK International Institute of Skills Chennai.',
       keywords: 'SK academy reviews, aesthetic course reviews Chennai, beauty academy student testimonials, cosmetology course feedback Chennai',
       h1: 'Student Testimonials & Success Stories',
-      canonical: 'https://skbeautyverse.com/testimonials',
+      canonical: 'https://skinternationalinstitute.com/testimonials',
       ogType: 'website',
     },
   } as Record<string, RouteSEO>,

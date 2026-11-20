@@ -14,7 +14,7 @@ if (!fs.existsSync(distDir)) {
 const templatePath = path.join(distDir, 'index.html');
 const baseHtml = fs.readFileSync(templatePath, 'utf8');
 
-const baseUrl = 'https://skbeautyverse.com';
+const baseUrl = 'https://skinternationalinstitute.com';
 
 const routes = [
   {
