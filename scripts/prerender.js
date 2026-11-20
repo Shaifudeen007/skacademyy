@@ -20,7 +20,7 @@ const routes = [
   {
     path: '/',
     outputPath: path.join(distDir, 'index.html'),
-    title: 'Aesthetic Academy in Chennai | Professional Aesthetic Courses | SK Academy',
+    title: 'SK International Institute | Best Aesthetic Academy in Chennai | Professional Aesthetic Courses',
     description: 'Discover professional aesthetic and beauty courses in Chennai at SK International Institute of Skills. Expert doctor-led training in clinical aesthetics, PMU, and cosmetology with UK LAPT certification.',
     keywords: 'Aesthetic Academy in Chennai, Aesthetic Courses in Chennai, Professional Aesthetic Training in Chennai, Beauty Academy in Chennai, Advanced Aesthetic Courses in Chennai',
     h1: 'Professional Aesthetic Academy in Chennai',
